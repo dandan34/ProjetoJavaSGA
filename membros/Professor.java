@@ -71,6 +71,21 @@ public class Professor extends Pessoa {
 		return st;
 
 	}
+	
+	public String[] imprimeMinistradasNome() {
+
+		String st[] = new String[MATERIASMINISTRADAS.size()];
+
+		for (int i = 0; i < MINISTRA.size(); i++) {
+
+			st[i] = MATERIASMINISTRADAS.get(i).getNomeDisciplina();
+		}
+
+		return st;
+
+	}
+	
+	
 
 	public String getCodProfessor() {
 		return codProfessor;

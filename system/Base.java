@@ -3,6 +3,8 @@ package system;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
+import javax.swing.JOptionPane;
+
 import academicoBack.Curso;
 import academicoBack.Departamento;
 import membros.Aluno;
@@ -10,12 +12,13 @@ import membros.Professor;
 
 public class Base {
 
+	private ArrayList<Departamento> DepartamentosDoInstituto;
 	private LinkedList<Curso> CursosDoInstituto;
 	private LinkedList<Aluno> AlunosDoInstituto;
 	private LinkedList<Professor> ProfessoresDoInstituto;
+
 	private LinkedList<String> cpfAlunos;
 	private LinkedList<String> codProfessores;
-	private ArrayList<Departamento> DepartamentosDoInstituto;
 
 	public Base() {
 
@@ -27,16 +30,32 @@ public class Base {
 		this.setCodProfessores(new LinkedList<String>());
 	}
 
+	public void ProcuraMateriasCurso(String codCurso) {
+
+		for (int i = 0; i < CursosDoInstituto.size(); i++) {
+
+			CursosDoInstituto.get(i).getNomeCurso().equals(codCurso);
+
+		}
+	}
+
 	public Boolean addAlunoBase(Aluno aluno) {
 
-		if (cpfAlunos.contains(aluno.getCpf()) == true) {
+		if (codProfessores.contains(aluno.getCpf()) == true) {
 
 			return false;
 		} else {
 
-			AlunosDoInstituto.add(aluno);
-			cpfAlunos.add(aluno.getCpf());
-			return true;
+			if (cpfAlunos.contains(aluno.getCpf()) == true) {
+
+				return false;
+			} else {
+
+				AlunosDoInstituto.add(aluno);
+				cpfAlunos.add(aluno.getCpf());
+				return true;
+			}
+
 		}
 
 	}
@@ -45,24 +64,30 @@ public class Base {
 
 		Boolean testa = true;
 
-		for (int i = 0; i < ProfessoresDoInstituto.size(); i++) {
+		if (cpfAlunos.contains(professor.getCpf()) == true) {
 
-			if (ProfessoresDoInstituto.get(i).getCpf().equals(professor.getCpf()) == true) {
-
-				testa = false;
-				break;
-			}
-		}
-
-		if (testa == true) {
-
-			ProfessoresDoInstituto.add(professor);
-			codProfessores.add(professor.getCodProfessor());
-			return true;
-		} else {
 			return false;
-		}
+		} else {
 
+			for (int i = 0; i < ProfessoresDoInstituto.size(); i++) {
+
+				if (ProfessoresDoInstituto.get(i).getCpf().equals(professor.getCpf()) == true) {
+
+					testa = false;
+					break;
+				}
+			}
+
+			if (testa == true) {
+
+				ProfessoresDoInstituto.add(professor);
+				codProfessores.add(professor.getCodProfessor());
+				return true;
+			} else {
+				return false;
+			}
+
+		}
 	}
 
 	public Boolean addCursoBase(Curso curso) {
@@ -120,12 +145,16 @@ public class Base {
 	public Boolean adiconarAlunoNaTurmaDaDisciplinaBASE(String nomeDisciplina, int indexTurma, Aluno aluno) {
 
 		Boolean testa = false;
-
+		String st = "";
+		
 		for (int i = 0; i < CursosDoInstituto.size(); i++) {
 
 			for (int j = 0; j < CursosDoInstituto.get(i).getMATERIAS().size(); j++) {
-
-				if (CursosDoInstituto.get(i).getMATERIAS().get(j).getNomeDisciplina().equals(nomeDisciplina)) {
+				
+				
+				st = CursosDoInstituto.get(i).getMATERIAS().get(j).getCodDisciplina() + " " + CursosDoInstituto.get(i).getMATERIAS().get(j).getNomeDisciplina();
+				
+				if (st.equals(nomeDisciplina)) {
 
 					CursosDoInstituto.get(i).getMATERIAS().get(j).getTURMAS().get(indexTurma).addAluno(aluno);
 					testa = true;
@@ -135,11 +164,19 @@ public class Base {
 		}
 
 		if (testa == true) {
-
+			
 			return true;
 		} else {
+			
+			JOptionPane.showMessageDialog(null, "ERRO - Base - LINHA 172 - NÃO ADICIONADO!");
 			return false;
 		}
+
+	}
+
+	public void addDepartamento(Departamento departamento) {
+
+		DepartamentosDoInstituto.add(departamento);
 
 	}
 

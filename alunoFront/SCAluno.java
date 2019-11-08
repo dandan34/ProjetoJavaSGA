@@ -153,6 +153,7 @@ public class SCAluno extends JFrame {
 
 						BASE.adiconarAlunoNaTurmaDaDisciplinaBASE(list_1.getSelectedValue(),
 								comboBox.getSelectedIndex(), alunocontrolado);
+						
 						JOptionPane.showMessageDialog(null, "OK! Adicionado a turma");
 					} else {
 						JOptionPane.showMessageDialog(null, "Algo deu errado ao adicionar a turma");
@@ -189,8 +190,7 @@ public class SCAluno extends JFrame {
 		list_1 = new JList<String>();
 		list_1.addListSelectionListener(new ListSelectionListener() {
 			public void valueChanged(ListSelectionEvent e) {
-				
-				comboBox.setSelectedIndex(-1);
+
 				verificaCombo();
 			}
 		});
@@ -266,7 +266,8 @@ public class SCAluno extends JFrame {
 
 			for (int i = 0; i < st.length; i++) {
 
-				st[i] = BASE.getCursosDoInstituto().get(aux).getMATERIAS().get(i).getNomeDisciplina();
+				st[i] = BASE.getCursosDoInstituto().get(aux).getMATERIAS().get(i).getCodDisciplina() + " "
+						+ BASE.getCursosDoInstituto().get(aux).getMATERIAS().get(i).getNomeDisciplina();
 			}
 
 			mostrarLista2(st);
@@ -311,23 +312,24 @@ public class SCAluno extends JFrame {
 		}
 	}
 
-	public void selecaoListaMateria(String codCurso) {
+	public void selecaoListaMateria(String totalMateria) {
 
+		String comparador = "";
 		for (int i = 0; i < BASE.getCursosDoInstituto().size(); i++) {
 			for (int j = 0; j < BASE.getCursosDoInstituto().get(i).getMATERIAS().size(); j++) {
 
-				if (BASE.getCursosDoInstituto().get(i).getMATERIAS().get(j).getCodDisciplina()
-						.equals(codCurso) == true) {
+				comparador = BASE.getCursosDoInstituto().get(i).getMATERIAS().get(j).getCodDisciplina() + " "
+						+ BASE.getCursosDoInstituto().get(i).getMATERIAS().get(j).getNomeDisciplina();
+				if (comparador.equals(totalMateria) == true) {
 
 					mostrarComboBox(BASE.getCursosDoInstituto().get(i).getMATERIAS().get(j).imprimeTURMA());
-					// AQUI IMPRIME MATERIAS TEM QUE SER IMPRIME TURMAS PARA COMBO BOX CHECAR ERRO
-					JOptionPane.showConfirmDialog(null, "TO AQUI");
+
 					break;
 				}
 			}
 
 		}
-		
+
 	}
 
 	public void removeComboBox() {

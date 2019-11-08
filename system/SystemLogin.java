@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import academicoBack.Departamento;
 import alunoFront.SCAluno;
 import membros.Aluno;
+import membros.Professor;
+import professorFront.ControleProf;
 
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -151,7 +153,8 @@ public class SystemLogin extends JFrame {
 
 						if (BASE.getProfessoresDoInstituto().get(i).getUSUARIO().getSenha().equals(senha) == true) {
 							
-							setCodDept(BASE.getProfessoresDoInstituto().get(i).getCodigoDepartamento());
+							
+							acessoProf(BASE.getProfessoresDoInstituto().get(i));
 							
 							testa = true;
 							break;
@@ -173,6 +176,15 @@ public class SystemLogin extends JFrame {
 			return false;
 		}
 
+	}
+	
+	public void acessoProf(Professor professor){
+		
+		ControleProf controleprof = new ControleProf();
+		controleprof.setProfessorManipulado(professor);
+		controleprof.setVisible(true);
+		controleprof.mostrarComboMaterias();
+		
 	}
 	
 	public void acessoAluno(Aluno aluno) {

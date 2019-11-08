@@ -73,7 +73,7 @@ public class Turma {
 		
 		for(int i=0; i < st.length ; i ++) {
 			
-			st[i] = alunosTurma.get(i).getMatricula() + "  " + alunosTurma.get(i).getNome();
+			st[i] = alunosTurma.get(i).getMatricula() + " " + alunosTurma.get(i).getNome();
 		}
 		
 		return st;

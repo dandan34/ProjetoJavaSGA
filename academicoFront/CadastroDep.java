@@ -132,9 +132,6 @@ public class CadastroDep extends JFrame {
 		return this.index;
 	}
 
-	/*
-	 * lauch
-	 */
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -149,10 +146,6 @@ public class CadastroDep extends JFrame {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
 
 	public CadastroDep() {
 		
@@ -333,6 +326,7 @@ public class CadastroDep extends JFrame {
 		dPControle.mostrarListaPRF();
 		dPControle.setBASE(getBASE());
 		dPControle.setVisible(true);
+		dPControle.setBASE(getBASE());
 		
 	}
 

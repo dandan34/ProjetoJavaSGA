@@ -2,13 +2,17 @@ package academicoBack;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+
+import javax.swing.JOptionPane;
+
 import membros.Professor;
+import system.Base;
 
 public class Departamento {
 
 	private String nome;
 	private String codigo;
-
+	private Base BASE;
 	public ArrayList<Curso> CURSOS;
 	public LinkedList<Professor> PROFESSORES;
 
@@ -40,6 +44,7 @@ public class Departamento {
 		this.PROFESSORES = new LinkedList<Professor>();
 		this.nome = nome;
 		this.codigo = codigo;
+		BASE = new Base();
 	}
 
 	public boolean addCurso(String nome, String codDPresponsavel) {
@@ -81,7 +86,8 @@ public class Departamento {
 		}
 	}
 
-	public boolean addProfessor(String nome, String cpf, String sexo, String endereco, String codProf, String codDepartamento) {
+	public boolean addProfessor(String nome, String cpf, String sexo, String endereco, String codProf,
+			String codDepartamento) {
 
 		Boolean testa = true;
 
@@ -165,5 +171,13 @@ public class Departamento {
 
 	public void setCURSOS(ArrayList<Curso> cURSOS) {
 		CURSOS = cURSOS;
+	}
+
+	public Base getBASE() {
+		return BASE;
+	}
+
+	public void setBASE(Base bASE) {
+		BASE = bASE;
 	}
 }

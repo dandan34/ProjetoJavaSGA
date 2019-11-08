@@ -132,40 +132,41 @@ public class CadastroAluno extends JFrame implements Funcoes {
 							JOptionPane.showMessageDialog(null, "Campo endereço vazio!");
 						} else {
 
-							if (checkboxFeminino.getState() == true) {
+							if (checkboxFeminino.getState() == true && checkboxMasculino.getState() == true) {
 
-								if (checkboxMasculino.getState() == true) {
-
-									JOptionPane.showMessageDialog(null, "Marque apenas uma opção");
-								} else {
-
-									setSexo("Feminino");
-								}
+								JOptionPane.showMessageDialog(null, "Marque apenas uma opção");
 							} else {
 
-								if (checkboxMasculino.getState() == true) {
+								if (checkboxFeminino.getState() == true) {
 
-									setSexo("Masculino");
+									setSexo("Feminino");
+								} else {
 
-									if (comboBox.getSelectedIndex() >= 0) {
+									if (checkboxMasculino.getState() == true) {
 
-										setnCurso(comboBox.getSelectedIndex());
-
-										criarAluno(textNome.getText(), textCPF.getText(), getSexo(),
-												textEndereco.getText());
+										setSexo("Masculino");
 
 									} else {
 
-										JOptionPane.showMessageDialog(null, "Selecione um Curso");
+										JOptionPane.showMessageDialog(null, "Marque uma opcão de sexo!");
 									}
 
-								} else {
-
-									JOptionPane.showMessageDialog(null, "Marque uma opção de sexo!");
 								}
-							}
 
+							}
 						}
+						
+						if (comboBox.getSelectedIndex() >= 0) {
+
+							setnCurso(comboBox.getSelectedIndex());
+
+							criarAluno(textNome.getText(), textCPF.getText(), getSexo(), textEndereco.getText());
+
+						} else {
+
+							JOptionPane.showMessageDialog(null, "Selecione um Curso");
+						}
+
 					}
 				}
 
@@ -204,7 +205,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 	}
 
 	public void criarAluno(String nome, String cpf, String sexo, String endereco) {
-
+			
 		Aluno aluno = new Aluno(nome, cpf, sexo, endereco);
 		aluno.setNomeCursoCursado(comboBox.getItemAt(getnCurso()));
 		aluno.setMatricula(matriculas);
@@ -223,6 +224,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 
 	public Boolean addAlunoNoCurso(Aluno aluno) {
 
+		
 		if (BASE.getCpfAlunos().contains(aluno.getCpf()) == false) {
 
 			Boolean testa = false;

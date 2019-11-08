@@ -34,10 +34,10 @@ public class SGCurso extends JFrame {
 	private JTextField textNomeMateria;
 	private JTextField textCodMateria;
 	private JLabel labelCURSO;
-	
+
 	private JList<String> list;
 	private JList<String> list_1;
-	
+
 	private int index;
 	private Curso cursoManipulado;
 
@@ -59,7 +59,7 @@ public class SGCurso extends JFrame {
 
 		}
 	}
-	
+
 	public void mostrarListaAlunos() {
 
 		if (cursoManipulado.getMATERIAS().size() >= 0) {
@@ -134,11 +134,16 @@ public class SGCurso extends JFrame {
 		btnAcessarMateria.setBackground(new Color(255, 255, 255));
 		btnAcessarMateria.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				SGTurma turma = new SGTurma();
-				turma.setMateriaManipulada(cursoManipulado.getDisciplinaIndex(list.getSelectedIndex()));
-				turma.mostrarListaTurmas();
-				turma.setVisible(true);
+
+				if (list.getSelectedIndex() >= 0) {
+
+					SGTurma turma = new SGTurma();
+					turma.setMateriaManipulada(cursoManipulado.getDisciplinaIndex(list.getSelectedIndex()));
+					turma.mostrarListaTurmas();
+					turma.setVisible(true);
+
+				}
+
 			}
 		});
 		btnAcessarMateria.setForeground(Color.BLUE);
@@ -192,7 +197,7 @@ public class SGCurso extends JFrame {
 				} else {
 
 					if (textCodMateria.getText().equals("")) {
-						
+
 						JOptionPane.showMessageDialog(null, "Campo Codigo vazio!");
 					} else {
 
@@ -238,24 +243,24 @@ public class SGCurso extends JFrame {
 		JLabel lblNome_1 = new JLabel("Nome");
 		lblNome_1.setBounds(82, 202, 48, 14);
 		contentPane.add(lblNome_1);
-		
+
 		JPanel panel = new JPanel();
 		panel.setBounds(346, 10, 299, 461);
 		contentPane.add(panel);
 		panel.setLayout(null);
-		
+
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(10, 82, 279, 357);
 		panel.add(scrollPane_1);
-		
+
 		setList_1(new JList<String>());
 		scrollPane_1.setViewportView(getList_1());
-		
+
 		JLabel lblAlunosMatriculados = new JLabel("Alunos Matriculados");
 		lblAlunosMatriculados.setBounds(88, 38, 154, 14);
 		panel.add(lblAlunosMatriculados);
 	}
-	
+
 	public void insereCRS(Curso crs) {
 		this.cursoManipulado = crs;
 		labelCURSO.setText(crs.getNomeCurso());
