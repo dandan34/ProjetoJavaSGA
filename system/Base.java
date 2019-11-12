@@ -19,6 +19,7 @@ public class Base {
 
 	private LinkedList<String> cpfAlunos;
 	private LinkedList<String> codProfessores;
+	private LinkedList<String> cpfProfessores;
 
 	public Base() {
 
@@ -28,6 +29,7 @@ public class Base {
 		this.cpfAlunos = new LinkedList<String>();
 		this.DepartamentosDoInstituto = new ArrayList<Departamento>();
 		this.setCodProfessores(new LinkedList<String>());
+		this.cpfProfessores = new LinkedList<String>();
 	}
 
 	public void ProcuraMateriasCurso(String codCurso) {
@@ -41,7 +43,7 @@ public class Base {
 
 	public Boolean addAlunoBase(Aluno aluno) {
 
-		if (codProfessores.contains(aluno.getCpf()) == true) {
+		if (cpfProfessores.contains(aluno.getCpf()) == true) {
 
 			return false;
 		} else {
@@ -79,9 +81,12 @@ public class Base {
 			}
 
 			if (testa == true) {
-
+				
+				
 				ProfessoresDoInstituto.add(professor);
+				cpfProfessores.add(professor.getCpf());
 				codProfessores.add(professor.getCodProfessor());
+						
 				return true;
 			} else {
 				return false;
@@ -146,14 +151,14 @@ public class Base {
 
 		Boolean testa = false;
 		String st = "";
-		
+
 		for (int i = 0; i < CursosDoInstituto.size(); i++) {
 
 			for (int j = 0; j < CursosDoInstituto.get(i).getMATERIAS().size(); j++) {
-				
-				
-				st = CursosDoInstituto.get(i).getMATERIAS().get(j).getCodDisciplina() + " " + CursosDoInstituto.get(i).getMATERIAS().get(j).getNomeDisciplina();
-				
+
+				st = CursosDoInstituto.get(i).getMATERIAS().get(j).getCodDisciplina() + " "
+						+ CursosDoInstituto.get(i).getMATERIAS().get(j).getNomeDisciplina();
+
 				if (st.equals(nomeDisciplina)) {
 
 					CursosDoInstituto.get(i).getMATERIAS().get(j).getTURMAS().get(indexTurma).addAluno(aluno);
@@ -164,11 +169,55 @@ public class Base {
 		}
 
 		if (testa == true) {
+
+			return true;
+		} else {
+
+			JOptionPane.showMessageDialog(null, "ERRO - Base - LINHA 172 - NÃO ADICIONADO!");
+			return false;
+		}
+
+	}
+
+	public Boolean removeProf(String codProf) {
+
+		Boolean testa = false;
+
+		for (int i = 0; i < ProfessoresDoInstituto.size(); i++) {
+
+			String st = ProfessoresDoInstituto.get(i).getCodProfessor();
+
+			if (st.equals(codProf) == true) {
+
+				for (int j = 0; j < ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().size(); j++) {
+
+					ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().get(j).setCodMinistrador("");
+					ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().get(j).setStatusDisciplina(false);
+
+				}
+
+				for (int k = 0; k < cpfProfessores.size(); k++) {
+					
+					if (cpfProfessores.contains(ProfessoresDoInstituto.get(i).getCpf()) == true) {
+					
+						
+						getCpfProfessores().remove(k);
+						getCodProfessores().remove(k);
+						
+						testa = true;
+						break;
+					}
+				}
+
+				ProfessoresDoInstituto.remove(i);
+				
+			}
+		}
+
+		if (testa == true) {
 			
 			return true;
 		} else {
-			
-			JOptionPane.showMessageDialog(null, "ERRO - Base - LINHA 172 - NÃO ADICIONADO!");
 			return false;
 		}
 
@@ -226,6 +275,14 @@ public class Base {
 
 	public void setCodProfessores(LinkedList<String> codProfessores) {
 		this.codProfessores = codProfessores;
+	}
+
+	public LinkedList<String> getCpfProfessores() {
+		return cpfProfessores;
+	}
+
+	public void setCpfProfessores(LinkedList<String> cpfProfessores) {
+		this.cpfProfessores = cpfProfessores;
 	}
 
 }

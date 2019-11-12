@@ -20,6 +20,8 @@ import java.awt.Color;
 import javax.swing.event.ListSelectionListener;
 
 import academicoBack.Curso;
+import system.JtextFieldSomenteLetras;
+import system.JtextFieldSomenteNumeros;
 
 import javax.swing.event.ListSelectionEvent;
 import java.awt.SystemColor;
@@ -167,7 +169,7 @@ public class SGCurso extends JFrame {
 		btnDeletarMateria.setBounds(187, 245, 89, 23);
 		contentPane.add(btnDeletarMateria);
 
-		textNomeMateria = new JTextField();
+		textNomeMateria = new JtextFieldSomenteLetras(15);
 		textNomeMateria.setBounds(56, 83, 220, 20);
 		contentPane.add(textNomeMateria);
 		textNomeMateria.setColumns(10);
@@ -180,7 +182,7 @@ public class SGCurso extends JFrame {
 		lblCodigo.setBounds(10, 117, 48, 14);
 		contentPane.add(lblCodigo);
 
-		textCodMateria = new JTextField();
+		textCodMateria = new JtextFieldSomenteNumeros(4);
 		textCodMateria.setBounds(56, 114, 220, 20);
 		contentPane.add(textCodMateria);
 		textCodMateria.setColumns(10);

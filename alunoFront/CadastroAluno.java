@@ -10,6 +10,8 @@ import academicoBack.Departamento;
 import membros.Aluno;
 import system.Base;
 import system.Funcoes;
+import system.JtextFieldSomenteLetras;
+import system.JtextFieldSomenteNumeros;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -70,12 +72,12 @@ public class CadastroAluno extends JFrame implements Funcoes {
 		lblCpf.setBounds(22, 101, 48, 14);
 		contentPane.add(lblCpf);
 
-		textNome = new JTextField();
+		textNome = new JtextFieldSomenteLetras(40);
 		textNome.setBounds(87, 73, 176, 20);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 
-		textCPF = new JTextField();
+		textCPF = new JtextFieldSomenteNumeros(11);
 		textCPF.setColumns(10);
 		textCPF.setBounds(87, 98, 176, 20);
 		contentPane.add(textCPF);
@@ -92,7 +94,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 		lblEndereo.setBounds(22, 155, 65, 14);
 		contentPane.add(lblEndereo);
 
-		textEndereco = new JTextField();
+		textEndereco = new JtextFieldSomenteLetras(20);
 		textEndereco.setColumns(10);
 		textEndereco.setBounds(87, 152, 176, 20);
 		contentPane.add(textEndereco);
@@ -155,7 +157,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 
 							}
 						}
-						
+
 						if (comboBox.getSelectedIndex() >= 0) {
 
 							setnCurso(comboBox.getSelectedIndex());
@@ -179,10 +181,12 @@ public class CadastroAluno extends JFrame implements Funcoes {
 
 		JButton btnVoltar = new JButton("Voltar <<");
 		btnVoltar.addActionListener(new ActionListener() {
+
 			public void actionPerformed(ActionEvent e) {
 
 				dispose();
 			}
+
 		});
 		btnVoltar.setBounds(10, 7, 89, 23);
 		contentPane.add(btnVoltar);
@@ -205,26 +209,33 @@ public class CadastroAluno extends JFrame implements Funcoes {
 	}
 
 	public void criarAluno(String nome, String cpf, String sexo, String endereco) {
-			
-		Aluno aluno = new Aluno(nome, cpf, sexo, endereco);
-		aluno.setNomeCursoCursado(comboBox.getItemAt(getnCurso()));
-		aluno.setMatricula(matriculas);
 
-		if (addAlunoNoCurso(aluno) == true) {
+		if (BASE.getCpfProfessores().contains(textCPF.getText()) == true) {
 
-			matriculas++;
-			JOptionPane.showMessageDialog(null, "Aluno matriculado com Sucesso!");
-
+			JOptionPane.showMessageDialog(null, "CPF JÁ REGISTRADO - TENTE OUTRO");
 			limpar();
 		} else {
-			JOptionPane.showMessageDialog(null, "Aluno ja matriculado!");
 
+			Aluno aluno = new Aluno(nome, cpf, sexo, endereco);
+			aluno.setNomeCursoCursado(comboBox.getItemAt(getnCurso()));
+			aluno.setMatricula(matriculas);
+
+			if (addAlunoNoCurso(aluno) == true) {
+
+				matriculas++;
+				JOptionPane.showMessageDialog(null, "Aluno matriculado com Sucesso!");
+
+				limpar();
+			} else {
+				JOptionPane.showMessageDialog(null, "Aluno ja matriculado!");
+				textCPF.setText("");
+
+			}
 		}
 	}
 
 	public Boolean addAlunoNoCurso(Aluno aluno) {
 
-		
 		if (BASE.getCpfAlunos().contains(aluno.getCpf()) == false) {
 
 			Boolean testa = false;

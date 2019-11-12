@@ -145,11 +145,11 @@ public class SystemLogin extends JFrame {
 			}
 		} else {
 
-			if (BASE.getCodProfessores().contains(usuario) == true) {
+			if (BASE.getCpfProfessores().contains(usuario) == true) {
 
 				for (int i = 0; i < BASE.getProfessoresDoInstituto().size(); i++) {
 
-					if (BASE.getProfessoresDoInstituto().get(i).getCodProfessor().equals(usuario) == true) {
+					if (BASE.getProfessoresDoInstituto().get(i).getCpf().equals(usuario) == true) {
 
 						if (BASE.getProfessoresDoInstituto().get(i).getUSUARIO().getSenha().equals(senha) == true) {
 							

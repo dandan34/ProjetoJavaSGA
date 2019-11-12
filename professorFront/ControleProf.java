@@ -113,7 +113,7 @@ public class ControleProf extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				if (comboBoxTurma.getSelectedIndex() >= 0) {
-					
+
 					setValor2(comboBoxTurma.getSelectedIndex());
 					mostrarListaAlunos(getValor(), comboBoxTurma.getSelectedIndex());
 				}
@@ -142,7 +142,13 @@ public class ControleProf extends JFrame {
 
 					SGAPNotas notasControle = new SGAPNotas();
 					notasControle.setVisible(true);
+					notasControle.setCodDisciplina(
+							ProfessorManipulado.getMATERIASMINISTRADAS().get(getValor()).getCodDisciplina() + " "
+									+ ProfessorManipulado.getMATERIASMINISTRADAS().get(getValor()).getNomeDisciplina());
 					notasControle.setAlunoManipulado(PuxarAluno(list.getSelectedValue()));
+					notasControle.mostrarNotas();
+					notasControle.mostrarFaltas();
+
 				}
 
 			}
@@ -172,14 +178,13 @@ public class ControleProf extends JFrame {
 				.get(list.getSelectedIndex()).getMatricula() + " "
 				+ ProfessorManipulado.getMATERIASMINISTRADAS().get(getValor()).getTURMAS().get(getValor2())
 						.getAlunosTurma().get(list.getSelectedIndex()).getNome();
-		
-		if(st.equals(dadosAluno) == true) {
-			
-			return  ProfessorManipulado.getMATERIASMINISTRADAS().get(getValor()).getTURMAS().get(getValor2()).getAlunosTurma()
-					.get(list.getSelectedIndex());
-			
-		}else
-		{
+
+		if (st.equals(dadosAluno) == true) {
+
+			return ProfessorManipulado.getMATERIASMINISTRADAS().get(getValor()).getTURMAS().get(getValor2())
+					.getAlunosTurma().get(list.getSelectedIndex());
+
+		} else {
 			return null;
 		}
 
@@ -220,8 +225,8 @@ public class ControleProf extends JFrame {
 
 			for (int i = 0; i < ProfessorManipulado.getMATERIASMINISTRADAS().get(index).getTURMAS().size(); i++) {
 
-				comboBoxTurma.addItem(ProfessorManipulado.getMATERIASMINISTRADAS().get(index).getTURMAS().get(index)
-						.getCodigoTurma());
+				comboBoxTurma.addItem(
+						ProfessorManipulado.getMATERIASMINISTRADAS().get(index).getTURMAS().get(i).getCodigoTurma());
 
 			}
 		}

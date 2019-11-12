@@ -65,7 +65,7 @@ public class Inicializar {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
-		txNomeInst = new JTextField();
+		txNomeInst = new JtextFieldSomenteLetras(20);
 		txNomeInst.setBounds(126, 187, 306, 20);
 		frame.getContentPane().add(txNomeInst);
 		txNomeInst.setColumns(10);

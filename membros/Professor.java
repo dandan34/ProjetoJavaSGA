@@ -20,7 +20,8 @@ public class Professor extends Pessoa {
 		this.MINISTRA = new ArrayList<String>();
 		this.MATERIASMINISTRADAS = new ArrayList<Disciplina>();
 		this.codigoDepartamento = codDepartamento;
-		this.USUARIO = new Usuario(getCodProfessor(),"123");
+		this.USUARIO = new Usuario(getCpf(),"123");
+		
 	}
 
 	public boolean addMateria(String codDisciplina, Disciplina disciplina) {

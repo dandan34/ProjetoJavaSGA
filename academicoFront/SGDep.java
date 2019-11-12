@@ -22,13 +22,16 @@ import javax.swing.event.ListSelectionListener;
 import academicoBack.Departamento;
 import professorFront.SCProf;
 import system.Base;
+import system.Funcoes;
+import system.JtextFieldSomenteLetras;
+import system.JtextFieldSomenteNumeros;
 
 import javax.swing.event.ListSelectionEvent;
 import java.awt.Color;
 import java.awt.Checkbox;
 import java.awt.SystemColor;
 
-public class SGDep extends JFrame {
+public class SGDep extends JFrame implements Funcoes {
 
 	/**
 	 * 
@@ -190,7 +193,7 @@ public class SGDep extends JFrame {
 		lblNome.setBounds(10, 100, 48, 14);
 		contentPane.add(lblNome);
 
-		txNomeCurso = new JTextField();
+		txNomeCurso = new JtextFieldSomenteLetras(15);
 		txNomeCurso.setBounds(57, 97, 259, 20);
 		contentPane.add(txNomeCurso);
 		txNomeCurso.setColumns(10);
@@ -216,15 +219,15 @@ public class SGDep extends JFrame {
 
 						if (dpManipulado.addCurso(txNomeCurso.getText(), dpManipulado.getCodigo()) == true) {
 
-							if(BASE.addCursoBase(dpManipulado.getCURSOS().get(dpManipulado.getCURSOS().size() -1)) == true) {
-								
-								
+							if (BASE.addCursoBase(
+									dpManipulado.getCURSOS().get(dpManipulado.getCURSOS().size() - 1)) == true) {
+
 								JOptionPane.showMessageDialog(null, "Curso Cadastrado com Sucesso!");
-							}else {
-								
+							} else {
+
 								JOptionPane.showMessageDialog(null, "Deu ruim");
 							}
-																															
+
 							mostrarListaCR();
 						} else {
 							JOptionPane.showMessageDialog(null, "Curso já existente! Tente outro nome...");
@@ -279,23 +282,23 @@ public class SGDep extends JFrame {
 		lblCodigoProf.setBounds(361, 147, 48, 14);
 		contentPane.add(lblCodigoProf);
 
-		txNomeProf = new JTextField();
+		txNomeProf = new JtextFieldSomenteLetras(40);
 		txNomeProf.setBounds(427, 36, 189, 20);
 		contentPane.add(txNomeProf);
 		txNomeProf.setColumns(10);
 
-		txCPFprof = new JTextField();
+		txCPFprof = new JtextFieldSomenteNumeros(11);
 		txCPFprof.setBounds(427, 64, 189, 20);
 		txCPFprof.setToolTipText("");
 		txCPFprof.setColumns(10);
 		contentPane.add(txCPFprof);
 
-		txEndProf = new JTextField();
+		txEndProf = new JtextFieldSomenteLetras(20);
 		txEndProf.setBounds(427, 117, 189, 20);
 		txEndProf.setColumns(10);
 		contentPane.add(txEndProf);
 
-		txCodProf = new JTextField();
+		txCodProf = new JtextFieldSomenteNumeros(11);
 		txCodProf.setBounds(427, 145, 189, 20);
 		txCodProf.setColumns(10);
 		contentPane.add(txCodProf);
@@ -350,21 +353,36 @@ public class SGDep extends JFrame {
 								}
 							}
 						}
+						if (verificaBase(txCPFprof.getText()) == false) {
 
-						if (sexo != null) {
+							JOptionPane.showMessageDialog(null, "CPF JA REGISTRADO!");
+							txCPFprof.setText("");
+						} else {
 
-							if (dpManipulado.addProfessor(txNomeProf.getText(), txCPFprof.getText(), sexo,
-									txEndProf.getText(), txCodProf.getText(), dpManipulado.getCodigo()) == true) {
+							if (verificaCodProfBASE(txCodProf.getText()) == false) {
 
-								BASE.addProfessorBase(dpManipulado.getPROFESSORES().getLast());
-								mostrarListaPRF();
-								JOptionPane.showMessageDialog(null, "Professor Cadastrado com sucesso!");
+								JOptionPane.showMessageDialog(null, "Esse codigo já esta sendo utilizado");
+								txCodProf.setText("");
 							} else {
-								JOptionPane.showMessageDialog(null, "Professor já existente!");
+
+								if (sexo != null) {
+
+									if (dpManipulado.addProfessor(txNomeProf.getText(), txCPFprof.getText(), sexo,
+											txEndProf.getText(), txCodProf.getText(),
+											dpManipulado.getCodigo()) == true) {
+
+										BASE.addProfessorBase(dpManipulado.getPROFESSORES().getLast());
+										mostrarListaPRF();
+										JOptionPane.showMessageDialog(null, "Professor Cadastrado com sucesso!");
+										limpar();
+									} else {
+										JOptionPane.showMessageDialog(null, "Professor já existente!");
+									}
+
+								}
 							}
 
 						}
-
 					}
 
 				}
@@ -427,13 +445,15 @@ public class SGDep extends JFrame {
 						if (dpManipulado.removeProfessor(st) == true) {
 							mostrarListaPRF();
 							JOptionPane.showMessageDialog(null, "Removido com sucesso!");
+							
 						} else {
 							JOptionPane.showMessageDialog(null, "Algo deu errado na remoção!");
 						}
 					}
 
 				}
-
+				
+				JOptionPane.showMessageDialog(null, BASE.getCpfProfessores());
 			}
 		});
 		btnDeletarProf.setForeground(Color.RED);
@@ -447,6 +467,35 @@ public class SGDep extends JFrame {
 		label_1.setBounds(473, 260, 48, 14);
 		contentPane.add(label_1);
 
+	}
+
+	public boolean verificaCodProfBASE(String codProf) {
+
+		if (BASE.getCodProfessores().contains(codProf) == true) {
+
+			return false;
+		} else {
+
+			return true;
+		}
+
+	}
+
+	public boolean verificaBase(String cpf) {
+
+		if (BASE.getCpfProfessores().contains(cpf) == true) {
+
+			return false;
+		} else {
+
+			if (BASE.getCpfAlunos().contains(cpf) == true) {
+
+				return false;
+			} else {
+
+				return true;
+			}
+		}
 	}
 
 	public void AcessoProfessor() {
@@ -500,5 +549,14 @@ public class SGDep extends JFrame {
 
 	public void setBASE(Base bASE) {
 		BASE = bASE;
+	}
+
+	@Override
+	public void limpar() {
+		txCodProf.setText("");
+		txCPFprof.setText("");
+		txEndProf.setText("");
+		txNomeProf.setText("");
+
 	}
 }

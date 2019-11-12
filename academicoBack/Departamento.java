@@ -44,7 +44,7 @@ public class Departamento {
 		this.PROFESSORES = new LinkedList<Professor>();
 		this.nome = nome;
 		this.codigo = codigo;
-		BASE = new Base();
+		this.BASE = new Base();
 	}
 
 	public boolean addCurso(String nome, String codDPresponsavel) {
@@ -102,6 +102,7 @@ public class Departamento {
 		if (testa == true) {
 			Professor prof = new Professor(nome, cpf, sexo, endereco, codProf, codDepartamento);
 			PROFESSORES.add(prof);
+			
 			return true;
 		} else {
 			return false;
@@ -115,7 +116,17 @@ public class Departamento {
 
 		for (int i = 0; i < PROFESSORES.size(); i++) {
 			if (PROFESSORES.get(i).getCodProfessor().equals(codProf) == true) {
+
 				PROFESSORES.remove(i);
+
+				if (getBASE().removeProf(codProf) == true) {
+
+					JOptionPane.showMessageDialog(null, "REMOVIDO DA BASE");
+
+				} else {
+					JOptionPane.showMessageDialog(null, "FALHA REMOVIDO DA BASE");
+				}
+
 				testa = true;
 				break;
 			}

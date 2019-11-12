@@ -1,27 +1,28 @@
 package academicoBack;
 
+import java.util.ArrayList;
+
 public class HistoricoAluno {
-	
+
 	private String codDisciplina;
-	private float[] notas;
+	private ArrayList<Float> notas;
 	private int faltas;
 
-	public HistoricoAluno() {
-		
-		this.codDisciplina = "";
-		this.notas = new float[4];
+	public HistoricoAluno(String codDisciplina) {
+
+		this.codDisciplina = codDisciplina;
+		this.notas = new ArrayList<Float>();
 		this.faltas = 0;
+		this.notas = new ArrayList<Float>();
 	}
 
 	public String[] imprimeNotas() {
-		
-		String[] st = new String[notas.length + 1];
 
-		for (int i = 0; i < notas.length; i++) {
-			st[i] = "Nota: " + this.notas[i];
+		String[] st = new String[notas.size()];
+
+		for (int i = 0; i < notas.size(); i++) {
+			st[i] = "Nota: " + this.notas.get(i);
 		}
-
-		st[notas.length + 1] = "Faltas: " + this.faltas;
 
 		return st;
 
@@ -30,24 +31,21 @@ public class HistoricoAluno {
 	public String imprimeNotaEspecifica(int index) {
 
 		String st;
-		st = "Nota " + index + ": " + notas[index];
+		st = "Nota " + index + ": " + notas.get(index);
 		return st;
 	}
 
-	public Boolean addNota(int index, float nota) {
-
-		if (index > notas.length) {
-			return false;
-		} else {
-			notas[index] = nota;
-			return true;
-		}
-
+	public void addNota(float nota) {
+		
+		notas.add(nota);
+	
+	}
+	
+	public void removenota(int index) {
+		
+		notas.remove(index);
 	}
 
-	public float[] getNotas() {
-		return notas;
-	}
 
 	public int getFaltas() {
 		return faltas;
@@ -55,10 +53,6 @@ public class HistoricoAluno {
 
 	public void setFaltas(int faltas) {
 		this.faltas = faltas;
-	}
-
-	public void setNotas(float[] notas) {
-		this.notas = notas;
 	}
 
 	public String getCodDisciplina() {

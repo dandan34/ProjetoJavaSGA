@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import academicoBack.Disciplina;
 import academicoBack.Turma;
+import system.JtextFieldSomenteNumeros;
 
 import javax.swing.JScrollPane;
 import javax.swing.JList;
@@ -67,7 +68,7 @@ public class SGTurma extends JFrame {
 		lblCodigo.setBounds(10, 72, 46, 14);
 		contentPane.add(lblCodigo);
 
-		textFieldCodTurma = new JTextField();
+		textFieldCodTurma = new JtextFieldSomenteNumeros(3);
 		textFieldCodTurma.setBounds(66, 69, 124, 20);
 		contentPane.add(textFieldCodTurma);
 		textFieldCodTurma.setColumns(10);

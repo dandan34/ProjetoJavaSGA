@@ -7,29 +7,34 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import membros.Aluno;
+import system.JtextFieldSomenteNumeros;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class SGAPNotas extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textADDNOTA;
-	
+	private JList<String> list;
 	private JLabel labelAlunoNome;
 	private JLabel labelMatricula;
-	
+	private JLabel labelFALTAS;
 	private Aluno alunoManipulado;
-	
+	private JButton buttonADD;
+	private JButton buttonSUB;
+	private String codDisciplina;
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -44,76 +49,226 @@ public class SGAPNotas extends JFrame {
 	}
 
 	public SGAPNotas() {
+		this.alunoManipulado = new Aluno("", "", "", "");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 284, 431);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JLabel lblAluno = new JLabel("Aluno:");
 		lblAluno.setBounds(10, 11, 48, 14);
 		contentPane.add(lblAluno);
-	
+
 		labelAlunoNome = new JLabel("----");
 		labelAlunoNome.setBounds(68, 11, 48, 14);
 		contentPane.add(labelAlunoNome);
-		
+
 		JLabel lblNotas = new JLabel("Notas");
 		lblNotas.setBounds(70, 143, 48, 14);
 		contentPane.add(lblNotas);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(41, 168, 89, 201);
 		contentPane.add(scrollPane);
-		
-		JList<String> list = new JList<String>();
+
+		list = new JList<String>();
 		scrollPane.setViewportView(list);
-		
+
 		JButton btnApagar = new JButton("Apagar");
+		btnApagar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				if (list.getSelectedIndex() >= 0) {
+					apagarNota(list.getSelectedIndex());
+				}
+
+			}
+		});
 		btnApagar.setBounds(140, 166, 89, 23);
 		contentPane.add(btnApagar);
-		
-		textADDNOTA = new JTextField();
+
+		textADDNOTA = new JtextFieldSomenteNumeros(3);
 		textADDNOTA.setBounds(41, 112, 89, 20);
 		contentPane.add(textADDNOTA);
 		textADDNOTA.setColumns(10);
-		
+
 		JLabel lblNota = new JLabel("Nota:");
 		lblNota.setBounds(10, 113, 48, 14);
 		contentPane.add(lblNota);
-		
+
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				if (textADDNOTA.getText().equals("")) {
+
+					JOptionPane.showMessageDialog(null, "Campo NOTA vazio!");
+
+				} else {
+
+					addNota(Float.parseFloat(textADDNOTA.getText()));
+					textADDNOTA.setText("");
+				}
+
+			}
+		});
 		btnAdicionar.setBounds(140, 109, 89, 23);
 		contentPane.add(btnAdicionar);
-		
+
 		JLabel lblFaltas = new JLabel("Faltas:");
 		lblFaltas.setBounds(10, 76, 48, 14);
 		contentPane.add(lblFaltas);
-		
-		JLabel labelFALTAS = new JLabel("----");
+
+		labelFALTAS = new JLabel("----");
 		labelFALTAS.setBounds(70, 76, 48, 14);
 		contentPane.add(labelFALTAS);
-		
-		JButton buttonADD = new JButton("+");
+
+		buttonADD = new JButton("+");
 		buttonADD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				addfalta();
+				mostrarFaltas();
 			}
 		});
 		buttonADD.setBounds(140, 72, 41, 23);
 		contentPane.add(buttonADD);
-		
-		JButton buttonSUB = new JButton("-");
+
+		buttonSUB = new JButton("-");
+		buttonSUB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				subfalta();
+				mostrarFaltas();
+			}
+		});
 		buttonSUB.setBounds(188, 72, 41, 23);
 		contentPane.add(buttonSUB);
-		
+
 		JLabel lblMatricula = new JLabel("Matricula:");
 		lblMatricula.setBounds(10, 36, 79, 14);
 		contentPane.add(lblMatricula);
-		
+
 		labelMatricula = new JLabel("----");
 		labelMatricula.setBounds(68, 36, 48, 14);
 		contentPane.add(labelMatricula);
+
+	}
+	
+	public void apagarNota(int index) {
+		
+		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
+
+			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
+
+				alunoManipulado.getNOTAS().get(i).removenota(index);
+				break;
+			}
+		}
+		
+		mostrarNotas();
+		
+	}
+	public void addfalta() {
+		
+		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
+
+			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
+
+				alunoManipulado.getNOTAS().get(i).setFaltas(alunoManipulado.getNOTAS().get(i).getFaltas() + 1);
+				break;
+			}
+		}
+	}
+	
+	public void subfalta() {
+		
+		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
+
+			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
+
+				if (alunoManipulado.getNOTAS().get(i).getFaltas() > 0) {
+
+					alunoManipulado.getNOTAS().get(i)
+							.setFaltas(alunoManipulado.getNOTAS().get(i).getFaltas() - 1);
+					break;
+				}
+
+			}
+		}
+	}
+
+	public void addNota(float nota) {
+
+		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
+
+			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
+
+				alunoManipulado.getNOTAS().get(i).addNota(nota);
+				break;
+			}
+		}
+
+		mostrarNotas();
+	}
+	
+
+
+	public void removeNota(int index) {
+
+		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
+
+			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
+
+				alunoManipulado.getNOTAS().get(i).removenota(index);
+				break;
+			}
+		}
+
+		mostrarNotas();
+	}
+
+	public void mostrarFaltas() {
+
+		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
+
+			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
+
+				labelFALTAS.setText(" " + alunoManipulado.getNOTAS().get(i).getFaltas());
+				break;
+			}else {
+				
+				JOptionPane.showMessageDialog(null,alunoManipulado.getNOTAS().get(i).getCodDisciplina());
+			}
+		}
+	}
+
+	public void mostrarNotas() {
+
+		String[] st = new String[4];
+
+		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
+
+			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
+
+				st = alunoManipulado.getNOTAS().get(i).imprimeNotas();
+				break;
+
+			}
+		}
+
+		DefaultListModel<String> ls = new DefaultListModel<String>();
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+		for (int i = 0; i < st.length; i++) {
+
+			ls.addElement(st[i]);
+		}
+
+		list.setModel(ls);
+
 	}
 
 	public Aluno getAlunoManipulado() {
@@ -125,7 +280,9 @@ public class SGAPNotas extends JFrame {
 
 		labelAlunoNome.setText(alunoManipulado.getNome());
 		labelMatricula.setText("" + alunoManipulado.getMatricula());
-		//implementando notas.. conferir Selecionar do professor tirar o fixo
+		
+		
+		// implementando notas.. conferir Selecionar do professor tirar o fixo
 	}
 
 	public JTextField getTextADDNOTA() {
@@ -152,6 +309,45 @@ public class SGAPNotas extends JFrame {
 		this.labelMatricula = labelMatricula;
 	}
 
+	public String getCodDisciplina() {
+		return codDisciplina;
+	}
+
+	public void setCodDisciplina(String codDisciplina) {
+		this.codDisciplina = codDisciplina;
+	}
 	
+	public JButton getButtonADD() {
+		return buttonADD;
+	}
+
+	public void setButtonADD(JButton buttonADD) {
+		this.buttonADD = buttonADD;
+	}
+
+	public JList<String> getList() {
+		return list;
+	}
+
+	public void setList(JList<String> list) {
+		this.list = list;
+	}
+
+	public JLabel getLabelFALTAS() {
+		return labelFALTAS;
+	}
+
+	public void setLabelFALTAS(JLabel labelFALTAS) {
+		this.labelFALTAS = labelFALTAS;
+	}
+
+	public JButton getButtonSUB() {
+		return buttonSUB;
+	}
+
+	public void setButtonSUB(JButton buttonSUB) {
+		this.buttonSUB = buttonSUB;
+	}
+
 	
 }

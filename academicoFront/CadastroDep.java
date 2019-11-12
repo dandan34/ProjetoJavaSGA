@@ -23,6 +23,8 @@ import javax.swing.event.ListSelectionListener;
 import academicoBack.Departamento;
 import alunoFront.CadastroAluno;
 import system.Base;
+import system.JtextFieldSomenteLetras;
+import system.JtextFieldSomenteNumeros;
 import system.SystemLogin;
 
 import javax.swing.event.ListSelectionEvent;
@@ -63,6 +65,7 @@ public class CadastroDep extends JFrame {
 		if (testa == true) {
 
 			Departamento dpt = new Departamento(nome, codigo);
+			dpt.setBASE(getBASE());
 			DP.add(dpt);
 			return true;
 		} else {
@@ -168,12 +171,12 @@ public class CadastroDep extends JFrame {
 		lblNewLabel.setBounds(46, 9, 247, 34);
 		contentPane.add(lblNewLabel);
 
-		txNomeDP = new JTextField();
+		txNomeDP = new JtextFieldSomenteLetras(5);
 		txNomeDP.setBounds(72, 54, 147, 20);
 		contentPane.add(txNomeDP);
 		txNomeDP.setColumns(10);
 
-		txCodDP = new JTextField();
+		txCodDP = new JtextFieldSomenteNumeros(5);
 		txCodDP.setBounds(72, 85, 147, 20);
 		contentPane.add(txCodDP);
 		txCodDP.setColumns(10);
