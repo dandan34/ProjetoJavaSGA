@@ -106,7 +106,7 @@ public class Disciplina {
 	}
 
 	public String[] imprimeTURMA() {
-
+	
 		String[] st = new String[TURMAS.size()];
 
 		for (int i = 0; i < TURMAS.size(); i++) {

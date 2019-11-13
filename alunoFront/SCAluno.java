@@ -128,6 +128,15 @@ public class SCAluno extends JFrame {
 		JButton btnRelatorio = new JButton("Historico");
 		btnRelatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
+				if (list.getSelectedIndex() >= 0) {
+					
+					HistoricoAlunoFront historico = new HistoricoAlunoFront();
+					historico.mostrarListaNotas(buscarListaNota(list.getSelectedValue()));
+					historico.mostrarFaltas(BuscarFaltas(list.getSelectedValue()));
+					historico.setVisible(true);
+				}
+
 			}
 		});
 		btnRelatorio.setBounds(230, 454, 89, 23);
@@ -153,7 +162,7 @@ public class SCAluno extends JFrame {
 
 						BASE.adiconarAlunoNaTurmaDaDisciplinaBASE(list_1.getSelectedValue(),
 								comboBox.getSelectedIndex(), alunocontrolado);
-						
+
 						JOptionPane.showMessageDialog(null, "OK! Adicionado a turma");
 					} else {
 						JOptionPane.showMessageDialog(null, "Algo deu errado ao adicionar a turma");
@@ -169,6 +178,20 @@ public class SCAluno extends JFrame {
 		contentPane.add(btnAdicionar);
 
 		JButton btnRemover = new JButton("Remover");
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+				if (list.getSelectedIndex() >= 0) {
+
+					BASE.removeAlunoNaTurmaDaDisciplinaBASE(alunocontrolado.getCpf(), list.getSelectedValue());
+					alunocontrolado.removeDisciplina(list.getSelectedValue());
+
+					mostrarLista();
+
+				}
+
+			}
+		});
 		btnRemover.setBounds(230, 241, 89, 23);
 		contentPane.add(btnRemover);
 
@@ -178,6 +201,7 @@ public class SCAluno extends JFrame {
 
 				AlterarSenha alterarSenha = new AlterarSenha();
 				alterarSenha.setVisible(true);
+				alterarSenha.setCpfAutenticador(alunocontrolado.getCpf());
 			}
 		});
 		btnNewButton.setBounds(183, 184, 136, 23);
@@ -348,6 +372,38 @@ public class SCAluno extends JFrame {
 			comboBox.addItem(st[i]);
 		}
 
+	}
+
+	public String[] buscarListaNota(String codIdentificador) {
+
+		String[] st = null;
+
+		for (int i = 0; i < alunocontrolado.getNOTAS().size(); i++) {
+
+			if (alunocontrolado.getNOTAS().get(i).getCodDisciplina().equals(codIdentificador) == true) {
+
+				st = alunocontrolado.getNOTAS().get(i).imprimeNotas();
+
+			}
+		}
+		// conferir implementação da busca igualemnte a condição
+		return st;
+	}
+	
+	public String BuscarFaltas(String codIdentificador) {
+		
+		String st = "";
+		
+		for (int i = 0; i < alunocontrolado.getNOTAS().size(); i++) {
+
+			if (alunocontrolado.getNOTAS().get(i).getCodDisciplina().equals(codIdentificador) == true) {
+
+				st = alunocontrolado.getNOTAS().get(i).imprimeFaltas();
+
+			}
+		}
+		
+		return st;
 	}
 
 	public void limparComboBox() {

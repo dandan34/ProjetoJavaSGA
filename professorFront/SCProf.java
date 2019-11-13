@@ -56,7 +56,7 @@ public class SCProf extends JFrame {
 	}
 
 	public SCProf() {
-		
+
 		this.cursosManipulados = new ArrayList<Curso>();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 770, 550);
@@ -118,8 +118,11 @@ public class SCProf extends JFrame {
 					if (cursosManipulados.get(comboBox.getSelectedIndex()).getDisciplinaIndex(list.getSelectedIndex())
 							.getCodMinistrador() == null) {
 
-						professorManipulado.addMateria(cursosManipulados.get(comboBox.getSelectedIndex())
-								.getDisciplinaIndex(list.getSelectedIndex()).getCodDisciplina(), cursosManipulados.get(comboBox.getSelectedIndex()).getDisciplinaIndex(list.getSelectedIndex()));
+						professorManipulado.addMateria(
+								cursosManipulados.get(comboBox.getSelectedIndex())
+										.getDisciplinaIndex(list.getSelectedIndex()).getCodDisciplina(),
+								cursosManipulados.get(comboBox.getSelectedIndex())
+										.getDisciplinaIndex(list.getSelectedIndex()));
 
 						cursosManipulados.get(comboBox.getSelectedIndex()).getDisciplinaIndex(list.getSelectedIndex())
 								.setCodMinistrador(professorManipulado.getCodProfessor());
@@ -206,9 +209,12 @@ public class SCProf extends JFrame {
 				if (list_1.getSelectedIndex() >= 0) {
 
 					SCAProf MateriaManipulada = new SCAProf();
-						
-					MateriaManipulada.setMateriaMinistrada(professorManipulado.getMATERIASMINISTRADAS().get(list_1.getSelectedIndex()));
-					
+
+					if (professorManipulado.getMATERIASMINISTRADAS().size() >= 0) {
+						MateriaManipulada.setMateriaMinistrada(
+								professorManipulado.getMATERIASMINISTRADAS().get(list_1.getSelectedIndex()));
+					}
+
 					MateriaManipulada.setVisible(true);
 
 				}

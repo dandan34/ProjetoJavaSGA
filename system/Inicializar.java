@@ -87,6 +87,7 @@ public class Inicializar {
 						JOptionPane.showMessageDialog(null, "Sistema " + txNomeInst.getText() + " criado com sucesso!");
 						CadastroDep x = new CadastroDep();			
 						x.setVisible(true);
+							
 						frame.dispose();
 					
 					}

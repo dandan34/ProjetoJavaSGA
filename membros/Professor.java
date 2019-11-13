@@ -3,6 +3,7 @@ package membros;
 import java.util.ArrayList;
 
 import academicoBack.Disciplina;
+import sun.invoke.empty.Empty;
 import system.Usuario;
 
 public class Professor extends Pessoa {
@@ -75,14 +76,25 @@ public class Professor extends Pessoa {
 	
 	public String[] imprimeMinistradasNome() {
 
-		String st[] = new String[MATERIASMINISTRADAS.size()];
+		
+		if(MATERIASMINISTRADAS.isEmpty() == false) {
+			
+			String st[] = new String[MATERIASMINISTRADAS.size()];
 
-		for (int i = 0; i < MINISTRA.size(); i++) {
+			for (int i = 0; i < MINISTRA.size(); i++) {
 
-			st[i] = MATERIASMINISTRADAS.get(i).getNomeDisciplina();
+				st[i] = MATERIASMINISTRADAS.get(i).getNomeDisciplina();
+			}
+
+			return st;
+			
+		}else {
+			
+			String st[] = new String[0];
+			
+			return st;
 		}
-
-		return st;
+		
 
 	}
 	

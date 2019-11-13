@@ -2,6 +2,8 @@ package academicoBack;
 
 import java.util.ArrayList;
 
+import javax.print.attribute.IntegerSyntax;
+
 public class HistoricoAluno {
 
 	private String codDisciplina;
@@ -15,7 +17,14 @@ public class HistoricoAluno {
 		this.faltas = 0;
 		this.notas = new ArrayList<Float>();
 	}
-
+	
+	public String imprimeFaltas() {
+		
+		String faltas = "" + this.faltas;
+		
+		return faltas;
+		
+	}
 	public String[] imprimeNotas() {
 
 		String[] st = new String[notas.size()];

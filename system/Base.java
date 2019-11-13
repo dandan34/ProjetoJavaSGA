@@ -146,6 +146,53 @@ public class Base {
 
 	}
 
+	public Boolean removeAlunoNaTurmaDaDisciplinaBASE(String cpfAluno, String identificadorCodigo) {
+
+		String st = "";
+		Boolean testa = false;
+
+		for (int i = 0; i < CursosDoInstituto.size(); i++) {
+
+			for (int j = 0; j < CursosDoInstituto.get(i).getMATERIAS().size(); j++) {
+
+				st = CursosDoInstituto.get(i).getMATERIAS().get(j).getCodDisciplina() + " "
+						+ CursosDoInstituto.get(i).getMATERIAS().get(j).getNomeDisciplina();
+
+				if (st.equals(identificadorCodigo)) {
+
+					for (int k = 0; k < CursosDoInstituto.get(i).getMATERIAS().get(j).getTURMAS().size(); k++) {
+
+						for (int l = 0; l < CursosDoInstituto.get(i).getMATERIAS().get(j).getTURMAS().get(k)
+								.getAlunosTurma().size(); l++) {
+
+							if (CursosDoInstituto.get(i).getMATERIAS().get(j).getTURMAS().get(k).getAlunosTurma().get(l)
+									.getCpf().equals(cpfAluno) == true) {
+
+								CursosDoInstituto.get(i).getMATERIAS().get(j).getTURMAS().get(k).getAlunosTurma()
+										.remove(l);
+
+								CursosDoInstituto.get(i).getMATERIAS().get(j).getCodAlunosParticipantes()
+										.remove(identificadorCodigo);
+								testa = true;
+								break;
+							}
+
+						}
+
+					}
+
+				}
+			}
+		}
+
+		if (testa == true) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
 	public Boolean adiconarAlunoNaTurmaDaDisciplinaBASE(String nomeDisciplina, int indexTurma, Aluno aluno) {
 
 		Boolean testa = false;
@@ -223,17 +270,25 @@ public class Base {
 		for (int i = 0; i < CursosDoInstituto.size(); i++) {
 
 			if (CursosDoInstituto.get(i).getNomeCurso().equals(nomeCurso)) {
-				
-				for(int j=0;j<CursosDoInstituto.get(i).getALUNOS().size();j++) {
-					
+
+				for (int j = 0; j < CursosDoInstituto.get(i).getALUNOS().size(); j++) {
+
 					CursosDoInstituto.get(i).getALUNOS().get(j).setNomeCursoCursado("");
 					CursosDoInstituto.get(i).getALUNOS().get(j).setStatus(false);
 					CursosDoInstituto.get(i).getALUNOS().get(j).removeALLDisciplina();
-					
-					//implementar o resto do removeCurso.. lembrar de tirar da base! tirar turmas e o professor responsavel pelas materias. 
-					
+
+					// implementar o resto do removeCurso.. lembrar de tirar da base! tirar turmas e
+					// o professor responsavel pelas materias.
+
 				}
-				
+
+				for (int k = 0; k < CursosDoInstituto.get(i).getMATERIAS().size(); k++) {
+
+					buscarMateriaProf(CursosDoInstituto.get(i).getMATERIAS().get(k).getCodMinistrador(),
+							CursosDoInstituto.get(i).getMATERIAS().get(k).getCodDisciplina());
+
+				}
+
 				CursosDoInstituto.remove(i);
 				testa = true;
 				break;
@@ -244,6 +299,81 @@ public class Base {
 			return true;
 		} else {
 
+			return false;
+		}
+
+	}
+
+	public void buscarMateriaProf(String codProfessor, String codMateria) {
+
+		for (int i = 0; i < ProfessoresDoInstituto.size(); i++) {
+
+			for (int j = 0; j < ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().size(); j++) {
+
+				if (ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().get(j).getCodDisciplina()
+						.equals(codMateria) == true) {
+
+					if (ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().get(j).getCodMinistrador()
+							.equals(codProfessor) == true) {
+
+						for (int k = 0; k < ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().get(j).getTURMAS()
+								.size(); k++) {
+
+							ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().get(k).getTURMAS().remove(k);
+						}
+
+						ProfessoresDoInstituto.get(i).getMINISTRA().remove(codMateria);
+
+						ProfessoresDoInstituto.get(i).getMATERIASMINISTRADAS().remove(j);
+
+					}
+				}
+			}
+
+		}
+
+	}
+
+	public Boolean mudarSenha(String cpfMudador, String senhaAtual, String novaSenha) {
+
+		Boolean testa = false;
+		
+		if (cpfAlunos.contains(cpfMudador) == true) {
+
+			for (int i = 0; i < AlunosDoInstituto.size(); i++) {
+
+				if (AlunosDoInstituto.get(i).getCpf().equals(cpfMudador) == true) {
+
+					if (AlunosDoInstituto.get(i).getUSUARIO().getSenha().equals(senhaAtual) == true) {
+
+						AlunosDoInstituto.get(i).getUSUARIO().setSenha(novaSenha);
+						testa = true;
+						break;
+					}
+				}
+			}
+
+		} else {
+
+			for (int i = 0; i < ProfessoresDoInstituto.size(); i++) {
+
+				if (ProfessoresDoInstituto.get(i).getCpf().equals(cpfMudador) == true) {
+
+					if (ProfessoresDoInstituto.get(i).getUSUARIO().getSenha().equals(senhaAtual) == true) {
+
+						ProfessoresDoInstituto.get(i).getUSUARIO().setSenha(novaSenha);
+						testa=true;
+						break;
+					}
+				}
+			}
+
+		}
+		
+		if(testa == true) {
+			return true;
+			
+		}else {
 			return false;
 		}
 

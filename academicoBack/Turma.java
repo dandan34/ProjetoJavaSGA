@@ -78,6 +78,12 @@ public class Turma {
 		
 		return st;
 	}
+	
+	public void setNULLTURMA() {
+		
+		alunosTurma = null;
+		codigoTurma = null;
+	}
 
 	public String getCodigoTurma() {
 		return codigoTurma;

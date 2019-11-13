@@ -202,7 +202,7 @@ public class ControleProf extends JFrame {
 
 	public void mostrarComboMaterias() {
 
-		if (ProfessorManipulado.getMINISTRA().size() >= 0) {
+		if (ProfessorManipulado.getMINISTRA().isEmpty() == false) {
 
 			String[] st = ProfessorManipulado.imprimeMinistradasNome();
 

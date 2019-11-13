@@ -51,26 +51,26 @@ public class SGAPNotas extends JFrame {
 	public SGAPNotas() {
 		this.alunoManipulado = new Aluno("", "", "", "");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 284, 431);
+		setBounds(100, 100, 274, 432);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblAluno = new JLabel("Aluno:");
-		lblAluno.setBounds(10, 11, 48, 14);
+		lblAluno.setBounds(10, 59, 48, 14);
 		contentPane.add(lblAluno);
 
 		labelAlunoNome = new JLabel("----");
-		labelAlunoNome.setBounds(68, 11, 48, 14);
+		labelAlunoNome.setBounds(68, 59, 48, 14);
 		contentPane.add(labelAlunoNome);
 
 		JLabel lblNotas = new JLabel("Notas");
-		lblNotas.setBounds(70, 143, 48, 14);
+		lblNotas.setBounds(70, 191, 48, 14);
 		contentPane.add(lblNotas);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(41, 168, 89, 201);
+		scrollPane.setBounds(41, 216, 89, 156);
 		contentPane.add(scrollPane);
 
 		list = new JList<String>();
@@ -86,16 +86,16 @@ public class SGAPNotas extends JFrame {
 
 			}
 		});
-		btnApagar.setBounds(140, 166, 89, 23);
+		btnApagar.setBounds(140, 214, 89, 23);
 		contentPane.add(btnApagar);
 
 		textADDNOTA = new JtextFieldSomenteNumeros(3);
-		textADDNOTA.setBounds(41, 112, 89, 20);
+		textADDNOTA.setBounds(41, 160, 89, 20);
 		contentPane.add(textADDNOTA);
 		textADDNOTA.setColumns(10);
 
 		JLabel lblNota = new JLabel("Nota:");
-		lblNota.setBounds(10, 113, 48, 14);
+		lblNota.setBounds(10, 161, 48, 14);
 		contentPane.add(lblNota);
 
 		JButton btnAdicionar = new JButton("Adicionar");
@@ -114,15 +114,15 @@ public class SGAPNotas extends JFrame {
 
 			}
 		});
-		btnAdicionar.setBounds(140, 109, 89, 23);
+		btnAdicionar.setBounds(140, 157, 89, 23);
 		contentPane.add(btnAdicionar);
 
 		JLabel lblFaltas = new JLabel("Faltas:");
-		lblFaltas.setBounds(10, 76, 48, 14);
+		lblFaltas.setBounds(10, 124, 48, 14);
 		contentPane.add(lblFaltas);
 
 		labelFALTAS = new JLabel("----");
-		labelFALTAS.setBounds(70, 76, 48, 14);
+		labelFALTAS.setBounds(70, 124, 48, 14);
 		contentPane.add(labelFALTAS);
 
 		buttonADD = new JButton("+");
@@ -133,7 +133,7 @@ public class SGAPNotas extends JFrame {
 				mostrarFaltas();
 			}
 		});
-		buttonADD.setBounds(140, 72, 41, 23);
+		buttonADD.setBounds(140, 120, 41, 23);
 		contentPane.add(buttonADD);
 
 		buttonSUB = new JButton("-");
@@ -144,16 +144,25 @@ public class SGAPNotas extends JFrame {
 				mostrarFaltas();
 			}
 		});
-		buttonSUB.setBounds(188, 72, 41, 23);
+		buttonSUB.setBounds(188, 120, 41, 23);
 		contentPane.add(buttonSUB);
 
 		JLabel lblMatricula = new JLabel("Matricula:");
-		lblMatricula.setBounds(10, 36, 79, 14);
+		lblMatricula.setBounds(10, 84, 79, 14);
 		contentPane.add(lblMatricula);
 
 		labelMatricula = new JLabel("----");
-		labelMatricula.setBounds(68, 36, 48, 14);
+		labelMatricula.setBounds(68, 84, 48, 14);
 		contentPane.add(labelMatricula);
+		
+		JButton btnVoltar = new JButton("Voltar");
+		btnVoltar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				dispose();
+			}
+		});
+		btnVoltar.setBounds(10, 11, 89, 23);
+		contentPane.add(btnVoltar);
 
 	}
 	
@@ -348,6 +357,4 @@ public class SGAPNotas extends JFrame {
 	public void setButtonSUB(JButton buttonSUB) {
 		this.buttonSUB = buttonSUB;
 	}
-
-	
 }

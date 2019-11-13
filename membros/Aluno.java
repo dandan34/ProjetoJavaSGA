@@ -2,6 +2,8 @@ package membros;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import academicoBack.HistoricoAluno;
 import system.Usuario;
 
@@ -24,7 +26,7 @@ public class Aluno extends Pessoa {
 	}
 
 	public Boolean addDisciplina(String codigo) {
-
+		
 		if (CURSANDO.contains(codigo) == true) {
 			return false;
 		} else {
