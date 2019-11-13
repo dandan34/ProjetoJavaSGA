@@ -28,7 +28,7 @@ public class Aluno extends Pessoa {
 		if (CURSANDO.contains(codigo) == true) {
 			return false;
 		} else {
-			
+
 			CURSANDO.add(codigo);
 			HistoricoAluno x = new HistoricoAluno(codigo);
 			x.setCodDisciplina(codigo);
@@ -51,6 +51,15 @@ public class Aluno extends Pessoa {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	public void removeALLDisciplina() {
+
+		for (int i = 0; i < CURSANDO.size(); i++) {
+
+			CURSANDO.remove(i);
+			NOTAS.remove(i);
 		}
 	}
 

@@ -81,12 +81,11 @@ public class Base {
 			}
 
 			if (testa == true) {
-				
-				
+
 				ProfessoresDoInstituto.add(professor);
 				cpfProfessores.add(professor.getCpf());
 				codProfessores.add(professor.getCodProfessor());
-						
+
 				return true;
 			} else {
 				return false;
@@ -196,28 +195,55 @@ public class Base {
 
 				}
 
-				for (int k = 0; k < cpfProfessores.size(); k++) {
-					
-					if (cpfProfessores.contains(ProfessoresDoInstituto.get(i).getCpf()) == true) {
-					
-						
-						getCpfProfessores().remove(k);
-						getCodProfessores().remove(k);
-						
-						testa = true;
-						break;
-					}
-				}
+				cpfProfessores.remove(ProfessoresDoInstituto.get(i).getCpf());
+				codProfessores.remove(codProf);
+
+				testa = true;
 
 				ProfessoresDoInstituto.remove(i);
-				
+
+				break;
+
 			}
 		}
 
 		if (testa == true) {
-			
+
 			return true;
 		} else {
+			return false;
+		}
+
+	}
+
+	public Boolean removeCurso(String nomeCurso) {
+
+		Boolean testa = false;
+
+		for (int i = 0; i < CursosDoInstituto.size(); i++) {
+
+			if (CursosDoInstituto.get(i).getNomeCurso().equals(nomeCurso)) {
+				
+				for(int j=0;j<CursosDoInstituto.get(i).getALUNOS().size();j++) {
+					
+					CursosDoInstituto.get(i).getALUNOS().get(j).setNomeCursoCursado("");
+					CursosDoInstituto.get(i).getALUNOS().get(j).setStatus(false);
+					CursosDoInstituto.get(i).getALUNOS().get(j).removeALLDisciplina();
+					
+					//implementar o resto do removeCurso.. lembrar de tirar da base! tirar turmas e o professor responsavel pelas materias. 
+					
+				}
+				
+				CursosDoInstituto.remove(i);
+				testa = true;
+				break;
+			}
+		}
+
+		if (testa == true) {
+			return true;
+		} else {
+
 			return false;
 		}
 

@@ -73,6 +73,8 @@ public class Departamento {
 
 		for (int i = 0; i < CURSOS.size(); i++) {
 			if (CURSOS.get(i).getNomeCurso().equals(nome)) {
+				
+				BASE.removeCurso(nome);
 				CURSOS.remove(i);
 				testa = true;
 				break;
@@ -113,11 +115,12 @@ public class Departamento {
 	public boolean removeProfessor(String codProf) {
 
 		Boolean testa = false;
-
+		
+		JOptionPane.showMessageDialog(null, codProf);
 		for (int i = 0; i < PROFESSORES.size(); i++) {
+			
 			if (PROFESSORES.get(i).getCodProfessor().equals(codProf) == true) {
 
-				PROFESSORES.remove(i);
 
 				if (getBASE().removeProf(codProf) == true) {
 
@@ -126,6 +129,9 @@ public class Departamento {
 				} else {
 					JOptionPane.showMessageDialog(null, "FALHA REMOVIDO DA BASE");
 				}
+				
+				PROFESSORES.remove(i);
+				
 
 				testa = true;
 				break;

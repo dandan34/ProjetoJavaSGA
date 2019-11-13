@@ -173,6 +173,10 @@ public class SGDep extends JFrame implements Funcoes {
 				if (list.getSelectedIndex() >= 0) {
 					if (dpManipulado
 							.removeCurso(dpManipulado.CURSOS.get(list.getSelectedIndex()).getNomeCurso()) == true) {
+						
+						
+						
+						
 						JOptionPane.showMessageDialog(null, "Removido com Sucesso!");
 						mostrarListaCR();
 					} else {
@@ -440,8 +444,10 @@ public class SGDep extends JFrame implements Funcoes {
 
 					if (getValorIndexList2() >= 0) {
 
-						String st = "";
-						st = dpManipulado.getPROFESSORES().get(getValorIndexList2()).getCodProfessor();
+						String st = dpManipulado.getPROFESSORES().get(getValorIndexList2()).getCodProfessor();
+						
+						JOptionPane.showMessageDialog(null, dpManipulado.getPROFESSORES().get(getValorIndexList2()).getCodProfessor());
+						
 						if (dpManipulado.removeProfessor(st) == true) {
 							mostrarListaPRF();
 							JOptionPane.showMessageDialog(null, "Removido com sucesso!");
