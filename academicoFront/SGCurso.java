@@ -20,8 +20,8 @@ import java.awt.Color;
 import javax.swing.event.ListSelectionListener;
 
 import academicoBack.Curso;
-import system.JtextFieldSomenteLetras;
-import system.JtextFieldSomenteNumeros;
+import systemBack.JtextFieldSomenteLetras;
+import systemBack.JtextFieldSomenteNumeros;
 
 import javax.swing.event.ListSelectionEvent;
 import java.awt.SystemColor;
@@ -217,7 +217,7 @@ public class SGCurso extends JFrame {
 		contentPane.add(btnAdicionarMateria);
 
 		JButton btnVoltar = new JButton("Voltar <<");
-		btnVoltar.setBackground(new Color(128, 128, 128));
+		btnVoltar.setBackground(new Color(255, 0, 0));
 		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
 		btnVoltar.setForeground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
@@ -247,6 +247,7 @@ public class SGCurso extends JFrame {
 		contentPane.add(lblNome_1);
 
 		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
 		panel.setBounds(346, 10, 299, 461);
 		contentPane.add(panel);
 		panel.setLayout(null);

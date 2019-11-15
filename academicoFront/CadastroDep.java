@@ -21,12 +21,9 @@ import javax.swing.JScrollPane;
 import javax.swing.event.ListSelectionListener;
 
 import academicoBack.Departamento;
-import alunoFront.CadastroAluno;
-import system.Base;
-import system.JtextFieldSomenteLetras;
-import system.JtextFieldSomenteNumeros;
-import system.SystemLogin;
-
+import systemBack.Base;
+import systemBack.JtextFieldSomenteLetras;
+import systemBack.JtextFieldSomenteNumeros;
 import javax.swing.event.ListSelectionEvent;
 import java.awt.Color;
 import java.awt.Font;
@@ -40,6 +37,7 @@ public class CadastroDep extends JFrame {
 	private JButton btAcessarDP;
 	private JButton btDelDP;
 	private JList<String> list;
+	private JLabel txInstituto;
 	private int index;
 	private SGDep dPControle;
 	private ArrayList<Departamento> DP;
@@ -159,7 +157,7 @@ public class CadastroDep extends JFrame {
 		setValorIndex(0);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 867, 508);
+		setBounds(100, 100, 400, 570);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -168,29 +166,29 @@ public class CadastroDep extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("Cadastrar Departamento");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblNewLabel.setBounds(46, 9, 247, 34);
+		lblNewLabel.setBounds(104, 71, 247, 34);
 		contentPane.add(lblNewLabel);
 
 		txNomeDP = new JtextFieldSomenteLetras(5);
-		txNomeDP.setBounds(72, 54, 147, 20);
+		txNomeDP.setBounds(72, 116, 303, 20);
 		contentPane.add(txNomeDP);
 		txNomeDP.setColumns(10);
 
 		txCodDP = new JtextFieldSomenteNumeros(5);
-		txCodDP.setBounds(72, 85, 147, 20);
+		txCodDP.setBounds(72, 147, 303, 20);
 		contentPane.add(txCodDP);
 		txCodDP.setColumns(10);
 
 		JLabel lblNome = new JLabel("Nome");
-		lblNome.setBounds(10, 57, 48, 14);
+		lblNome.setBounds(10, 119, 48, 14);
 		contentPane.add(lblNome);
 
 		JLabel lblCodigo = new JLabel("Codigo");
-		lblCodigo.setBounds(10, 88, 68, 14);
+		lblCodigo.setBounds(10, 150, 68, 14);
 		contentPane.add(lblCodigo);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 237, 263, 221);
+		scrollPane.setBounds(10, 299, 263, 221);
 		contentPane.add(scrollPane);
 
 		list = new JList<>();
@@ -210,7 +208,7 @@ public class CadastroDep extends JFrame {
 		JButton btnCadastrarDP = new JButton("Cadastrar");
 		btnCadastrarDP.setForeground(Color.BLUE);
 		btnCadastrarDP.setBackground(new Color(255, 255, 255));
-		btnCadastrarDP.setBounds(117, 116, 102, 23);
+		btnCadastrarDP.setBounds(273, 178, 102, 23);
 		btnCadastrarDP.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (txNomeDP.getText().equals("")) {
@@ -240,58 +238,46 @@ public class CadastroDep extends JFrame {
 		btAcessarDP = new JButton("Acessar");
 		btAcessarDP.setForeground(Color.BLUE);
 		btAcessarDP.setBackground(new Color(255, 255, 255));
-		btAcessarDP.setBounds(283, 237, 92, 28);
+		btAcessarDP.setBounds(283, 299, 92, 28);
 		contentPane.add(btAcessarDP);
 
 		btDelDP = new JButton("Deletar");
 		btDelDP.setForeground(Color.RED);
 		btDelDP.setBackground(new Color(255, 255, 255));
-		btDelDP.setBounds(283, 268, 92, 28);
+		btDelDP.setBounds(283, 330, 92, 28);
 		contentPane.add(btDelDP);
 
 		scrollPane.setRowHeaderView(list);
 		scrollPane.setViewportView(list);
 
 		JLabel lblCodigo_1 = new JLabel("Codigo");
-		lblCodigo_1.setBounds(10, 216, 48, 14);
+		lblCodigo_1.setBounds(10, 278, 48, 14);
 		contentPane.add(lblCodigo_1);
 
 		JLabel lblNome_1 = new JLabel("Nome");
-		lblNome_1.setBounds(117, 216, 48, 14);
+		lblNome_1.setBounds(117, 278, 48, 14);
 		contentPane.add(lblNome_1);
 
 		JLabel lblDepartamentosCadastrados = new JLabel("Departamentos Cadastrados");
 		lblDepartamentosCadastrados.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblDepartamentosCadastrados.setBounds(46, 188, 187, 14);
+		lblDepartamentosCadastrados.setBounds(46, 250, 187, 14);
 		contentPane.add(lblDepartamentosCadastrados);
-
-		JButton btnNewButton = new JButton("Matricular Aluno");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				CadastroAluno cadastrarAluno = new CadastroAluno();
-				cadastrarAluno.setVisible(true);
-				cadastrarAluno.comboBox(DP);
-				cadastrarAluno.setDPTS(getDPTS());
-				cadastrarAluno.setBASE(getBASE());
-			}
-		});
-		btnNewButton.setBackground(new Color(255, 255, 255));
-		btnNewButton.setBounds(468, 188, 311, 114);
-		contentPane.add(btnNewButton);
 		
-		JButton btnTesteLogin = new JButton("TESTE  LOGIN");
-		btnTesteLogin.addActionListener(new ActionListener() {
+		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setBackground(new Color(255, 255, 255));
+		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
-				SystemLogin login = new SystemLogin();
-				login.setBASE(getBASE());
-				login.setVisible(true);
-				
+				dispose();
 			}
 		});
-		btnTesteLogin.setBounds(575, 395, 134, 23);
-		contentPane.add(btnTesteLogin);
+		btnVoltar.setBounds(10, 11, 89, 23);
+		contentPane.add(btnVoltar);
+		
+		txInstituto = new JLabel("----");
+		txInstituto.setForeground(new Color(255, 0, 0));
+		txInstituto.setFont(new Font("Tahoma", Font.BOLD, 18));
+		txInstituto.setBounds(164, 46, 166, 28);
+		contentPane.add(txInstituto);
 
 		btDelDP.addActionListener(new ActionListener() {
 
@@ -348,4 +334,13 @@ public class CadastroDep extends JFrame {
 	public void setdPControle(SGDep dPControle) {
 		this.dPControle = dPControle;
 	}
+
+	public JLabel getTxInstituto() {
+		return txInstituto;
+	}
+
+	public void setTxInstituto(JLabel txInstituto) {
+		this.txInstituto = txInstituto;
+	}
+	
 }

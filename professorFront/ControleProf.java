@@ -8,6 +8,8 @@ import javax.swing.border.EmptyBorder;
 
 import membros.Aluno;
 import membros.Professor;
+import systemBack.Base;
+import systemFront.AlterarSenha;
 
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
@@ -16,10 +18,9 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class ControleProf extends JFrame {
 
@@ -32,7 +33,7 @@ public class ControleProf extends JFrame {
 	private JComboBox<String> comboBoxMaterias;
 	private JComboBox<String> comboBoxTurma;
 	private JList<String> list;
-
+	private Base BASE;
 	private int valor;
 	private int valor2;
 
@@ -53,9 +54,11 @@ public class ControleProf extends JFrame {
 	 * Create the frame.
 	 */
 	public ControleProf() {
+		BASE = new Base();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 414, 666);
+		setBounds(100, 100, 407, 719);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -77,14 +80,16 @@ public class ControleProf extends JFrame {
 		contentPane.add(labelCod);
 
 		JLabel lblMateriasMinistradas = new JLabel("Materias Ministradas");
-		lblMateriasMinistradas.setBounds(87, 124, 124, 14);
+		lblMateriasMinistradas.setBounds(87, 188, 124, 14);
 		contentPane.add(lblMateriasMinistradas);
 
 		comboBoxMaterias = new JComboBox<String>();
-		comboBoxMaterias.setBounds(35, 149, 220, 22);
+		comboBoxMaterias.setBackground(new Color(255, 255, 255));
+		comboBoxMaterias.setBounds(35, 213, 220, 22);
 		contentPane.add(comboBoxMaterias);
 
 		JButton btnSelecao = new JButton("Selecionar");
+		btnSelecao.setBackground(new Color(255, 255, 255));
 		btnSelecao.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -97,18 +102,20 @@ public class ControleProf extends JFrame {
 
 			}
 		});
-		btnSelecao.setBounds(265, 149, 105, 23);
+		btnSelecao.setBounds(265, 213, 105, 23);
 		contentPane.add(btnSelecao);
 
 		comboBoxTurma = new JComboBox<String>();
-		comboBoxTurma.setBounds(35, 206, 220, 22);
+		comboBoxTurma.setBackground(new Color(255, 255, 255));
+		comboBoxTurma.setBounds(35, 270, 220, 22);
 		contentPane.add(comboBoxTurma);
 
 		JLabel lblTurma = new JLabel("Turma");
-		lblTurma.setBounds(123, 182, 48, 14);
+		lblTurma.setBounds(123, 246, 48, 14);
 		contentPane.add(lblTurma);
 
 		JButton btnSelecionar2 = new JButton("Selecioanar");
+		btnSelecionar2.setBackground(new Color(255, 255, 255));
 		btnSelecionar2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -120,21 +127,22 @@ public class ControleProf extends JFrame {
 
 			}
 		});
-		btnSelecionar2.setBounds(265, 206, 105, 23);
+		btnSelecionar2.setBounds(265, 270, 105, 23);
 		contentPane.add(btnSelecionar2);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(35, 272, 220, 333);
+		scrollPane.setBounds(35, 336, 220, 333);
 		contentPane.add(scrollPane);
 
 		list = new JList<String>();
 		scrollPane.setViewportView(list);
 
 		JLabel lblAlunos = new JLabel("Alunos");
-		lblAlunos.setBounds(123, 247, 48, 14);
+		lblAlunos.setBounds(123, 311, 48, 14);
 		contentPane.add(lblAlunos);
 
 		JButton btnControle = new JButton("Controle");
+		btnControle.setBackground(new Color(255, 255, 255));
 		btnControle.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -153,7 +161,7 @@ public class ControleProf extends JFrame {
 
 			}
 		});
-		btnControle.setBounds(265, 272, 105, 23);
+		btnControle.setBounds(265, 336, 105, 23);
 		contentPane.add(btnControle);
 
 		JLabel lblPainelDoProfessor = new JLabel("Painel do Professor");
@@ -161,6 +169,7 @@ public class ControleProf extends JFrame {
 		contentPane.add(lblPainelDoProfessor);
 
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -169,6 +178,21 @@ public class ControleProf extends JFrame {
 		});
 		btnVoltar.setBounds(35, 19, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		JButton btnAlterarSenha = new JButton("Alterar Senha");
+		btnAlterarSenha.setBackground(new Color(255, 255, 255));
+		btnAlterarSenha.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				AlterarSenha alterarSenha = new AlterarSenha();
+				alterarSenha.setVisible(true);
+				alterarSenha.setBASE(getBASE());
+				alterarSenha.setCpfAutenticador(ProfessorManipulado.getCpf());
+				
+			}
+		});
+		btnAlterarSenha.setBounds(35, 123, 118, 23);
+		contentPane.add(btnAlterarSenha);
 	}
 
 	public Aluno PuxarAluno(String dadosAluno) {
@@ -280,5 +304,13 @@ public class ControleProf extends JFrame {
 
 	public void setValor2(int valor2) {
 		this.valor2 = valor2;
+	}
+
+	public Base getBASE() {
+		return BASE;
+	}
+
+	public void setBASE(Base bASE) {
+		BASE = bASE;
 	}
 }

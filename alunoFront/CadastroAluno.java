@@ -8,10 +8,10 @@ import javax.swing.border.EmptyBorder;
 
 import academicoBack.Departamento;
 import membros.Aluno;
-import system.Base;
-import system.Funcoes;
-import system.JtextFieldSomenteLetras;
-import system.JtextFieldSomenteNumeros;
+import systemBack.Base;
+import systemBack.Funcoes;
+import systemBack.JtextFieldSomenteLetras;
+import systemBack.JtextFieldSomenteNumeros;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -22,6 +22,8 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import java.awt.Checkbox;
+import java.awt.Color;
+import java.awt.Font;
 
 public class CadastroAluno extends JFrame implements Funcoes {
 
@@ -57,66 +59,71 @@ public class CadastroAluno extends JFrame implements Funcoes {
 	}
 
 	public CadastroAluno() {
+		this.BASE = new Base();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 333, 348);
+		setBounds(100, 100, 287, 348);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
 		JLabel lblNome = new JLabel("Nome:");
-		lblNome.setBounds(22, 76, 48, 14);
+		lblNome.setBounds(10, 101, 48, 14);
 		contentPane.add(lblNome);
 
 		JLabel lblCpf = new JLabel("CPF:");
-		lblCpf.setBounds(22, 101, 48, 14);
+		lblCpf.setBounds(10, 126, 48, 14);
 		contentPane.add(lblCpf);
 
 		textNome = new JtextFieldSomenteLetras(40);
-		textNome.setBounds(87, 73, 176, 20);
+		textNome.setBounds(75, 98, 176, 20);
 		contentPane.add(textNome);
 		textNome.setColumns(10);
 
 		textCPF = new JtextFieldSomenteNumeros(11);
 		textCPF.setColumns(10);
-		textCPF.setBounds(87, 98, 176, 20);
+		textCPF.setBounds(75, 123, 176, 20);
 		contentPane.add(textCPF);
 
 		JLabel lblSexo = new JLabel("Sexo:");
-		lblSexo.setBounds(22, 126, 48, 14);
+		lblSexo.setBounds(10, 151, 48, 14);
 		contentPane.add(lblSexo);
 
 		JLabel lblCadastroDeAluno = new JLabel("Cadastro de Aluno");
-		lblCadastroDeAluno.setBounds(121, 11, 126, 14);
+		lblCadastroDeAluno.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblCadastroDeAluno.setBounds(61, 58, 178, 14);
 		contentPane.add(lblCadastroDeAluno);
 
 		JLabel lblEndereo = new JLabel("Endere\u00E7o:");
-		lblEndereo.setBounds(22, 155, 65, 14);
+		lblEndereo.setBounds(10, 180, 65, 14);
 		contentPane.add(lblEndereo);
 
 		textEndereco = new JtextFieldSomenteLetras(20);
 		textEndereco.setColumns(10);
-		textEndereco.setBounds(87, 152, 176, 20);
+		textEndereco.setBounds(75, 177, 176, 20);
 		contentPane.add(textEndereco);
 
 		JLabel lblCursos = new JLabel("Cursos:");
-		lblCursos.setBounds(22, 184, 48, 14);
+		lblCursos.setBounds(10, 209, 48, 14);
 		contentPane.add(lblCursos);
 
 		comboBox = new JComboBox<String>();
-		comboBox.setBounds(87, 180, 176, 22);
+		comboBox.setBackground(new Color(255, 255, 255));
+		comboBox.setBounds(75, 205, 176, 22);
 		contentPane.add(comboBox);
 		comboBox.setSelectedIndex(-1);
 
 		checkboxMasculino = new Checkbox("Masculino");
-		checkboxMasculino.setBounds(87, 124, 95, 22);
+		checkboxMasculino.setBounds(75, 149, 95, 22);
 		contentPane.add(checkboxMasculino);
 
 		checkboxFeminino = new Checkbox("Feminino");
-		checkboxFeminino.setBounds(190, 124, 95, 22);
+		checkboxFeminino.setBounds(178, 149, 95, 22);
 		contentPane.add(checkboxFeminino);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setBackground(new Color(255, 255, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -176,15 +183,20 @@ public class CadastroAluno extends JFrame implements Funcoes {
 
 		});
 
-		btnCadastrar.setBounds(174, 216, 89, 23);
+		btnCadastrar.setBounds(145, 241, 106, 23);
 		contentPane.add(btnCadastrar);
 
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-
+				
+				
+				
 				dispose();
+				limpar();
+				
 			}
 
 		});
@@ -221,7 +233,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 			aluno.setMatricula(matriculas);
 
 			if (addAlunoNoCurso(aluno) == true) {
-
+				
 				matriculas++;
 				JOptionPane.showMessageDialog(null, "Aluno matriculado com Sucesso!");
 

@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import membros.Aluno;
-import system.JtextFieldSomenteNumeros;
+import systemBack.JtextFieldSomenteNumeros;
 
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;

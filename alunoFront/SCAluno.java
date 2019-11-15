@@ -7,8 +7,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import membros.Aluno;
-import system.AlterarSenha;
-import system.Base;
+import systemBack.Base;
+import systemFront.AlterarSenha;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -77,55 +77,57 @@ public class SCAluno extends JFrame {
 
 		JLabel lblAluno = new JLabel("Aluno:");
 		lblAluno.setFont(new Font("Tahoma", Font.BOLD, 14));
-		lblAluno.setBounds(10, 68, 48, 14);
+		lblAluno.setBounds(10, 53, 48, 14);
 		contentPane.add(lblAluno);
 
 		labelnome = new JLabel("----");
 		labelnome.setFont(new Font("Tahoma", Font.ITALIC, 14));
-		labelnome.setBounds(93, 68, 182, 14);
+		labelnome.setBounds(93, 53, 182, 14);
 		contentPane.add(labelnome);
 
 		JLabel lblNomeAluno = new JLabel("Matricula:");
-		lblNomeAluno.setBounds(10, 93, 70, 14);
+		lblNomeAluno.setBounds(10, 78, 70, 14);
 		contentPane.add(lblNomeAluno);
 
 		JLabel lblCPF = new JLabel("CPF:");
-		lblCPF.setBounds(10, 118, 48, 14);
+		lblCPF.setBounds(10, 103, 48, 14);
 		contentPane.add(lblCPF);
 
 		JLabel lblStatus = new JLabel("Status:");
-		lblStatus.setBounds(10, 193, 48, 14);
+		lblStatus.setBounds(10, 178, 48, 14);
 		contentPane.add(lblStatus);
 
 		JLabel lblSexo = new JLabel("Sexo:");
-		lblSexo.setBounds(10, 168, 48, 14);
+		lblSexo.setBounds(10, 153, 48, 14);
 		contentPane.add(lblSexo);
 
 		lbmatricula = new JLabel("----");
-		lbmatricula.setBounds(91, 93, 154, 14);
+		lbmatricula.setBounds(91, 78, 154, 14);
 		contentPane.add(lbmatricula);
 
 		lbCPF = new JLabel("----");
-		lbCPF.setBounds(91, 118, 154, 14);
+		lbCPF.setBounds(91, 103, 154, 14);
 		contentPane.add(lbCPF);
 
 		lbsexo = new JLabel("----");
-		lbsexo.setBounds(91, 168, 154, 14);
+		lbsexo.setBounds(91, 153, 154, 14);
 		contentPane.add(lbsexo);
 
 		lbstatus = new JLabel("----");
-		lbstatus.setBounds(91, 193, 154, 14);
+		lbstatus.setBackground(new Color(255, 255, 255));
+		lbstatus.setBounds(91, 178, 154, 14);
 		contentPane.add(lbstatus);
 
 		JLabel lblCurso = new JLabel("Curso:");
-		lblCurso.setBounds(10, 143, 48, 14);
+		lblCurso.setBounds(10, 128, 48, 14);
 		contentPane.add(lblCurso);
 
 		lbcurso = new JLabel("----");
-		lbcurso.setBounds(91, 143, 154, 14);
+		lbcurso.setBounds(91, 128, 154, 14);
 		contentPane.add(lbcurso);
 
 		JButton btnRelatorio = new JButton("Historico");
+		btnRelatorio.setBackground(new Color(255, 255, 255));
 		btnRelatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -139,7 +141,7 @@ public class SCAluno extends JFrame {
 
 			}
 		});
-		btnRelatorio.setBounds(230, 454, 89, 23);
+		btnRelatorio.setBounds(230, 267, 89, 23);
 		contentPane.add(btnRelatorio);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -150,10 +152,11 @@ public class SCAluno extends JFrame {
 		scrollPane.setViewportView(list);
 
 		JLabel lblMaterias = new JLabel("Materias Cursadas");
-		lblMaterias.setBounds(91, 218, 111, 14);
+		lblMaterias.setBounds(76, 218, 111, 14);
 		contentPane.add(lblMaterias);
 
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setBackground(new Color(255, 255, 255));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -178,6 +181,7 @@ public class SCAluno extends JFrame {
 		contentPane.add(btnAdicionar);
 
 		JButton btnRemover = new JButton("Remover");
+		btnRemover.setBackground(new Color(255, 255, 255));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -196,15 +200,17 @@ public class SCAluno extends JFrame {
 		contentPane.add(btnRemover);
 
 		JButton btnNewButton = new JButton("Alterar Senha");
+		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
 				AlterarSenha alterarSenha = new AlterarSenha();
 				alterarSenha.setVisible(true);
+				alterarSenha.setBASE(getBASE());
 				alterarSenha.setCpfAutenticador(alunocontrolado.getCpf());
 			}
 		});
-		btnNewButton.setBounds(183, 184, 136, 23);
+		btnNewButton.setBounds(109, 11, 118, 23);
 		contentPane.add(btnNewButton);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
@@ -221,10 +227,11 @@ public class SCAluno extends JFrame {
 		scrollPane_1.setViewportView(list_1);
 
 		JLabel lblMateriasDisponiveisNo = new JLabel("Materias Disponiveis no Curso");
-		lblMateriasDisponiveisNo.setBounds(430, 30, 167, 14);
+		lblMateriasDisponiveisNo.setBounds(427, 30, 182, 14);
 		contentPane.add(lblMateriasDisponiveisNo);
 
 		comboBox = new JComboBox<String>();
+		comboBox.setBackground(new Color(255, 255, 255));
 		comboBox.setBounds(619, 53, 118, 22);
 		contentPane.add(comboBox);
 
@@ -232,13 +239,14 @@ public class SCAluno extends JFrame {
 		lblTurmas.setBounds(662, 30, 48, 14);
 		contentPane.add(lblTurmas);
 
-		JButton btnVoltar = new JButton("Voltar<<");
+		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
 			}
 		});
-		btnVoltar.setBounds(10, 26, 89, 23);
+		btnVoltar.setBounds(10, 11, 89, 23);
 		contentPane.add(btnVoltar);
 
 	}

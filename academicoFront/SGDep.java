@@ -21,10 +21,10 @@ import javax.swing.event.ListSelectionListener;
 
 import academicoBack.Departamento;
 import professorFront.SCProf;
-import system.Base;
-import system.Funcoes;
-import system.JtextFieldSomenteLetras;
-import system.JtextFieldSomenteNumeros;
+import systemBack.Base;
+import systemBack.Funcoes;
+import systemBack.JtextFieldSomenteLetras;
+import systemBack.JtextFieldSomenteNumeros;
 
 import javax.swing.event.ListSelectionEvent;
 import java.awt.Color;

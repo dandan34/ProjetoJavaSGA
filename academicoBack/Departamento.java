@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
 import membros.Professor;
-import system.Base;
+import systemBack.Base;
 
 public class Departamento {
 

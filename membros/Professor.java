@@ -3,8 +3,7 @@ package membros;
 import java.util.ArrayList;
 
 import academicoBack.Disciplina;
-import sun.invoke.empty.Empty;
-import system.Usuario;
+import systemBack.Usuario;
 
 public class Professor extends Pessoa {
 

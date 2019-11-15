@@ -2,8 +2,6 @@ package academicoBack;
 
 import java.util.ArrayList;
 
-import javax.print.attribute.IntegerSyntax;
-
 public class HistoricoAluno {
 
 	private String codDisciplina;

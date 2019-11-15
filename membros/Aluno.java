@@ -2,10 +2,8 @@ package membros;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 import academicoBack.HistoricoAluno;
-import system.Usuario;
+import systemBack.Usuario;
 
 public class Aluno extends Pessoa {
 

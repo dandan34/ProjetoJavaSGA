@@ -13,6 +13,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
 
 public class HistoricoAlunoFront extends JFrame {
 
@@ -38,20 +40,22 @@ public class HistoricoAlunoFront extends JFrame {
 	
 	public HistoricoAlunoFront() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 281, 412);
+		setBounds(100, 100, 269, 412);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 141, 245, 207);
+		scrollPane.setBounds(10, 141, 234, 207);
 		contentPane.add(scrollPane);
 		
 		list = new JList<String>();
 		scrollPane.setViewportView(list);
 		
-		JButton btnVoltar = new JButton("Voltar");
+		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();
@@ -67,6 +71,11 @@ public class HistoricoAlunoFront extends JFrame {
 		label = new JLabel("----");
 		label.setBounds(66, 88, 46, 14);
 		contentPane.add(label);
+		
+		JLabel lblHistrico = new JLabel("HIST\u00D3RICO ");
+		lblHistrico.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblHistrico.setBounds(74, 54, 149, 23);
+		contentPane.add(lblHistrico);
 	}
 	
 	
@@ -102,6 +111,4 @@ public class HistoricoAlunoFront extends JFrame {
 	public void setLabel(JLabel label) {
 		this.label = label;
 	}
-	
-	
 }
