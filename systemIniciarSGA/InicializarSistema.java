@@ -26,8 +26,8 @@ public class InicializarSistema {
 	private SystemLogin login = null;
 
 	private Base BASE;
-	JButton btCadastro;
-	JButton btLogin;
+	private JButton btCadastro;
+	private JButton btLogin;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -151,7 +151,7 @@ public class InicializarSistema {
 		if (cadastrar == null) {
 
 			cadastrar = new CadastroAluno();
-			cadastrar.setBASE(getBASE());
+			cadastrar.setBASE(inicio.getINSTITUTO().getBASE());
 
 			if (inicio.getINSTITUTO() != null) {
 
@@ -178,18 +178,15 @@ public class InicializarSistema {
 
 			if (inicio.getINSTITUTO() != null) {
 
-				login.setBASE(getBASE());
+				login.setBASE(inicio.getINSTITUTO().getBASE());
 			}
 
 			login.setVisible(true);
 
 		} else {
 
-			if (inicio.getINSTITUTO() != null) {
-
-				login.setBASE(getBASE());
-			}
-
+			
+			login.setBASE(inicio.getINSTITUTO().getBASE());
 			login.setVisible(true);
 		}
 
@@ -219,4 +216,20 @@ public class InicializarSistema {
 		this.cadastrar = cadastrar;
 	}
 
+	public JButton getBtCadastro() {
+		return btCadastro;
+	}
+
+	public void setBtCadastro(JButton btCadastro) {
+		this.btCadastro = btCadastro;
+	}
+
+	public JButton getBtLogin() {
+		return btLogin;
+	}
+
+	public void setBtLogin(JButton btLogin) {
+		this.btLogin = btLogin;
+	}
+	
 }

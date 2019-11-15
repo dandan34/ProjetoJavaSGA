@@ -89,6 +89,7 @@ public class SCAProf extends JFrame {
 		contentPane.add(labelcodMinistrador);
 
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -105,6 +106,7 @@ public class SCAProf extends JFrame {
 		contentPane.add(comboBox);
 
 		JButton btnSelecionar = new JButton("Selecionar");
+		btnSelecionar.setForeground(new Color(30, 144, 255));
 		btnSelecionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 

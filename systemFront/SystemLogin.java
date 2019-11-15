@@ -88,7 +88,7 @@ public class SystemLogin extends JFrame {
 		contentPane.add(lblLogin);
 
 		JButton btnLogar = new JButton("Logar");
-		btnLogar.setBackground(new Color(255, 255, 255));
+		btnLogar.setBackground(new Color(100, 149, 237));
 		btnLogar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
@@ -109,6 +109,7 @@ public class SystemLogin extends JFrame {
 		contentPane.add(btnLogar);
 		
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

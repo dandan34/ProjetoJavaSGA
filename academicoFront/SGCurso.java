@@ -104,6 +104,7 @@ public class SGCurso extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 671, 510);
 		contentPane = new JPanel();
+		contentPane.setForeground(new Color(255, 0, 0));
 		contentPane.setBackground(SystemColor.window);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -115,8 +116,9 @@ public class SGCurso extends JFrame {
 		contentPane.add(lblGerenciadorDoCurso);
 
 		this.labelCURSO = new JLabel("-----");
+		labelCURSO.setForeground(new Color(255, 0, 0));
 		labelCURSO.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		labelCURSO.setBounds(249, 11, 48, 14);
+		labelCURSO.setBounds(249, 11, 87, 14);
 		contentPane.add(labelCURSO);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -217,9 +219,9 @@ public class SGCurso extends JFrame {
 		contentPane.add(btnAdicionarMateria);
 
 		JButton btnVoltar = new JButton("Voltar <<");
-		btnVoltar.setBackground(new Color(255, 0, 0));
-		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
-		btnVoltar.setForeground(new Color(255, 255, 255));
+		btnVoltar.setBackground(new Color(255, 255, 255));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -260,7 +262,8 @@ public class SGCurso extends JFrame {
 		scrollPane_1.setViewportView(getList_1());
 
 		JLabel lblAlunosMatriculados = new JLabel("Alunos Matriculados");
-		lblAlunosMatriculados.setBounds(88, 38, 154, 14);
+		lblAlunosMatriculados.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		lblAlunosMatriculados.setBounds(92, 57, 154, 14);
 		panel.add(lblAlunosMatriculados);
 	}
 

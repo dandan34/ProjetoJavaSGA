@@ -127,6 +127,7 @@ public class SCAluno extends JFrame {
 		contentPane.add(lbcurso);
 
 		JButton btnRelatorio = new JButton("Historico");
+		btnRelatorio.setForeground(new Color(50, 205, 50));
 		btnRelatorio.setBackground(new Color(255, 255, 255));
 		btnRelatorio.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -141,7 +142,7 @@ public class SCAluno extends JFrame {
 
 			}
 		});
-		btnRelatorio.setBounds(230, 267, 89, 23);
+		btnRelatorio.setBounds(230, 275, 89, 23);
 		contentPane.add(btnRelatorio);
 
 		JScrollPane scrollPane = new JScrollPane();
@@ -156,6 +157,7 @@ public class SCAluno extends JFrame {
 		contentPane.add(lblMaterias);
 
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setForeground(new Color(30, 144, 255));
 		btnAdicionar.setBackground(new Color(255, 255, 255));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -181,6 +183,7 @@ public class SCAluno extends JFrame {
 		contentPane.add(btnAdicionar);
 
 		JButton btnRemover = new JButton("Remover");
+		btnRemover.setForeground(new Color(255, 0, 0));
 		btnRemover.setBackground(new Color(255, 255, 255));
 		btnRemover.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -240,6 +243,7 @@ public class SCAluno extends JFrame {
 		contentPane.add(lblTurmas);
 
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

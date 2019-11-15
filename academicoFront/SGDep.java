@@ -256,8 +256,8 @@ public class SGDep extends JFrame implements Funcoes {
 
 		JButton btnVoltar = new JButton("<< Voltar");
 		btnVoltar.setBackground(new Color(128, 128, 128));
-		btnVoltar.setForeground(new Color(255, 255, 255));
-		btnVoltar.setFont(new Font("Tahoma", Font.BOLD, 11));
+		btnVoltar.setForeground(new Color(255, 0, 0));
+		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnVoltar.setBounds(10, 13, 89, 23);
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

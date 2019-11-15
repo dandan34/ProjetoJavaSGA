@@ -20,6 +20,7 @@ import javax.swing.ListSelectionModel;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
 
 public class SGAPNotas extends JFrame {
 
@@ -53,6 +54,7 @@ public class SGAPNotas extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 274, 432);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
@@ -77,6 +79,8 @@ public class SGAPNotas extends JFrame {
 		scrollPane.setViewportView(list);
 
 		JButton btnApagar = new JButton("Apagar");
+		btnApagar.setBackground(new Color(255, 255, 255));
+		btnApagar.setForeground(new Color(255, 0, 0));
 		btnApagar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -99,6 +103,8 @@ public class SGAPNotas extends JFrame {
 		contentPane.add(lblNota);
 
 		JButton btnAdicionar = new JButton("Adicionar");
+		btnAdicionar.setBackground(new Color(255, 255, 255));
+		btnAdicionar.setForeground(new Color(100, 149, 237));
 		btnAdicionar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 
@@ -126,6 +132,7 @@ public class SGAPNotas extends JFrame {
 		contentPane.add(labelFALTAS);
 
 		buttonADD = new JButton("+");
+		buttonADD.setBackground(new Color(128, 128, 128));
 		buttonADD.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -137,6 +144,7 @@ public class SGAPNotas extends JFrame {
 		contentPane.add(buttonADD);
 
 		buttonSUB = new JButton("-");
+		buttonSUB.setBackground(new Color(192, 192, 192));
 		buttonSUB.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -155,7 +163,9 @@ public class SGAPNotas extends JFrame {
 		labelMatricula.setBounds(68, 84, 48, 14);
 		contentPane.add(labelMatricula);
 		
-		JButton btnVoltar = new JButton("Voltar");
+		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setBackground(new Color(255, 255, 255));
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				dispose();

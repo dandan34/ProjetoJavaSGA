@@ -75,6 +75,7 @@ public class SGTurma extends JFrame {
 		textFieldCodTurma.setColumns(10);
 
 		btnCriarTurma = new JButton("Criar");
+		btnCriarTurma.setForeground(new Color(30, 144, 255));
 		btnCriarTurma.setBackground(new Color(255, 255, 255));
 		btnCriarTurma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -98,7 +99,7 @@ public class SGTurma extends JFrame {
 		contentPane.add(lblDisciplina);
 
 		labelNomeDisciplinaManipulada = new JLabel("----");
-		labelNomeDisciplinaManipulada.setBounds(192, 11, 46, 14);
+		labelNomeDisciplinaManipulada.setBounds(192, 11, 97, 14);
 		contentPane.add(labelNomeDisciplinaManipulada);
 
 		JLabel lblCriarTurma = new JLabel("Criar Turma");
@@ -107,6 +108,7 @@ public class SGTurma extends JFrame {
 		contentPane.add(lblCriarTurma);
 
 		btnDeletarTurma = new JButton("Deletar");
+		btnDeletarTurma.setForeground(new Color(255, 0, 0));
 		btnDeletarTurma.setBackground(new Color(255, 255, 255));
 		btnDeletarTurma.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -121,6 +123,7 @@ public class SGTurma extends JFrame {
 		contentPane.add(btnDeletarTurma);
 
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

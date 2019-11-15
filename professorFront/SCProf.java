@@ -94,6 +94,7 @@ public class SCProf extends JFrame {
 		contentPane.add(lblProfessor);
 
 		labelNome = new JLabel("----");
+		labelNome.setForeground(new Color(255, 0, 0));
 		labelNome.setBounds(197, 7, 193, 14);
 		contentPane.add(labelNome);
 
@@ -169,6 +170,8 @@ public class SCProf extends JFrame {
 		contentPane.add(lblDisciplinasDoDepartamento);
 
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setBackground(new Color(255, 255, 255));
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();

@@ -264,6 +264,7 @@ public class CadastroDep extends JFrame {
 		contentPane.add(lblDepartamentosCadastrados);
 		
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

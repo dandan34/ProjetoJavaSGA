@@ -90,7 +90,7 @@ public class Inicio extends JFrame {
 		});
 		button.setForeground(Color.BLUE);
 		button.setBackground(Color.WHITE);
-		button.setBounds(192, 161, 111, 23);
+		button.setBounds(173, 161, 130, 32);
 		contentPane.add(button);
 		
 		JButton btnVoltar = new JButton("Voltar <<");

@@ -123,6 +123,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 		contentPane.add(checkboxFeminino);
 
 		JButton btnCadastrar = new JButton("Cadastrar");
+		btnCadastrar.setForeground(new Color(30, 144, 255));
 		btnCadastrar.setBackground(new Color(255, 255, 255));
 		btnCadastrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -187,6 +188,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 		contentPane.add(btnCadastrar);
 
 		JButton btnVoltar = new JButton("Voltar <<");
+		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.addActionListener(new ActionListener() {
 
