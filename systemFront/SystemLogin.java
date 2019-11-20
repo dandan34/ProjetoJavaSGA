@@ -42,6 +42,7 @@ public class SystemLogin extends JFrame {
 				try {
 					SystemLogin frame = new SystemLogin();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -53,7 +54,6 @@ public class SystemLogin extends JFrame {
 	public SystemLogin() {
 		
 		this.BASE = new Base();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

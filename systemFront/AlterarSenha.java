@@ -33,6 +33,7 @@ public class AlterarSenha extends JFrame {
 				try {
 					AlterarSenha frame = new AlterarSenha();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -42,7 +43,6 @@ public class AlterarSenha extends JFrame {
 
 	public AlterarSenha() {
 		BASE = new Base();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 419, 272);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

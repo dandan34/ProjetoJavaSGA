@@ -73,6 +73,7 @@ public class Curso {
 				for (int i = 0; i < MATERIAS.get(index).getTURMAS().size(); i++) {
 
 					MATERIAS.get(index).removeTurma(i);
+							
 				}
 				//conferir implementacao e conferir a base.. lembrar de olhar turma na base e verificar o front
 			}

@@ -96,7 +96,15 @@ public class Disciplina {
 	public Boolean removeTurma(int index) {
 
 		if (TURMAS.size() >= index) {
-
+			
+			for(int i=0;i< TURMAS.get(index).getAlunosTurma().size();i++){
+				
+				if(TURMAS.get(index).getAlunosTurma().get(i).getCURSANDO().contains(getCodDisciplina()+" "+ getNomeDisciplina()) == true) {
+					
+					TURMAS.get(index).getAlunosTurma().get(i).getCURSANDO().remove(getCodDisciplina()+" "+ getNomeDisciplina());
+				}
+				
+			}
 			TURMAS.remove(index);
 			return true;
 		} else {

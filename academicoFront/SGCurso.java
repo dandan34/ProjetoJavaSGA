@@ -20,6 +20,7 @@ import java.awt.Color;
 import javax.swing.event.ListSelectionListener;
 
 import academicoBack.Curso;
+import systemBack.Base;
 import systemBack.JtextFieldSomenteLetras;
 import systemBack.JtextFieldSomenteNumeros;
 
@@ -42,6 +43,8 @@ public class SGCurso extends JFrame {
 
 	private int index;
 	private Curso cursoManipulado;
+	
+	private Base BASE;
 
 	public void mostrarListaMaterias() {
 
@@ -90,6 +93,7 @@ public class SGCurso extends JFrame {
 				try {
 					SGCurso frame = new SGCurso();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -101,7 +105,7 @@ public class SGCurso extends JFrame {
 	 * Create the frame.
 	 */
 	public SGCurso() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.BASE = new Base();
 		setBounds(100, 100, 671, 510);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 0, 0));
@@ -161,8 +165,12 @@ public class SGCurso extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				if (list.getSelectedIndex() >= 0) {
-
+					
+					BASE.removeMateriaDoProf(cursoManipulado.getMATERIAS().get(list.getSelectedIndex()).getCodMinistrador());
 					cursoManipulado.removeMateriaIndex(getIndex());
+					
+					
+					
 					mostrarListaMaterias();
 				}
 
@@ -287,5 +295,13 @@ public class SGCurso extends JFrame {
 
 	public void setList_1(JList<String> list_1) {
 		this.list_1 = list_1;
+	}
+
+	public Base getBASE() {
+		return BASE;
+	}
+
+	public void setBASE(Base bASE) {
+		BASE = bASE;
 	}
 }

@@ -41,6 +41,7 @@ public class SGTurma extends JFrame {
 				try {
 					SGTurma frame = new SGTurma();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -50,7 +51,6 @@ public class SGTurma extends JFrame {
 
 	public SGTurma() {
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 312, 404);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

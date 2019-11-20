@@ -44,6 +44,7 @@ public class ControleProf extends JFrame {
 				try {
 					ControleProf frame = new ControleProf();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -56,7 +57,6 @@ public class ControleProf extends JFrame {
 	 */
 	public ControleProf() {
 		BASE = new Base();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 407, 719);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

@@ -36,6 +36,7 @@ public class Inicio extends JFrame {
 				try {
 					Inicio frame = new Inicio();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -45,7 +46,7 @@ public class Inicio extends JFrame {
 
 	
 	public Inicio() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
 		setBounds(100, 100, 508, 290);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

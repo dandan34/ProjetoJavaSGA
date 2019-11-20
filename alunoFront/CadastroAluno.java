@@ -51,6 +51,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 				try {
 					CadastroAluno frame = new CadastroAluno();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -60,7 +61,6 @@ public class CadastroAluno extends JFrame implements Funcoes {
 
 	public CadastroAluno() {
 		this.BASE = new Base();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 287, 348);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
@@ -207,9 +207,11 @@ public class CadastroAluno extends JFrame implements Funcoes {
 	}
 
 	public void comboBox(ArrayList<Departamento> DP) {
-
+		
+		comboBox.removeAllItems();
+		
 		if (DP.size() >= 0) {
-
+		
 			for (int i = 0; i < DP.size(); i++) {
 
 				for (int j = 0; j < DP.get(i).getCURSOS().size(); j++) {

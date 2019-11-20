@@ -224,6 +224,29 @@ public class Base {
 		}
 
 	}
+	
+	public Boolean removeMateriaDoProf(String codMateria) {
+		
+		Boolean testa = false;
+
+		for (int i = 0; i < ProfessoresDoInstituto.size(); i++) {
+
+			if(ProfessoresDoInstituto.get(i).getCodProfessor().equals(codMateria) == true){
+				
+				ProfessoresDoInstituto.get(i).removeMateria(codMateria);
+				break;
+			}
+			
+		}
+
+		if (testa == true) {
+
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
 
 	public Boolean removeProf(String codProf) {
 

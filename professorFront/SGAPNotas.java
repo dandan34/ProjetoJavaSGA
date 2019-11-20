@@ -42,6 +42,7 @@ public class SGAPNotas extends JFrame {
 				try {
 					SGAPNotas frame = new SGAPNotas();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,7 +52,6 @@ public class SGAPNotas extends JFrame {
 
 	public SGAPNotas() {
 		this.alunoManipulado = new Aluno("", "", "", "");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 274, 432);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

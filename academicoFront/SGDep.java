@@ -101,6 +101,7 @@ public class SGDep extends JFrame implements Funcoes {
 				try {
 					SGDep frame = new SGDep();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -113,7 +114,6 @@ public class SGDep extends JFrame implements Funcoes {
 	 */
 	public SGDep() {
 
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 757, 565);
 		contentPane = new JPanel();
 		contentPane.setBackground(SystemColor.window);
@@ -158,6 +158,7 @@ public class SGDep extends JFrame implements Funcoes {
 					ManipulaCurso.insereCRS(dpManipulado.CURSOS.get(list.getSelectedIndex()));
 					ManipulaCurso.setVisible(true);
 					ManipulaCurso.mostrarListaMaterias();
+					ManipulaCurso.setBASE(getBASE());
 				}
 			}
 		});
@@ -173,10 +174,7 @@ public class SGDep extends JFrame implements Funcoes {
 				if (list.getSelectedIndex() >= 0) {
 					if (dpManipulado
 							.removeCurso(dpManipulado.CURSOS.get(list.getSelectedIndex()).getNomeCurso()) == true) {
-						
-						
-						
-						
+							
 						JOptionPane.showMessageDialog(null, "Removido com Sucesso!");
 						mostrarListaCR();
 					} else {

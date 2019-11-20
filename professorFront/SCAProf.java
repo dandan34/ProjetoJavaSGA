@@ -36,6 +36,7 @@ public class SCAProf extends JFrame {
 				try {
 					SCAProf frame = new SCAProf();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -44,7 +45,6 @@ public class SCAProf extends JFrame {
 	}
 
 	public SCAProf() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 320, 535);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 255, 255));

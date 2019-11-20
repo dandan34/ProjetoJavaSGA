@@ -30,6 +30,7 @@ public class HistoricoAlunoFront extends JFrame {
 				try {
 					HistoricoAlunoFront frame = new HistoricoAlunoFront();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -39,7 +40,6 @@ public class HistoricoAlunoFront extends JFrame {
 
 	
 	public HistoricoAlunoFront() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 269, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

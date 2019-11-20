@@ -35,6 +35,8 @@ public class InicializarSistema {
 				try {
 					InicializarSistema window = new InicializarSistema();
 					window.frame.setVisible(true);
+					window.frame.setLocationRelativeTo(null);
+					
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -52,7 +54,6 @@ public class InicializarSistema {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.window);
 		frame.setBounds(100, 100, 1029, 499);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
 		JButton btCriarInsti = new JButton("Criar Instituto");
@@ -66,7 +67,8 @@ public class InicializarSistema {
 
 					inicio = new Inicio();
 					inicio.setVisible(true);
-					
+					inicio.setLocationRelativeTo(null);
+				
 					
 					btCadastro.setVisible(true);
 					btCriarInsti.setText("Acessar o insituto");

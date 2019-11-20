@@ -140,6 +140,7 @@ public class CadastroDep extends JFrame {
 				try {
 					CadastroDep frame = new CadastroDep();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 
 				} catch (Exception e) {
 					e.printStackTrace();

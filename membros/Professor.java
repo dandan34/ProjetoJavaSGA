@@ -20,8 +20,8 @@ public class Professor extends Pessoa {
 		this.MINISTRA = new ArrayList<String>();
 		this.MATERIASMINISTRADAS = new ArrayList<Disciplina>();
 		this.codigoDepartamento = codDepartamento;
-		this.USUARIO = new Usuario(getCpf(),"123");
-		
+		this.USUARIO = new Usuario(getCpf(), "123");
+
 	}
 
 	public boolean addMateria(String codDisciplina, Disciplina disciplina) {
@@ -36,16 +36,34 @@ public class Professor extends Pessoa {
 		}
 
 	}
-	
+
 	public boolean removeMateria(String codDisciplina) {
+
+		Boolean testa = false;
 
 		if (MINISTRA.contains(codDisciplina) == true) {
 			MINISTRA.remove(codDisciplina);
+
+			for (int i = 0; i < MATERIASMINISTRADAS.size(); i++) {
+
+				if (MATERIASMINISTRADAS.get(i).getCodDisciplina().equals(codDisciplina) == true) {
+
+					MATERIASMINISTRADAS.remove(i);
+					testa = true;
+					break;
+				}
+
+			}
+
+		
+
+		}
+		
+		if (testa == true) {
 			return true;
 		} else {
 			return false;
 		}
-
 	}
 
 	public boolean removeMateriaIndex(int index) {
@@ -72,12 +90,11 @@ public class Professor extends Pessoa {
 		return st;
 
 	}
-	
+
 	public String[] imprimeMinistradasNome() {
 
-		
-		if(MATERIASMINISTRADAS.isEmpty() == false) {
-			
+		if (MATERIASMINISTRADAS.isEmpty() == false) {
+
 			String st[] = new String[MATERIASMINISTRADAS.size()];
 
 			for (int i = 0; i < MINISTRA.size(); i++) {
@@ -86,18 +103,15 @@ public class Professor extends Pessoa {
 			}
 
 			return st;
-			
-		}else {
-			
+
+		} else {
+
 			String st[] = new String[0];
-			
+
 			return st;
 		}
-		
 
 	}
-	
-	
 
 	public String getCodProfessor() {
 		return codProfessor;

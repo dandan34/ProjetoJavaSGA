@@ -48,6 +48,7 @@ public class SCProf extends JFrame {
 				try {
 					SCProf frame = new SCProf();
 					frame.setVisible(true);
+					frame.setLocationRelativeTo(null);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -58,7 +59,6 @@ public class SCProf extends JFrame {
 	public SCProf() {
 
 		this.cursosManipulados = new ArrayList<Curso>();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 770, 550);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
