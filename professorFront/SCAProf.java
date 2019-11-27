@@ -45,7 +45,7 @@ public class SCAProf extends JFrame {
 	}
 
 	public SCAProf() {
-		setBounds(100, 100, 320, 535);
+		setBounds(100, 100, 350, 535);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 255, 255));
 		contentPane.setBackground(new Color(255, 255, 255));
@@ -54,7 +54,7 @@ public class SCAProf extends JFrame {
 		contentPane.setLayout(null);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 205, 285, 262);
+		scrollPane.setBounds(10, 205, 314, 262);
 		contentPane.add(scrollPane);
 
 		list = new JList<String>();
@@ -69,15 +69,15 @@ public class SCAProf extends JFrame {
 		contentPane.add(lblDisciplina);
 
 		labelDisciplina = new JLabel("----");
-		labelDisciplina.setBounds(195, 11, 48, 14);
+		labelDisciplina.setBounds(181, 11, 114, 14);
 		contentPane.add(labelDisciplina);
 
 		JLabel lblCodigo = new JLabel("Codigo:");
 		lblCodigo.setBounds(10, 43, 48, 14);
 		contentPane.add(lblCodigo);
 
-		JLabel lblNome = new JLabel("Nome Professor:");
-		lblNome.setBounds(10, 68, 94, 14);
+		JLabel lblNome = new JLabel("Cod Professor:");
+		lblNome.setBounds(10, 68, 186, 14);
 		contentPane.add(lblNome);
 
 		labelCodDisciplina = new JLabel("----");
@@ -85,7 +85,7 @@ public class SCAProf extends JFrame {
 		contentPane.add(labelCodDisciplina);
 
 		labelcodMinistrador = new JLabel("----");
-		labelcodMinistrador.setBounds(118, 68, 48, 14);
+		labelcodMinistrador.setBounds(118, 68, 156, 14);
 		contentPane.add(labelcodMinistrador);
 
 		JButton btnVoltar = new JButton("Voltar <<");
@@ -101,6 +101,7 @@ public class SCAProf extends JFrame {
 		contentPane.add(btnVoltar);
 
 		comboBox = new JComboBox<String>();
+		comboBox.setBackground(new Color(255, 255, 255));
 		comboBox.setForeground(new Color(255, 255, 255));
 		comboBox.setBounds(10, 133, 186, 23);
 		contentPane.add(comboBox);
@@ -118,7 +119,7 @@ public class SCAProf extends JFrame {
 			}
 		});
 		btnSelecionar.setBackground(new Color(255, 255, 255));
-		btnSelecionar.setBounds(206, 133, 89, 23);
+		btnSelecionar.setBounds(200, 133, 124, 23);
 		contentPane.add(btnSelecionar);
 
 		JLabel lblTurmas = new JLabel("Turmas");

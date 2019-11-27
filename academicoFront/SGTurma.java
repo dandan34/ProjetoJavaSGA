@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 
 import academicoBack.Disciplina;
 import academicoBack.Turma;
+import systemBack.Base;
 import systemBack.JtextFieldSomenteNumeros;
 
 import javax.swing.JScrollPane;
@@ -34,6 +35,8 @@ public class SGTurma extends JFrame {
 	private JLabel labelNomeDisciplinaManipulada;
 
 	private Disciplina materiaManipulada;
+	
+	private Base BASE;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -180,6 +183,14 @@ public class SGTurma extends JFrame {
 
 		list.setModel(ls);
 
+	}
+
+	public Base getBASE() {
+		return BASE;
+	}
+
+	public void setBASE(Base bASE) {
+		BASE = bASE;
 	}
 
 }

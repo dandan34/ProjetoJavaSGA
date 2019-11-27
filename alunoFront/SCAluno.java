@@ -153,7 +153,7 @@ public class SCAluno extends JFrame {
 		scrollPane.setViewportView(list);
 
 		JLabel lblMaterias = new JLabel("Materias Cursadas");
-		lblMaterias.setBounds(76, 218, 111, 14);
+		lblMaterias.setBounds(76, 218, 144, 14);
 		contentPane.add(lblMaterias);
 
 		JButton btnAdicionar = new JButton("Adicionar");
@@ -179,7 +179,7 @@ public class SCAluno extends JFrame {
 
 			}
 		});
-		btnAdicionar.setBounds(648, 82, 89, 23);
+		btnAdicionar.setBounds(619, 82, 118, 23);
 		contentPane.add(btnAdicionar);
 
 		JButton btnRemover = new JButton("Remover");
@@ -230,7 +230,7 @@ public class SCAluno extends JFrame {
 		scrollPane_1.setViewportView(list_1);
 
 		JLabel lblMateriasDisponiveisNo = new JLabel("Materias Disponiveis no Curso");
-		lblMateriasDisponiveisNo.setBounds(427, 30, 182, 14);
+		lblMateriasDisponiveisNo.setBounds(427, 30, 225, 14);
 		contentPane.add(lblMateriasDisponiveisNo);
 
 		comboBox = new JComboBox<String>();

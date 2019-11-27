@@ -77,6 +77,7 @@ public class Inicio extends JFrame {
 						setINSTITUTO(new CadastroDep());			
 						getINSTITUTO().setVisible(true);
 						getINSTITUTO().getTxInstituto().setText(getNOMEINSTITUTO());;
+						INSTITUTO.mostrarListaAlunosInstituto();
 						
 						dispose();
 					}

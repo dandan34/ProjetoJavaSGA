@@ -2,6 +2,8 @@ package membros;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import academicoBack.Disciplina;
 import systemBack.Usuario;
 
@@ -40,7 +42,10 @@ public class Professor extends Pessoa {
 	public boolean removeMateria(String codDisciplina) {
 
 		Boolean testa = false;
-
+//continuar implementando aqui..
+		
+		JOptionPane.showMessageDialog(null, codDisciplina);
+		
 		if (MINISTRA.contains(codDisciplina) == true) {
 			MINISTRA.remove(codDisciplina);
 

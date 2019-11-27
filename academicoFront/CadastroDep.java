@@ -37,6 +37,7 @@ public class CadastroDep extends JFrame {
 	private JButton btAcessarDP;
 	private JButton btDelDP;
 	private JList<String> list;
+	private JList<String> list_Alunos;
 	private JLabel txInstituto;
 	private int index;
 	private SGDep dPControle;
@@ -95,19 +96,39 @@ public class CadastroDep extends JFrame {
 
 	public void mostrarListaDP() {
 
-		if (DP.size() >= 0) {
-
+		if(BASE.getAlunosDoInstituto().size() >= 0) {
+			
 			DefaultListModel<String> ls = new DefaultListModel<String>();
 			list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
 			String st[] = imprimeDPTexistentes();
 
-			for (int i = 0; i < DP.size(); i++) {
+			for (int i = 0; i < st.length; i++) {
 
 				ls.addElement(st[i]);
 			}
 
-			list.setModel(ls);
+			list.setModel(ls);	
+			
+		}
+			
+	}
+	
+	public void mostrarListaAlunosInstituto() {
+
+		if (BASE.getAlunosDoInstituto().size() >= 0) {
+
+			DefaultListModel<String> ls = new DefaultListModel<String>();
+			list_Alunos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+
+			String st[] = BASE.ImprimeAlunosInstituto();
+
+			for (int i = 0; i < st.length; i++) {
+
+				ls.addElement(st[i]);
+			}
+
+			list_Alunos.setModel(ls);
 
 		}
 	}
@@ -158,7 +179,7 @@ public class CadastroDep extends JFrame {
 		setValorIndex(0);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 400, 570);
+		setBounds(100, 100, 781, 570);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -280,6 +301,27 @@ public class CadastroDep extends JFrame {
 		txInstituto.setFont(new Font("Tahoma", Font.BOLD, 18));
 		txInstituto.setBounds(164, 46, 166, 28);
 		contentPane.add(txInstituto);
+		
+		JScrollPane scrollPane_1 = new JScrollPane();
+		scrollPane_1.setBounds(420, 71, 317, 449);
+		contentPane.add(scrollPane_1);
+		
+		list_Alunos = new JList<String>();
+		scrollPane_1.setViewportView(list_Alunos);
+		
+		JLabel lblAlunosMatriculados = new JLabel("Alunos Matriculados");
+		lblAlunosMatriculados.setBounds(420, 46, 166, 14);
+		contentPane.add(lblAlunosMatriculados);
+		
+		JButton btnRefresh = new JButton("Refresh");
+		btnRefresh.setBackground(new Color(255, 255, 255));
+		btnRefresh.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				mostrarListaAlunosInstituto();
+			}
+		});
+		btnRefresh.setBounds(648, 42, 89, 23);
+		contentPane.add(btnRefresh);
 
 		btDelDP.addActionListener(new ActionListener() {
 
@@ -344,5 +386,4 @@ public class CadastroDep extends JFrame {
 	public void setTxInstituto(JLabel txInstituto) {
 		this.txInstituto = txInstituto;
 	}
-	
 }

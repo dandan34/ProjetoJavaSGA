@@ -256,10 +256,6 @@ public class SCProf extends JFrame {
 		lblNome_1.setBounds(10, 226, 46, 14);
 		panel.add(lblNome_1);
 
-		JLabel lblNome_2 = new JLabel("Nome:");
-		lblNome_2.setBounds(93, 226, 46, 14);
-		panel.add(lblNome_2);
-
 	}
 
 	public Professor getProfessorManipulado() {
@@ -395,6 +391,7 @@ public class SCProf extends JFrame {
 
 	public void setComboBox(JComboBox<String> comboBox) {
 		this.comboBox = comboBox;
+		comboBox.setBackground(new Color(255, 255, 255));
 	}
 
 	public ArrayList<Curso> getCursosManipulados() {

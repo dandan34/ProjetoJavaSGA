@@ -43,7 +43,7 @@ public class SGCurso extends JFrame {
 
 	private int index;
 	private Curso cursoManipulado;
-	
+
 	private Base BASE;
 
 	public void mostrarListaMaterias() {
@@ -148,6 +148,7 @@ public class SGCurso extends JFrame {
 					SGTurma turma = new SGTurma();
 					turma.setMateriaManipulada(cursoManipulado.getDisciplinaIndex(list.getSelectedIndex()));
 					turma.mostrarListaTurmas();
+					turma.setBASE(getBASE());
 					turma.setVisible(true);
 
 				}
@@ -165,12 +166,12 @@ public class SGCurso extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				if (list.getSelectedIndex() >= 0) {
+
+					BASE.removeMateriaDoProf(cursoManipulado.getMATERIAS().get(list.getSelectedIndex()).getCodMinistrador(),
+							cursoManipulado.getMATERIAS().get(list.getSelectedIndex()).getCodDisciplina(), cursoManipulado.getCodDepartamentoResponsavel());
 					
-					BASE.removeMateriaDoProf(cursoManipulado.getMATERIAS().get(list.getSelectedIndex()).getCodMinistrador());
 					cursoManipulado.removeMateriaIndex(getIndex());
-					
-					
-					
+
 					mostrarListaMaterias();
 				}
 

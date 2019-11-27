@@ -1,6 +1,5 @@
 package systemIniciarSGA;
 
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
@@ -36,7 +35,7 @@ public class InicializarSistema {
 					InicializarSistema window = new InicializarSistema();
 					window.frame.setVisible(true);
 					window.frame.setLocationRelativeTo(null);
-					
+
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -68,22 +67,23 @@ public class InicializarSistema {
 					inicio = new Inicio();
 					inicio.setVisible(true);
 					inicio.setLocationRelativeTo(null);
-				
-					
 					btCadastro.setVisible(true);
 					btCriarInsti.setText("Acessar o insituto");
 					btLogin.setVisible(true);
 					btCriarInsti.setBounds(144, 151, 287, 131);
-					
+
 				} else {
 
 					if (inicio.getINSTITUTO() == null) {
 
 						inicio.setVisible(true);
 
+
 					} else {
 
 						inicio.getINSTITUTO().setVisible(true);
+						inicio.getINSTITUTO().mostrarListaAlunosInstituto();
+
 					}
 
 				}
@@ -133,8 +133,7 @@ public class InicializarSistema {
 		btLogin.setBounds(441, 213, 268, 126);
 		frame.getContentPane().add(btLogin);
 		btLogin.setVisible(false);
-		
-		
+
 		JButton btSair = new JButton("Sair");
 		btSair.setForeground(new Color(255, 0, 0));
 		btSair.setBackground(new Color(255, 255, 255));
@@ -164,10 +163,9 @@ public class InicializarSistema {
 			cadastrar.setVisible(true);
 
 		} else {
-			
-			
-		cadastrar.comboBox(inicio.getINSTITUTO().getDPTS());
-		cadastrar.setVisible(true);
+
+			cadastrar.comboBox(inicio.getINSTITUTO().getDPTS());
+			cadastrar.setVisible(true);
 		}
 
 	}
@@ -187,7 +185,6 @@ public class InicializarSistema {
 
 		} else {
 
-			
 			login.setBASE(inicio.getINSTITUTO().getBASE());
 			login.setVisible(true);
 		}
@@ -233,5 +230,5 @@ public class InicializarSistema {
 	public void setBtLogin(JButton btLogin) {
 		this.btLogin = btLogin;
 	}
-	
+
 }

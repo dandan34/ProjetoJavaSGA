@@ -64,7 +64,7 @@ public class SGAPNotas extends JFrame {
 		contentPane.add(lblAluno);
 
 		labelAlunoNome = new JLabel("----");
-		labelAlunoNome.setBounds(68, 59, 48, 14);
+		labelAlunoNome.setBounds(68, 59, 161, 14);
 		contentPane.add(labelAlunoNome);
 
 		JLabel lblNotas = new JLabel("Notas");
@@ -160,7 +160,7 @@ public class SGAPNotas extends JFrame {
 		contentPane.add(lblMatricula);
 
 		labelMatricula = new JLabel("----");
-		labelMatricula.setBounds(68, 84, 48, 14);
+		labelMatricula.setBounds(68, 84, 180, 14);
 		contentPane.add(labelMatricula);
 		
 		JButton btnVoltar = new JButton("Voltar <<");

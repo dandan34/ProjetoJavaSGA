@@ -141,7 +141,7 @@ public class SGDep extends JFrame implements Funcoes {
 		scrollPane.setViewportView(list);
 
 		JLabel lblCursos = new JLabel("Cursos Existente ");
-		lblCursos.setBounds(56, 245, 107, 14);
+		lblCursos.setBounds(56, 245, 182, 14);
 		lblCursos.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		contentPane.add(lblCursos);
 
@@ -253,7 +253,7 @@ public class SGDep extends JFrame implements Funcoes {
 		contentPane.add(lblDP);
 
 		JButton btnVoltar = new JButton("<< Voltar");
-		btnVoltar.setBackground(new Color(128, 128, 128));
+		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnVoltar.setBounds(10, 13, 89, 23);
@@ -315,7 +315,7 @@ public class SGDep extends JFrame implements Funcoes {
 
 		JButton btnCadastrarProf = new JButton("Cadastrar");
 		btnCadastrarProf.setBackground(new Color(255, 255, 255));
-		btnCadastrarProf.setBounds(529, 176, 89, 23);
+		btnCadastrarProf.setBounds(506, 176, 112, 23);
 		btnCadastrarProf.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -414,7 +414,7 @@ public class SGDep extends JFrame implements Funcoes {
 		scrollPane_1.setViewportView(list_2);
 
 		JLabel lblProfessoresDoDepartamento = new JLabel("Professores do Departamento");
-		lblProfessoresDoDepartamento.setBounds(405, 245, 189, 14);
+		lblProfessoresDoDepartamento.setBounds(405, 235, 189, 14);
 		lblProfessoresDoDepartamento.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		contentPane.add(lblProfessoresDoDepartamento);
 
