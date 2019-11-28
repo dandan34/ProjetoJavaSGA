@@ -184,22 +184,32 @@ public class ControleProf extends JFrame {
 		});
 		btnVoltar.setBounds(10, 11, 89, 23);
 		contentPane.add(btnVoltar);
-		
+
 		JButton btnAlterarSenha = new JButton("Alterar Senha");
 		btnAlterarSenha.setBackground(new Color(255, 255, 255));
 		btnAlterarSenha.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 				AlterarSenha alterarSenha = new AlterarSenha();
 				alterarSenha.setVisible(true);
 				alterarSenha.setBASE(getBASE());
 				alterarSenha.setCpfAutenticador(ProfessorManipulado.getCpf());
-				
+
 			}
 		});
 		btnAlterarSenha.setBounds(103, 11, 118, 23);
 		contentPane.add(btnAlterarSenha);
 	}
+	/*
+	 * Busca na base para manipulação de dados o aluno relacionado baseando se no
+	 * item selecionado na lista
+	 * 
+	 * @param dadosAluno
+	 * 
+	 * @return Aluno
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Aluno PuxarAluno(String dadosAluno) {
 
@@ -224,12 +234,24 @@ public class ControleProf extends JFrame {
 		return ProfessorManipulado;
 	}
 
+	/*
+	 * imprime na interface os dados do professor
+	 * 
+	 * @param professorManipulado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void setProfessorManipulado(Professor professorManipulado) {
 		ProfessorManipulado = professorManipulado;
 		labelCod.setText(professorManipulado.getCodProfessor());
 		labelNome.setText(professorManipulado.getNome());
 	}
 
+	/*
+	 * Mostra combobox de materias ministradas pelo professor
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarComboMaterias() {
 
 		if (ProfessorManipulado.getMINISTRA().isEmpty() == false) {
@@ -243,6 +265,11 @@ public class ControleProf extends JFrame {
 		}
 	}
 
+	/*
+	 * Mostra combobox de turmas ministradas pelo professor
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarComboTurma(int index) {
 
 		if (comboBoxTurma.getItemCount() >= 0) {
@@ -262,7 +289,15 @@ public class ControleProf extends JFrame {
 		}
 	}
 
-	// controle de prof...
+	/*
+	 * Mostra na lista todos os alunos da turma a qual o professor ministra
+	 * 
+	 * @param index
+	 * 
+	 * @param index2
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarListaAlunos(int index, int index2) {
 
 		DefaultListModel<String> ls = new DefaultListModel<String>();

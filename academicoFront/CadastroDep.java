@@ -46,7 +46,15 @@ public class CadastroDep extends JFrame {
 	private Base BASE;
 
 	/*
-	 * Controles departamentos
+	 * Adiciona Departamento
+	 * 
+	 * @param nome
+	 * 
+	 * @param codigo
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
 	 */
 	public Boolean addDepartamento(String nome, String codigo) {
 
@@ -72,6 +80,13 @@ public class CadastroDep extends JFrame {
 		}
 
 	}
+	/*
+	 * Armazena todos os departamentos existentes em um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public String[] imprimeDPTexistentes() {
 
@@ -94,10 +109,15 @@ public class CadastroDep extends JFrame {
 		this.DP = x;
 	}
 
+	/*
+	 * Imprime na interface grafica a lista dos Departamentos existentes
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarListaDP() {
 
-		if(BASE.getAlunosDoInstituto().size() >= 0) {
-			
+		if (BASE.getAlunosDoInstituto().size() >= 0) {
+
 			DefaultListModel<String> ls = new DefaultListModel<String>();
 			list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
@@ -108,12 +128,17 @@ public class CadastroDep extends JFrame {
 				ls.addElement(st[i]);
 			}
 
-			list.setModel(ls);	
-			
+			list.setModel(ls);
+
 		}
-			
+
 	}
-	
+	/*
+	 * Imprime na interface grafica a lista de alunos do instituto
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public void mostrarListaAlunosInstituto() {
 
 		if (BASE.getAlunosDoInstituto().size() >= 0) {
@@ -154,7 +179,6 @@ public class CadastroDep extends JFrame {
 		return this.index;
 	}
 
-
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -171,13 +195,13 @@ public class CadastroDep extends JFrame {
 	}
 
 	public CadastroDep() {
-		
+
 		this.DP = new ArrayList<Departamento>();
 		dPControle = new SGDep();
 		this.setBASE(new Base());
 		BASE.setDepartamentosDoInstituto(DP);
 		setValorIndex(0);
-		
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 781, 570);
 		contentPane = new JPanel();
@@ -284,7 +308,7 @@ public class CadastroDep extends JFrame {
 		lblDepartamentosCadastrados.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		lblDepartamentosCadastrados.setBounds(46, 250, 187, 14);
 		contentPane.add(lblDepartamentosCadastrados);
-		
+
 		JButton btnVoltar = new JButton("Voltar <<");
 		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
@@ -295,24 +319,24 @@ public class CadastroDep extends JFrame {
 		});
 		btnVoltar.setBounds(10, 11, 89, 23);
 		contentPane.add(btnVoltar);
-		
+
 		txInstituto = new JLabel("----");
 		txInstituto.setForeground(new Color(255, 0, 0));
 		txInstituto.setFont(new Font("Tahoma", Font.BOLD, 18));
 		txInstituto.setBounds(164, 46, 166, 28);
 		contentPane.add(txInstituto);
-		
+
 		JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(420, 71, 317, 449);
 		contentPane.add(scrollPane_1);
-		
+
 		list_Alunos = new JList<String>();
 		scrollPane_1.setViewportView(list_Alunos);
-		
+
 		JLabel lblAlunosMatriculados = new JLabel("Alunos Matriculados");
 		lblAlunosMatriculados.setBounds(420, 46, 166, 14);
 		contentPane.add(lblAlunosMatriculados);
-		
+
 		JButton btnRefresh = new JButton("Refresh");
 		btnRefresh.setBackground(new Color(255, 255, 255));
 		btnRefresh.addActionListener(new ActionListener() {
@@ -351,16 +375,21 @@ public class CadastroDep extends JFrame {
 			}
 		});
 	}
-	
+
+	/*
+	 * Torna todos os itens da interface grafica visivel e manipulaveis
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void acessarDPT() {
-		
+
 		dPControle.insereDP(acess(getValorIndex()));
 		dPControle.mostrarListaCR();
 		dPControle.mostrarListaPRF();
 		dPControle.setBASE(getBASE());
 		dPControle.setVisible(true);
 		dPControle.setBASE(getBASE());
-		
+
 	}
 
 	public Base getBASE() {

@@ -18,7 +18,6 @@ import java.awt.Font;
 
 public class HistoricoAlunoFront extends JFrame {
 
-	
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JList<String> list;
@@ -38,7 +37,6 @@ public class HistoricoAlunoFront extends JFrame {
 		});
 	}
 
-	
 	public HistoricoAlunoFront() {
 		setBounds(100, 100, 269, 412);
 		contentPane = new JPanel();
@@ -46,14 +44,14 @@ public class HistoricoAlunoFront extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 141, 234, 207);
 		contentPane.add(scrollPane);
-		
+
 		list = new JList<String>();
 		scrollPane.setViewportView(list);
-		
+
 		JButton btnVoltar = new JButton("Voltar <<");
 		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
@@ -64,50 +62,61 @@ public class HistoricoAlunoFront extends JFrame {
 		});
 		btnVoltar.setBounds(10, 11, 89, 23);
 		contentPane.add(btnVoltar);
-		
+
 		JLabel lblFaltas = new JLabel("Faltas:");
 		lblFaltas.setBounds(10, 88, 46, 14);
 		contentPane.add(lblFaltas);
-		
+
 		label = new JLabel("----");
 		label.setBounds(66, 88, 46, 14);
 		contentPane.add(label);
-		
+
 		JLabel lblHistrico = new JLabel("HIST\u00D3RICO ");
 		lblHistrico.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		lblHistrico.setBounds(74, 54, 149, 23);
 		contentPane.add(lblHistrico);
 	}
-	
-	
+
+	/*
+	 * Imprime na interface grafica todas as notas
+	 * 
+	 * @param notas
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public void mostrarListaNotas(String[] notas) {
-		
 
-			DefaultListModel<String> ls = new DefaultListModel<String>();
-			list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		DefaultListModel<String> ls = new DefaultListModel<String>();
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
-			String st[] = notas;
+		String st[] = notas;
 
-			for (int i = 0; i < st.length; i++) {
+		for (int i = 0; i < st.length; i++) {
 
-				ls.addElement(st[i]);
-			}
+			ls.addElement(st[i]);
+		}
 
-			list.setModel(ls);
-		
+		list.setModel(ls);
+
 	}
-	
+	/*
+	 * Imprime todas as faltas
+	 * 
+	 * @param faltas
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public void mostrarFaltas(String faltas) {
-		
-		getLabel().setText(faltas);
-		
-	}
 
+		getLabel().setText(faltas);
+
+	}
 
 	public JLabel getLabel() {
 		return label;
 	}
-
 
 	public void setLabel(JLabel label) {
 		this.label = label;

@@ -15,14 +15,29 @@ public class HistoricoAluno {
 		this.faltas = 0;
 		this.notas = new ArrayList<Float>();
 	}
-	
+	/*
+	 * Armazena em todas as faltas em uma String
+	 * 
+	 * @return String
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public String imprimeFaltas() {
-		
+
 		String faltas = "" + this.faltas;
-		
+
 		return faltas;
-		
+
 	}
+
+	/*
+	 * Armazena todas as notas em um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String[] imprimeNotas() {
 
 		String[] st = new String[notas.size()];
@@ -35,6 +50,15 @@ public class HistoricoAluno {
 
 	}
 
+	/*
+	 * Imprime uma nota especifica baseado em um index
+	 * 
+	 * @param index
+	 * 
+	 * @return String
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String imprimeNotaEspecifica(int index) {
 
 		String st;
@@ -43,16 +67,15 @@ public class HistoricoAluno {
 	}
 
 	public void addNota(float nota) {
-		
+
 		notas.add(nota);
-	
-	}
-	
-	public void removenota(int index) {
-		
-		notas.remove(index);
+
 	}
 
+	public void removenota(int index) {
+
+		notas.remove(index);
+	}
 
 	public int getFaltas() {
 		return faltas;

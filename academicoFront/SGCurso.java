@@ -29,9 +29,6 @@ import java.awt.SystemColor;
 
 public class SGCurso extends JFrame {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTextField textNomeMateria;
@@ -46,6 +43,11 @@ public class SGCurso extends JFrame {
 
 	private Base BASE;
 
+	/*
+	 * Imprime na interface grafica todas as Materias existentes no curso
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarListaMaterias() {
 
 		if (cursoManipulado.getMATERIAS().size() >= 0) {
@@ -64,6 +66,11 @@ public class SGCurso extends JFrame {
 
 		}
 	}
+	/*
+	 * Imprime na interface grafica todos os alunos existentes no curso
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void mostrarListaAlunos() {
 
@@ -167,9 +174,11 @@ public class SGCurso extends JFrame {
 
 				if (list.getSelectedIndex() >= 0) {
 
-					BASE.removeMateriaDoProf(cursoManipulado.getMATERIAS().get(list.getSelectedIndex()).getCodMinistrador(),
-							cursoManipulado.getMATERIAS().get(list.getSelectedIndex()).getCodDisciplina(), cursoManipulado.getCodDepartamentoResponsavel());
-					
+					BASE.removeMateriaDoProf(
+							cursoManipulado.getMATERIAS().get(list.getSelectedIndex()).getCodMinistrador(),
+							cursoManipulado.getMATERIAS().get(list.getSelectedIndex()).getCodDisciplina(),
+							cursoManipulado.getCodDepartamentoResponsavel());
+
 					cursoManipulado.removeMateriaIndex(getIndex());
 
 					mostrarListaMaterias();
@@ -275,6 +284,11 @@ public class SGCurso extends JFrame {
 		lblAlunosMatriculados.setBounds(92, 57, 154, 14);
 		panel.add(lblAlunosMatriculados);
 	}
+	/*
+	 * Insere na label o nome do curso e atualiza a lista de alunos na interface
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void insereCRS(Curso crs) {
 		this.cursoManipulado = crs;

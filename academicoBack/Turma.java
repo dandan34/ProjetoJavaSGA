@@ -15,6 +15,14 @@ public class Turma {
 		this.codigoTurma = codigoTurma;
 	}
 
+	/*
+	 * Verifica se um Aluno esta matriculado na turma
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public boolean verificaAluno(String cpf) {
 
 		Boolean testa = false;
@@ -34,6 +42,15 @@ public class Turma {
 			return true;
 		}
 	}
+	/*
+	 * Adiciona um Aluno a Turma
+	 * 
+	 * @param aluno
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public boolean addAluno(Aluno aluno) {
 
@@ -46,6 +63,15 @@ public class Turma {
 		}
 	}
 
+	/*
+	 * Remove aluno da turma
+	 * 
+	 * @param cpf
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public boolean removeAluno(String cpf) {
 
 		if (verificaAluno(cpf) == true) {
@@ -66,21 +92,34 @@ public class Turma {
 		}
 
 	}
-	
+
+	/*
+	 * Armazena todos os alunos da turma em um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String[] imprimeAlunosTurma() {
-		
+
 		String[] st = new String[alunosTurma.size()];
-		
-		for(int i=0; i < st.length ; i ++) {
-			
+
+		for (int i = 0; i < st.length; i++) {
+
 			st[i] = alunosTurma.get(i).getMatricula() + " " + alunosTurma.get(i).getNome();
 		}
-		
+
 		return st;
 	}
-	
+
+	/*
+	 * Atribui null a todos atributos da turma
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 * 
+	 */
 	public void setNULLTURMA() {
-		
+
 		alunosTurma = null;
 		codigoTurma = null;
 	}

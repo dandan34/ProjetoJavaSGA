@@ -262,6 +262,13 @@ public class SCProf extends JFrame {
 		return professorManipulado;
 	}
 
+	/*
+	 * Imprime na interface todos os dados relacionado ao professor
+	 * 
+	 * @param professorManipulado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void setProfessorManipulado(Professor professorManipulado) {
 		this.professorManipulado = professorManipulado;
 		labelNome.setText(professorManipulado.getNome());
@@ -272,6 +279,13 @@ public class SCProf extends JFrame {
 
 	}
 
+	/*
+	 * Imprime no comboBox todas as materias do professor
+	 * 
+	 * @param cursosDoDP
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void setCursosDPdoProf(ArrayList<Curso> cursosDoDP) {
 
 		if (cursosDoDP.size() >= 0) {
@@ -292,6 +306,13 @@ public class SCProf extends JFrame {
 		}
 	}
 
+	/*
+	 * Imprime a lista de disciplinas do curso manipulado
+	 * 
+	 * @param manipulado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarListaDisciplinas(Curso manipulado) {
 
 		DefaultListModel<String> ls = new DefaultListModel<String>();
@@ -307,6 +328,11 @@ public class SCProf extends JFrame {
 		list.setModel(ls);
 
 	}
+	/*
+	 * Imprime a lista de materias ministradas pelo professor
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void mostrarListaMinistradas() {
 
@@ -335,6 +361,13 @@ public class SCProf extends JFrame {
 		}
 	}
 
+	/*
+	 * Remove professor da disciplina
+	 * 
+	 * @param codigo
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void removeMinistrador(String codigo) {
 
 		for (int i = 0; i < cursosManipulados.size(); i++) {

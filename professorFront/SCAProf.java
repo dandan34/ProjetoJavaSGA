@@ -112,7 +112,7 @@ public class SCAProf extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				if (comboBox.getSelectedIndex() >= 0) {
-						
+
 					mostrarLista(comboBox.getSelectedIndex());
 				}
 
@@ -132,6 +132,11 @@ public class SCAProf extends JFrame {
 		return materiaMinistrada;
 	}
 
+	/*
+	 * Imprime na interface grafica todas as turmas disponiveis para combobox
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void imprimeturmasMateria() {
 
 		if (materiaMinistrada.imprimeTURMA().length >= 0) {
@@ -147,7 +152,12 @@ public class SCAProf extends JFrame {
 		}
 
 	}
-	
+
+	/*
+	 * Mostra a lista de alunos presentes na turma baseado na combobox
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarLista(int index) {
 
 		if (materiaMinistrada.getTURMAS().size() >= 0) {
@@ -166,6 +176,13 @@ public class SCAProf extends JFrame {
 
 		}
 	}
+	/*
+	 * Imprime na interface todos os dados relacionados a materia manipulada
+	 * 
+	 * @param materiaMinistrada
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void setMateriaMinistrada(Disciplina materiaMinistrada) {
 		this.materiaMinistrada = materiaMinistrada;

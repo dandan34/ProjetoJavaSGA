@@ -22,9 +22,18 @@ public class Aluno extends Pessoa {
 		this.USUARIO = new Usuario(getCpf(), "123");
 		this.status = true;
 	}
+	/*
+	 * Adiciona disciplina ao aluno
+	 * 
+	 * @param codigo
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Boolean addDisciplina(String codigo) {
-		
+
 		if (CURSANDO.contains(codigo) == true) {
 			return false;
 		} else {
@@ -37,6 +46,15 @@ public class Aluno extends Pessoa {
 		}
 	}
 
+	/*
+	 * Remove disciplina do Aluno
+	 * 
+	 * @param codigo
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean removeDisciplina(String codigo) {
 
 		if (CURSANDO.contains(codigo)) {
@@ -54,6 +72,11 @@ public class Aluno extends Pessoa {
 		}
 	}
 
+	/*
+	 * Remove todas as disciplinas do aluno
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void removeALLDisciplina() {
 
 		for (int i = 0; i < CURSANDO.size(); i++) {
@@ -62,6 +85,13 @@ public class Aluno extends Pessoa {
 			NOTAS.remove(i);
 		}
 	}
+	/*
+	 * Armazena todas as disciplinas do aluno a um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public String[] imprimeCursando() {
 

@@ -54,6 +54,11 @@ public class SGDep extends JFrame implements Funcoes {
 	private JTextField txEndProf;
 	private JTextField txCodProf;
 
+	/*
+	 * Imprime na interface grafica a lista de cursos existentes
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarListaCR() {
 
 		if (dpManipulado.getCURSOS().size() >= 0) {
@@ -72,6 +77,11 @@ public class SGDep extends JFrame implements Funcoes {
 
 		}
 	}
+	/*
+	 * Imprime na interface grafica os professores existentes no departamento
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void mostrarListaPRF() {
 
@@ -174,7 +184,7 @@ public class SGDep extends JFrame implements Funcoes {
 				if (list.getSelectedIndex() >= 0) {
 					if (dpManipulado
 							.removeCurso(dpManipulado.CURSOS.get(list.getSelectedIndex()).getNomeCurso()) == true) {
-							
+
 						JOptionPane.showMessageDialog(null, "Removido com Sucesso!");
 						mostrarListaCR();
 					} else {
@@ -443,20 +453,21 @@ public class SGDep extends JFrame implements Funcoes {
 					if (getValorIndexList2() >= 0) {
 
 						String st = dpManipulado.getPROFESSORES().get(getValorIndexList2()).getCodProfessor();
-						
-						JOptionPane.showMessageDialog(null, dpManipulado.getPROFESSORES().get(getValorIndexList2()).getCodProfessor());
-						
+
+						JOptionPane.showMessageDialog(null,
+								dpManipulado.getPROFESSORES().get(getValorIndexList2()).getCodProfessor());
+
 						if (dpManipulado.removeProfessor(st) == true) {
 							mostrarListaPRF();
 							JOptionPane.showMessageDialog(null, "Removido com sucesso!");
-							
+
 						} else {
 							JOptionPane.showMessageDialog(null, "Algo deu errado na remoção!");
 						}
 					}
 
 				}
-				
+
 				JOptionPane.showMessageDialog(null, BASE.getCpfProfessores());
 			}
 		});
@@ -473,6 +484,15 @@ public class SGDep extends JFrame implements Funcoes {
 
 	}
 
+	/*
+	 * Verifica a existencia de um professor na Base
+	 * 
+	 * @param codProf
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public boolean verificaCodProfBASE(String codProf) {
 
 		if (BASE.getCodProfessores().contains(codProf) == true) {
@@ -484,6 +504,16 @@ public class SGDep extends JFrame implements Funcoes {
 		}
 
 	}
+
+	/*
+	 * Verifica cpf existentes na Base
+	 * 
+	 * @param cpf
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public boolean verificaBase(String cpf) {
 
@@ -501,6 +531,11 @@ public class SGDep extends JFrame implements Funcoes {
 			}
 		}
 	}
+	/*
+	 * libera o acesso do professor a seu painel de controle
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void AcessoProfessor() {
 
@@ -518,6 +553,13 @@ public class SGDep extends JFrame implements Funcoes {
 
 	}
 
+	/*
+	 * Insere o nome do Departamento na label
+	 * 
+	 * @param dp
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void insereDP(Departamento dp) {
 		this.dpManipulado = dp;
 		lblDP.setText(dp.getNome());
@@ -555,6 +597,11 @@ public class SGDep extends JFrame implements Funcoes {
 		BASE = bASE;
 	}
 
+	/*
+	 * Limpa todos os campos
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	@Override
 	public void limpar() {
 		txCodProf.setText("");

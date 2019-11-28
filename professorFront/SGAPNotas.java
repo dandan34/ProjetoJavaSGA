@@ -162,7 +162,7 @@ public class SGAPNotas extends JFrame {
 		labelMatricula = new JLabel("----");
 		labelMatricula.setBounds(68, 84, 180, 14);
 		contentPane.add(labelMatricula);
-		
+
 		JButton btnVoltar = new JButton("Voltar <<");
 		btnVoltar.setBackground(new Color(255, 255, 255));
 		btnVoltar.setForeground(new Color(255, 0, 0));
@@ -175,9 +175,16 @@ public class SGAPNotas extends JFrame {
 		contentPane.add(btnVoltar);
 
 	}
-	
+
+	/*
+	 * Apaga a nota do aluno manipulado
+	 * 
+	 * @param index
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void apagarNota(int index) {
-		
+
 		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
 
 			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
@@ -186,12 +193,18 @@ public class SGAPNotas extends JFrame {
 				break;
 			}
 		}
-		
+
 		mostrarNotas();
-		
+
 	}
+	/*
+	 * Adiciona falta ao aluno manipulado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public void addfalta() {
-		
+
 		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
 
 			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
@@ -201,17 +214,21 @@ public class SGAPNotas extends JFrame {
 			}
 		}
 	}
-	
+	/*
+	 * subtrai falta do aluno manipulado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public void subfalta() {
-		
+
 		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
 
 			if (alunoManipulado.getNOTAS().get(i).getCodDisciplina().equals(getCodDisciplina()) == true) {
 
 				if (alunoManipulado.getNOTAS().get(i).getFaltas() > 0) {
 
-					alunoManipulado.getNOTAS().get(i)
-							.setFaltas(alunoManipulado.getNOTAS().get(i).getFaltas() - 1);
+					alunoManipulado.getNOTAS().get(i).setFaltas(alunoManipulado.getNOTAS().get(i).getFaltas() - 1);
 					break;
 				}
 
@@ -219,6 +236,13 @@ public class SGAPNotas extends JFrame {
 		}
 	}
 
+	/*
+	 * Adiciona nota ao aluno manipulado
+	 * 
+	 * @param nota
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void addNota(float nota) {
 
 		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
@@ -232,9 +256,14 @@ public class SGAPNotas extends JFrame {
 
 		mostrarNotas();
 	}
-	
 
-
+	/*
+	 * Remove nota do aluno manipulado
+	 * 
+	 * @param index
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void removeNota(int index) {
 
 		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
@@ -249,6 +278,11 @@ public class SGAPNotas extends JFrame {
 		mostrarNotas();
 	}
 
+	/*
+	 * Mostra faltas do aluno manipulado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112s
+	 */
 	public void mostrarFaltas() {
 
 		for (int i = 0; i < alunoManipulado.getNOTAS().size(); i++) {
@@ -257,13 +291,18 @@ public class SGAPNotas extends JFrame {
 
 				labelFALTAS.setText(" " + alunoManipulado.getNOTAS().get(i).getFaltas());
 				break;
-			}else {
-				
-				JOptionPane.showMessageDialog(null,alunoManipulado.getNOTAS().get(i).getCodDisciplina());
+			} else {
+
+				JOptionPane.showMessageDialog(null, alunoManipulado.getNOTAS().get(i).getCodDisciplina());
 			}
 		}
 	}
 
+	/*
+	 * Mostra notas do aluno manipulado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarNotas() {
 
 		String[] st = new String[4];
@@ -294,14 +333,19 @@ public class SGAPNotas extends JFrame {
 		return alunoManipulado;
 	}
 
+	/*
+	 * Atribui dados do aluno a interface
+	 * 
+	 * @param alunoManipulado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void setAlunoManipulado(Aluno alunoManipulado) {
 		this.alunoManipulado = alunoManipulado;
 
 		labelAlunoNome.setText(alunoManipulado.getNome());
 		labelMatricula.setText("" + alunoManipulado.getMatricula());
-		
-		
-		// implementando notas.. conferir Selecionar do professor tirar o fixo
+
 	}
 
 	public JTextField getTextADDNOTA() {
@@ -335,7 +379,7 @@ public class SGAPNotas extends JFrame {
 	public void setCodDisciplina(String codDisciplina) {
 		this.codDisciplina = codDisciplina;
 	}
-	
+
 	public JButton getButtonADD() {
 		return buttonADD;
 	}

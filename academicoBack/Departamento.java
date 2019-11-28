@@ -16,6 +16,13 @@ public class Departamento {
 	public ArrayList<Curso> CURSOS;
 	public LinkedList<Professor> PROFESSORES;
 
+	/*
+	 * Armazena todos os cursos do departamento em um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String[] imprimeCursos() {
 		String[] st = new String[CURSOS.size()];
 
@@ -27,6 +34,13 @@ public class Departamento {
 		return st;
 	}
 
+	/*
+	 * Armazena todos os professores do departamento em um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String[] imprimeProfessores() {
 		String[] st = new String[PROFESSORES.size()];
 
@@ -37,15 +51,18 @@ public class Departamento {
 
 		return st;
 	}
-
-	public Departamento(String nome, String codigo) {
-
-		this.CURSOS = new ArrayList<Curso>();
-		this.PROFESSORES = new LinkedList<Professor>();
-		this.nome = nome;
-		this.codigo = codigo;
-		this.BASE = new Base();
-	}
+	/*
+	 * Adiciona um curso ao departamento
+	 * 
+	 * @param nome
+	 * 
+	 * @param codDPresponsavel
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 * 
+	 */
 
 	public boolean addCurso(String nome, String codDPresponsavel) {
 
@@ -68,12 +85,22 @@ public class Departamento {
 		}
 	}
 
+	/*
+	 * Remove um Curso do Departamento baseado no nome
+	 * 
+	 * @param nome
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public boolean removeCurso(String nome) {
 		Boolean testa = false;
 
 		for (int i = 0; i < CURSOS.size(); i++) {
 			if (CURSOS.get(i).getNomeCurso().equals(nome)) {
-				
+
 				BASE.removeCurso(nome);
 				CURSOS.remove(i);
 				testa = true;
@@ -87,6 +114,23 @@ public class Departamento {
 			return false;
 		}
 	}
+	/*
+	 * Adiciona professor ao departamento
+	 * 
+	 * @param nome
+	 * 
+	 * @param cpf
+	 * 
+	 * @param sexo
+	 * 
+	 * @param endereco
+	 * 
+	 * @param codProf
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public boolean addProfessor(String nome, String cpf, String sexo, String endereco, String codProf,
 			String codDepartamento) {
@@ -104,23 +148,31 @@ public class Departamento {
 		if (testa == true) {
 			Professor prof = new Professor(nome, cpf, sexo, endereco, codProf, codDepartamento);
 			PROFESSORES.add(prof);
-			
+
 			return true;
 		} else {
 			return false;
 		}
 
 	}
+	/*
+	 * Remove professor do departamento baseado e um codProf
+	 * 
+	 * @param codProf
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public boolean removeProfessor(String codProf) {
 
 		Boolean testa = false;
-		
+
 		JOptionPane.showMessageDialog(null, codProf);
 		for (int i = 0; i < PROFESSORES.size(); i++) {
-			
-			if (PROFESSORES.get(i).getCodProfessor().equals(codProf) == true) {
 
+			if (PROFESSORES.get(i).getCodProfessor().equals(codProf) == true) {
 
 				if (getBASE().removeProf(codProf) == true) {
 
@@ -129,9 +181,8 @@ public class Departamento {
 				} else {
 					JOptionPane.showMessageDialog(null, "FALHA REMOVIDO DA BASE");
 				}
-				
+
 				PROFESSORES.remove(i);
-				
 
 				testa = true;
 				break;
@@ -145,6 +196,15 @@ public class Departamento {
 		}
 
 	}
+	/*
+	 * Busca um professor baseado no index
+	 * 
+	 * @param index
+	 * 
+	 * @return Professor
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Professor getProfIndex(int index) {
 
@@ -156,6 +216,15 @@ public class Departamento {
 			return null;
 		}
 
+	}
+
+	public Departamento(String nome, String codigo) {
+
+		this.CURSOS = new ArrayList<Curso>();
+		this.PROFESSORES = new LinkedList<Professor>();
+		this.nome = nome;
+		this.codigo = codigo;
+		this.BASE = new Base();
 	}
 
 	public String getNome() {

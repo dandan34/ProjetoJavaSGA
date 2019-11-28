@@ -193,12 +193,10 @@ public class CadastroAluno extends JFrame implements Funcoes {
 		btnVoltar.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				
-				
-				
+
 				dispose();
 				limpar();
-				
+
 			}
 
 		});
@@ -206,12 +204,19 @@ public class CadastroAluno extends JFrame implements Funcoes {
 		contentPane.add(btnVoltar);
 	}
 
+	/*
+	 * imprime a combo box na interface grafica
+	 * 
+	 * @param DP
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void comboBox(ArrayList<Departamento> DP) {
-		
+
 		comboBox.removeAllItems();
-		
+
 		if (DP.size() >= 0) {
-		
+
 			for (int i = 0; i < DP.size(); i++) {
 
 				for (int j = 0; j < DP.get(i).getCURSOS().size(); j++) {
@@ -223,6 +228,19 @@ public class CadastroAluno extends JFrame implements Funcoes {
 		}
 
 	}
+	/*
+	 * Cria um Aluno para adicionar ao instituto
+	 * 
+	 * @param nome
+	 * 
+	 * @param cpf
+	 * 
+	 * @param sexo
+	 * 
+	 * @param endereco
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void criarAluno(String nome, String cpf, String sexo, String endereco) {
 
@@ -237,7 +255,7 @@ public class CadastroAluno extends JFrame implements Funcoes {
 			aluno.setMatricula(matriculas);
 
 			if (addAlunoNoCurso(aluno) == true) {
-				
+
 				matriculas++;
 				JOptionPane.showMessageDialog(null, "Aluno matriculado com Sucesso!");
 
@@ -249,6 +267,15 @@ public class CadastroAluno extends JFrame implements Funcoes {
 			}
 		}
 	}
+	/*
+	 * Adiciona Aluno no curso
+	 * 
+	 * @param aluno
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Boolean addAlunoNoCurso(Aluno aluno) {
 

@@ -35,7 +35,7 @@ public class SGTurma extends JFrame {
 	private JLabel labelNomeDisciplinaManipulada;
 
 	private Disciplina materiaManipulada;
-	
+
 	private Base BASE;
 
 	public static void main(String[] args) {
@@ -147,6 +147,13 @@ public class SGTurma extends JFrame {
 		labelNomeDisciplinaManipulada.setText(materiaManipulada.getNomeDisciplina());
 	}
 
+	/*
+	 * Captura turma existente para interface grafica
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public boolean addTURMA() {
 
 		Turma x = new Turma(textFieldCodTurma.getText());
@@ -159,6 +166,13 @@ public class SGTurma extends JFrame {
 		}
 	}
 
+	/*
+	 * Remove turma baseado no index
+	 * 
+	 * @param index
+	 * 
+	 * @return boolean
+	 */
 	public boolean removeTURMA(int index) {
 
 		if (materiaManipulada.removeTurma(index) == true) {
@@ -169,6 +183,11 @@ public class SGTurma extends JFrame {
 		}
 	}
 
+	/*
+	 * Imprime na interface grafica as turmas existentes
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarListaTurmas() {
 
 		DefaultListModel<String> ls = new DefaultListModel<String>();

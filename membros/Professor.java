@@ -25,6 +25,15 @@ public class Professor extends Pessoa {
 		this.USUARIO = new Usuario(getCpf(), "123");
 
 	}
+	/*
+	 * Adiciona materia ao professor
+	 * 
+	 * @param codDisciplina
+	 * 
+	 * @param disciplina
+	 * 
+	 * @return boolean
+	 */
 
 	public boolean addMateria(String codDisciplina, Disciplina disciplina) {
 
@@ -39,13 +48,21 @@ public class Professor extends Pessoa {
 
 	}
 
+	/*
+	 * Remove Materia do professor
+	 * 
+	 * @param codDisciplina
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public boolean removeMateria(String codDisciplina) {
 
 		Boolean testa = false;
-//continuar implementando aqui..
-		
+
 		JOptionPane.showMessageDialog(null, codDisciplina);
-		
+
 		if (MINISTRA.contains(codDisciplina) == true) {
 			MINISTRA.remove(codDisciplina);
 
@@ -60,10 +77,8 @@ public class Professor extends Pessoa {
 
 			}
 
-		
-
 		}
-		
+
 		if (testa == true) {
 			return true;
 		} else {
@@ -71,6 +86,15 @@ public class Professor extends Pessoa {
 		}
 	}
 
+	/*
+	 * Remove materia do professor baseado em um index
+	 * 
+	 * @param index
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public boolean removeMateriaIndex(int index) {
 
 		String st = "";
@@ -83,6 +107,13 @@ public class Professor extends Pessoa {
 
 	}
 
+	/*
+	 * Armazena todas as materias ministradas pelo professor em um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String[] imprimeMinistradas() {
 
 		String st[] = new String[MINISTRA.size()];
@@ -96,6 +127,13 @@ public class Professor extends Pessoa {
 
 	}
 
+	/*
+	 * Armazena todos os nomes das materias em um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String[] imprimeMinistradasNome() {
 
 		if (MATERIASMINISTRADAS.isEmpty() == false) {

@@ -7,7 +7,6 @@ import javax.swing.JOptionPane;
 
 import academicoBack.Curso;
 import academicoBack.Departamento;
-import academicoBack.Disciplina;
 import membros.Aluno;
 import membros.Professor;
 

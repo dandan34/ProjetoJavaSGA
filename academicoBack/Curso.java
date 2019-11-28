@@ -20,6 +20,15 @@ public class Curso {
 		this.nomeCurso = nome;
 	}
 
+	/*
+	 * Armazena todas as materias presentes no curso em um Array de String
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 * 
+	 */
+
 	public String[] imprimeMaterias() {
 		String[] st = new String[MATERIAS.size()];
 
@@ -30,6 +39,15 @@ public class Curso {
 
 		return st;
 	}
+
+	/*
+	 * Armazena informações de todos os alunos matriculados no curso em um Array de
+	 * String
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public String[] imprimeAlunos() {
 
@@ -43,6 +61,17 @@ public class Curso {
 
 		return st;
 	}
+	/*
+	 * Adiciona materias no curso
+	 * 
+	 * @param nome
+	 * 
+	 * @param cod
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public boolean addMateria(String nome, String cod) {
 
@@ -64,6 +93,15 @@ public class Curso {
 		}
 	}
 
+	/*
+	 * Remove Materia do curso baseado no index
+	 * 
+	 * @param index
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public boolean removeMateriaIndex(int index) {
 
 		if (MATERIAS.size() >= index) {
@@ -73,9 +111,10 @@ public class Curso {
 				for (int i = 0; i < MATERIAS.get(index).getTURMAS().size(); i++) {
 
 					MATERIAS.get(index).removeTurma(i);
-							
+
 				}
-				//conferir implementacao e conferir a base.. lembrar de olhar turma na base e verificar o front
+				// conferir implementacao e conferir a base.. lembrar de olhar turma na base e
+				// verificar o front
 			}
 
 			MATERIAS.remove(index);
@@ -85,6 +124,15 @@ public class Curso {
 			return false;
 		}
 	}
+	/*
+	 * Remove materia baseado em um codigo String
+	 * 
+	 * @param cod
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public boolean removeMateria(String cod) {
 		Boolean testa = false;
@@ -103,6 +151,15 @@ public class Curso {
 			return false;
 		}
 	}
+	/*
+	 * Adiciona aluno no curso
+	 * 
+	 * @param Aluno
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public boolean addAlunoNoCurso(Aluno aluno) {
 
@@ -127,7 +184,15 @@ public class Curso {
 
 	}
 
-	// implementar o remove aluno
+	/*
+	 * Busca por uma disciplina especifica no curso baseado em um index
+	 * 
+	 * @param index
+	 * 
+	 * @return Disciplina
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Disciplina getDisciplinaIndex(int index) {
 

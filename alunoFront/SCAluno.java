@@ -133,7 +133,7 @@ public class SCAluno extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 
 				if (list.getSelectedIndex() >= 0) {
-					
+
 					HistoricoAlunoFront historico = new HistoricoAlunoFront();
 					historico.mostrarListaNotas(buscarListaNota(list.getSelectedValue()));
 					historico.mostrarFaltas(BuscarFaltas(list.getSelectedValue()));
@@ -255,6 +255,11 @@ public class SCAluno extends JFrame {
 
 	}
 
+	/*
+	 * Verifica a existencia da combo box
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void verificaCombo() {
 
 		if (comboBox.getItemCount() >= 0) {
@@ -269,6 +274,15 @@ public class SCAluno extends JFrame {
 
 	}
 
+	/*
+	 * Adiciona Materia a grade do Aluno
+	 * 
+	 * @param materia
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean addMateria(String materia) {
 
 		if (alunocontrolado.addDisciplina(materia) == false) {
@@ -283,6 +297,13 @@ public class SCAluno extends JFrame {
 		}
 	}
 
+	/*
+	 * Imprime na interface todas as materias disponiveis para o aluno cursar
+	 * 
+	 * @param nomeCurso
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void materiasDisponiveis(String nomeCurso) {
 
 		int aux = -1;
@@ -310,6 +331,13 @@ public class SCAluno extends JFrame {
 		}
 
 	}
+	/*
+	 * Imprime as materias disponives para cursar
+	 * 
+	 * @param st
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void mostrarLista2(String[] st) {
 
@@ -329,6 +357,11 @@ public class SCAluno extends JFrame {
 
 	}
 
+	/*
+	 * Imprime as materias que o aluno esta cursando
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarLista() {
 
 		if (alunocontrolado.getCURSANDO().size() >= 0) {
@@ -348,6 +381,13 @@ public class SCAluno extends JFrame {
 		}
 	}
 
+	/*
+	 * Compara se o aluno ja esta cursando a materia selecionada na lista
+	 * 
+	 * @param totalMateria
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void selecaoListaMateria(String totalMateria) {
 
 		String comparador = "";
@@ -368,6 +408,11 @@ public class SCAluno extends JFrame {
 
 	}
 
+	/*
+	 * Remove os itens da combobox
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void removeComboBox() {
 
 		if (comboBox.getItemCount() >= 0) {
@@ -377,6 +422,13 @@ public class SCAluno extends JFrame {
 		}
 	}
 
+	/*
+	 * Mostra os itens da combobox
+	 * 
+	 * @param st
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarComboBox(String[] st) {
 
 		for (int i = 0; i < st.length; i++) {
@@ -386,6 +438,15 @@ public class SCAluno extends JFrame {
 
 	}
 
+	/*
+	 * Retorna as notas do aluno
+	 * 
+	 * @param codIdentificador
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String[] buscarListaNota(String codIdentificador) {
 
 		String[] st = null;
@@ -401,11 +462,20 @@ public class SCAluno extends JFrame {
 		// conferir implementação da busca igualemnte a condição
 		return st;
 	}
-	
+
+	/*
+	 * Busca as faltas do aluno
+	 * 
+	 * @param codIdentificador
+	 * 
+	 * @return String
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public String BuscarFaltas(String codIdentificador) {
-		
+
 		String st = "";
-		
+
 		for (int i = 0; i < alunocontrolado.getNOTAS().size(); i++) {
 
 			if (alunocontrolado.getNOTAS().get(i).getCodDisciplina().equals(codIdentificador) == true) {
@@ -414,21 +484,38 @@ public class SCAluno extends JFrame {
 
 			}
 		}
-		
+
 		return st;
 	}
+	/*
+	 * Adiciona null a comboBox
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public void limparComboBox() {
 
 		comboBox = null;
 	}
 
+	/*
+	 * Mostra materias da lista
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarALL() {
 
 		materiasDisponiveis(alunocontrolado.getNomeCursoCursado());
 		mostrarLista();
 	}
 
+	/*
+	 * Atribui aluno a interface grafica
+	 * 
+	 * @param alunocontrolado
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void setAlunocontrolado(Aluno alunocontrolado) {
 		this.alunocontrolado = alunocontrolado;
 

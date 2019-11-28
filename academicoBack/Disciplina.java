@@ -22,6 +22,15 @@ public class Disciplina {
 		this.TURMAS = new ArrayList<Turma>();
 	}
 
+	/*
+	 * Adiciona um Aluno na disciplina
+	 * 
+	 * @param codigo
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean addAlunoNaDisciplina(String codigo) {
 
 		if (codAlunosParticipantes.contains(codigo) == true) {
@@ -33,6 +42,15 @@ public class Disciplina {
 		}
 	}
 
+	/*
+	 * remove aluno da disciplina baseado no index
+	 * 
+	 * @param index
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean removeAluno(int index) {
 
 		if (index >= 0) {
@@ -44,6 +62,15 @@ public class Disciplina {
 		}
 	}
 
+	/*
+	 * Adiciona professor na disciplina
+	 * 
+	 * @param codProf
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean addProfessorNaDisciplina(String codProf) {
 
 		if (codMinistrador.equals("")) {
@@ -56,6 +83,13 @@ public class Disciplina {
 		}
 
 	}
+	/*
+	 * Remove professor atual da disciplina
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Boolean removeProfesorNaDisciplina() {
 
@@ -69,6 +103,15 @@ public class Disciplina {
 		}
 	}
 
+	/*
+	 * Adiciona Turma na disciplina
+	 * 
+	 * @param turma
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean addTurma(Turma turma) {
 
 		Boolean testa = true;
@@ -93,17 +136,28 @@ public class Disciplina {
 
 	}
 
+	/*
+	 * Remove turma da disciplina
+	 * 
+	 * @param index
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean removeTurma(int index) {
 
 		if (TURMAS.size() >= index) {
-			
-			for(int i=0;i< TURMAS.get(index).getAlunosTurma().size();i++){
-				
-				if(TURMAS.get(index).getAlunosTurma().get(i).getCURSANDO().contains(getCodDisciplina()+" "+ getNomeDisciplina()) == true) {
-					
-					TURMAS.get(index).getAlunosTurma().get(i).getCURSANDO().remove(getCodDisciplina()+" "+ getNomeDisciplina());
+
+			for (int i = 0; i < TURMAS.get(index).getAlunosTurma().size(); i++) {
+
+				if (TURMAS.get(index).getAlunosTurma().get(i).getCURSANDO()
+						.contains(getCodDisciplina() + " " + getNomeDisciplina()) == true) {
+
+					TURMAS.get(index).getAlunosTurma().get(i).getCURSANDO()
+							.remove(getCodDisciplina() + " " + getNomeDisciplina());
 				}
-				
+
 			}
 			TURMAS.remove(index);
 			return true;
@@ -112,9 +166,16 @@ public class Disciplina {
 		}
 
 	}
+	/*
+	 * Armazena todas as turmas da disciplina em um Array
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public String[] imprimeTURMA() {
-	
+
 		String[] st = new String[TURMAS.size()];
 
 		for (int i = 0; i < TURMAS.size(); i++) {
@@ -125,13 +186,25 @@ public class Disciplina {
 		return st;
 
 	}
-	
+	/*
+	 * Acrescenta null ao valor do ministrador
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 *
+	 */
+
 	public void setNullMinistrador() {
-		
+
 		setCodMinistrador(null);
 	}
+	/*
+	 * Acrescenta null a todos os paraetros da disciplina
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
 	public void setNULL() {
-		
+
 		setCodAlunosParticipantes(null);
 		setCodDisciplina(null);
 		setCodMinistrador(null);
