@@ -17,6 +17,13 @@ public final class JtextFieldSomenteNumeros extends JTextField {
 			}
 		});
 	}
+	/*
+	 * Determina o tamanho maximo de numeros que podem conter no textField
+	 * 
+	 * @param maximo
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public JtextFieldSomenteNumeros(int maximo) {
 		super();

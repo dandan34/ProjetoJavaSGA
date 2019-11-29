@@ -35,7 +35,6 @@ public class SystemLogin extends JFrame {
 	private Base BASE;
 	private String codDept = "";
 
-	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,9 +49,8 @@ public class SystemLogin extends JFrame {
 		});
 	}
 
-
 	public SystemLogin() {
-		
+
 		this.BASE = new Base();
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -64,7 +62,7 @@ public class SystemLogin extends JFrame {
 		passwordField = new JPasswordField();
 		passwordField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+
 			}
 		});
 		passwordField.setBounds(93, 142, 254, 20);
@@ -98,16 +96,16 @@ public class SystemLogin extends JFrame {
 				if (verificar(textField.getText(), getSenha()) == true) {
 
 					JOptionPane.showMessageDialog(null, "Bem-vindo ao painel de controle!");
-				
+
 				} else {
 					JOptionPane.showMessageDialog(null, "Não encontramos seu acesso! Verifique sua senha");
 				}
 			}
-			
+
 		});
 		btnLogar.setBounds(258, 173, 89, 23);
 		contentPane.add(btnLogar);
-		
+
 		JButton btnVoltar = new JButton("Voltar <<");
 		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
@@ -120,6 +118,11 @@ public class SystemLogin extends JFrame {
 		contentPane.add(btnVoltar);
 	}
 
+	/*
+	 * Converte senha de text para Array
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void conversordeSenha() {
 
 		char[] st = passwordField.getPassword();
@@ -130,6 +133,15 @@ public class SystemLogin extends JFrame {
 		}
 	}
 
+	/*
+	 * Verifica se o usuario requerido esta presente na base
+	 * 
+	 * @param usuario
+	 * 
+	 * @param senha
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean verificar(String usuario, String senha) {
 
 		Boolean testa = false;
@@ -140,7 +152,7 @@ public class SystemLogin extends JFrame {
 				if (BASE.getAlunosDoInstituto().get(i).getUSUARIO().getUsuario().equals(usuario) == true) {
 
 					if (BASE.getAlunosDoInstituto().get(i).getUSUARIO().getSenha().equals(senha) == true) {
-						
+
 						acessoAluno(BASE.getAlunosDoInstituto().get(i));
 						testa = true;
 						break;
@@ -156,10 +168,9 @@ public class SystemLogin extends JFrame {
 					if (BASE.getProfessoresDoInstituto().get(i).getCpf().equals(usuario) == true) {
 
 						if (BASE.getProfessoresDoInstituto().get(i).getUSUARIO().getSenha().equals(senha) == true) {
-							
-							
+
 							acessoProf(BASE.getProfessoresDoInstituto().get(i));
-							
+
 							testa = true;
 							break;
 						}
@@ -170,7 +181,7 @@ public class SystemLogin extends JFrame {
 			}
 
 		}
-		
+
 		if (testa == true) {
 
 			return true;
@@ -181,19 +192,33 @@ public class SystemLogin extends JFrame {
 		}
 
 	}
-	
-	public void acessoProf(Professor professor){
-		
+	/*
+	 * Retorna o painel do professor caso solicitado
+	 * 
+	 * @param professor
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+
+	public void acessoProf(Professor professor) {
+
 		ControleProf controleprof = new ControleProf();
 		controleprof.setProfessorManipulado(professor);
 		controleprof.setVisible(true);
 		controleprof.mostrarComboMaterias();
 		controleprof.setBASE(getBASE());
-		
+
 	}
-	
+
+	/*
+	 * Retorna o painel do aluno caso solicitado
+	 * 
+	 * @param aluno
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void acessoAluno(Aluno aluno) {
-		
+
 		SCAluno controleAluno = new SCAluno();
 		controleAluno.setAlunocontrolado(aluno);
 		controleAluno.setVisible(true);
@@ -201,27 +226,36 @@ public class SystemLogin extends JFrame {
 		controleAluno.mostrarALL();
 	}
 
-	public void AcessoProfessor(String codigodp,String codprof) {
-		
+	/*
+	 * Verifica Acesso do professor
+	 * 
+	 * @param codigodp
+	 * 
+	 * @param codprof
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+	public void AcessoProfessor(String codigodp, String codprof) {
+
 		Departamento X = new Departamento("", "");
-		
-		for(int i=0;i<BASE.getDepartamentosDoInstituto().size();i++) {	
-				
-			if(BASE.getDepartamentosDoInstituto().get(i).getCodigo().equals(codigodp) == true){
-				
+
+		for (int i = 0; i < BASE.getDepartamentosDoInstituto().size(); i++) {
+
+			if (BASE.getDepartamentosDoInstituto().get(i).getCodigo().equals(codigodp) == true) {
+
 				X = BASE.getDepartamentosDoInstituto().get(i);
 				break;
 			}
 		}
-		
-		for(int i=0;i<X.getPROFESSORES().size();i++) {
-			
-			if(X.getPROFESSORES().get(i).getCodProfessor().equals(codprof) ==  true){
-				
+
+		for (int i = 0; i < X.getPROFESSORES().size(); i++) {
+
+			if (X.getPROFESSORES().get(i).getCodProfessor().equals(codprof) == true) {
+
 				break;
 			}
 		}
-		
+
 	}
 
 	public Base getBASE() {

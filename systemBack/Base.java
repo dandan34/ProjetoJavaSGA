@@ -31,20 +31,34 @@ public class Base {
 		this.setCodProfessores(new LinkedList<String>());
 		this.cpfProfessores = new LinkedList<String>();
 	}
-	
-	public String[] ImprimeAlunosInstituto() {
-		
-		String[] alunos = new String[AlunosDoInstituto.size()];
-		for(int i=0;i<AlunosDoInstituto.size();i++) {
-			
-			alunos[i] = AlunosDoInstituto.get(i).getMatricula() + " " + AlunosDoInstituto.get(i).getNome() + " " + AlunosDoInstituto.get(i).getNomeCursoCursado();
 
-			
+	/*
+	 * Armazena em um Array todos os dados dos alunos presentes na base
+	 * 
+	 * @return String[]
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+	public String[] ImprimeAlunosInstituto() {
+
+		String[] alunos = new String[AlunosDoInstituto.size()];
+		for (int i = 0; i < AlunosDoInstituto.size(); i++) {
+
+			alunos[i] = AlunosDoInstituto.get(i).getMatricula() + " " + AlunosDoInstituto.get(i).getNome() + " "
+					+ AlunosDoInstituto.get(i).getNomeCursoCursado();
+
 		}
-		
+
 		return alunos;
 	}
 
+	/*
+	 * Procura materia existete na base
+	 * 
+	 * @param codCurso
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void ProcuraMateriasCurso(String codCurso) {
 
 		for (int i = 0; i < CursosDoInstituto.size(); i++) {
@@ -54,6 +68,15 @@ public class Base {
 		}
 	}
 
+	/*
+	 * Adiciona aluno na base
+	 * 
+	 * @param aluno
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean addAlunoBase(Aluno aluno) {
 
 		if (cpfProfessores.contains(aluno.getCpf()) == true) {
@@ -74,6 +97,15 @@ public class Base {
 		}
 
 	}
+	/*
+	 * Adiciona professor na base
+	 * 
+	 * @param professor
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Boolean addProfessorBase(Professor professor) {
 
@@ -106,6 +138,15 @@ public class Base {
 
 		}
 	}
+	/*
+	 * Adiciona curso na base
+	 * 
+	 * @param curso
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Boolean addCursoBase(Curso curso) {
 
@@ -133,6 +174,15 @@ public class Base {
 
 	}
 
+	/*
+	 * Busca curso na base
+	 * 
+	 * @param nomecurso
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean buscarCursoBase(String nomecurso) {
 
 		Boolean testa = false;
@@ -159,6 +209,17 @@ public class Base {
 
 	}
 
+	/*
+	 * Remove aluno da turma de uma disciplina na base
+	 * 
+	 * @param cpfAluno
+	 * 
+	 * @param identificadorCodigo
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean removeAlunoNaTurmaDaDisciplinaBASE(String cpfAluno, String identificadorCodigo) {
 
 		String st = "";
@@ -206,6 +267,19 @@ public class Base {
 
 	}
 
+	/*
+	 * Adiciona aluno em uma turma na base
+	 * 
+	 * @param nomeDisciplina
+	 * 
+	 * @param indexTurma
+	 * 
+	 * @param aluno
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean adiconarAlunoNaTurmaDaDisciplinaBASE(String nomeDisciplina, int indexTurma, Aluno aluno) {
 
 		Boolean testa = false;
@@ -238,10 +312,21 @@ public class Base {
 
 	}
 
+	/*
+	 * Remove materia de um professor da base
+	 * 
+	 * @param codProfessor
+	 * 
+	 * @param codMateria
+	 * 
+	 * @param codDepartamentoResponsavel
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean removeMateriaDoProf(String codProfessor, String codMateria, String codDepartamentoResponsavel) {
 
 		Boolean testa = false;
-		
+
 		for (int i = 0; i < ProfessoresDoInstituto.size(); i++) {
 
 			if (ProfessoresDoInstituto.get(i).getCodProfessor().equals(codProfessor) == true) {
@@ -255,13 +340,12 @@ public class Base {
 						for (int k = 0; k < DepartamentosDoInstituto.get(j).getPROFESSORES().size(); k++) {
 
 							if (DepartamentosDoInstituto.get(j).getPROFESSORES().get(k).getCodProfessor()
-									.equals(ProfessoresDoInstituto.get(i).getCodProfessor()) == true
-									) {
-									
-									DepartamentosDoInstituto.get(j).getPROFESSORES().get(k).removeMateria(codMateria);
-									
-									testa = true;
-									break;
+									.equals(ProfessoresDoInstituto.get(i).getCodProfessor()) == true) {
+
+								DepartamentosDoInstituto.get(j).getPROFESSORES().get(k).removeMateria(codMateria);
+
+								testa = true;
+								break;
 							}
 
 						}
@@ -284,6 +368,15 @@ public class Base {
 
 	}
 
+	/*
+	 * Remove um professor
+	 * 
+	 * @param codProf
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean removeProf(String codProf) {
 
 		Boolean testa = false;
@@ -321,6 +414,15 @@ public class Base {
 		}
 
 	}
+	/*
+	 * Remove Curso
+	 * 
+	 * @param nomeCurso
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 
 	public Boolean removeCurso(String nomeCurso) {
 
@@ -360,6 +462,15 @@ public class Base {
 
 	}
 
+	/*
+	 * Busca materia de um professor da base
+	 * 
+	 * @param codProfessor
+	 * 
+	 * @param codMateria
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void buscarMateriaProf(String codProfessor, String codMateria) {
 
 		for (int i = 0; i < ProfessoresDoInstituto.size(); i++) {
@@ -390,6 +501,19 @@ public class Base {
 
 	}
 
+	/*
+	 * Muda a senha de um usuario na base
+	 * 
+	 * @param cpfMudador
+	 * 
+	 * @param senhaAtual
+	 * 
+	 * @param novaSenha
+	 * 
+	 * @return boolean
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public Boolean mudarSenha(String cpfMudador, String senhaAtual, String novaSenha) {
 
 		Boolean testa = false;

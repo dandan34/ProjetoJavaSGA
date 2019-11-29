@@ -102,9 +102,7 @@ public class SGDep extends JFrame implements Funcoes {
 		}
 	}
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -119,9 +117,6 @@ public class SGDep extends JFrame implements Funcoes {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
 	public SGDep() {
 
 		setBounds(100, 100, 757, 565);

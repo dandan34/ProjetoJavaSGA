@@ -17,6 +17,13 @@ public final class JtextFieldSomenteLetras extends JTextField {
 		});
 	}
 
+	/*
+	 * Determina o tamanho maximo de letras que podem conter no textField
+	 * 
+	 * @param maximo
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public JtextFieldSomenteLetras(int maximo) {
 		super();
 		setMaximoCaracteres(maximo);

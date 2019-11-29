@@ -91,9 +91,7 @@ public class SGCurso extends JFrame {
 		}
 	}
 
-	/**
-	 * Launch the application.
-	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -108,9 +106,7 @@ public class SGCurso extends JFrame {
 		});
 	}
 
-	/**
-	 * Create the frame.
-	 */
+	
 	public SGCurso() {
 		this.BASE = new Base();
 		setBounds(100, 100, 671, 510);

@@ -78,7 +78,6 @@ public class InicializarSistema {
 
 						inicio.setVisible(true);
 
-
 					} else {
 
 						inicio.getINSTITUTO().setVisible(true);
@@ -147,6 +146,11 @@ public class InicializarSistema {
 		frame.getContentPane().add(btSair);
 	}
 
+	/*
+	 * Mostra a base para a inicialização do sistema
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarBASE() {
 
 		if (cadastrar == null) {
@@ -170,6 +174,11 @@ public class InicializarSistema {
 
 	}
 
+	/*
+	 * Mostra area de login
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
 	public void mostrarLogin() {
 
 		if (login == null) {

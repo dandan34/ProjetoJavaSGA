@@ -85,7 +85,7 @@ public class AlterarSenha extends JFrame {
 		});
 		btnAlterar.setBounds(268, 155, 89, 23);
 		contentPane.add(btnAlterar);
-		
+
 		btnVoltar = new JButton("Voltar <<");
 		btnVoltar.setForeground(new Color(255, 0, 0));
 		btnVoltar.setBackground(new Color(255, 255, 255));
@@ -98,6 +98,21 @@ public class AlterarSenha extends JFrame {
 		contentPane.add(btnVoltar);
 	}
 
+	/*
+	 * Chama a função que altera a senha na base
+	 * 
+	 * @param cpfMudador
+	 * 
+	 * @param senhaAtual
+	 * 
+	 * @param novaSenha
+	 * 
+	 * @return boolean
+	 *
+	 *
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 * 
+	 */
 	public Boolean mudarSenha(String cpfMudador, String senhaAtual, String novaSenha) {
 
 		if (BASE.mudarSenha(getCpfAutenticador(), senhaAtual, novaSenha) == true) {
