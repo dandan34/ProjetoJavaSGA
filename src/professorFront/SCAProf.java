@@ -48,6 +48,8 @@ public class SCAProf extends JFrame {
 	}
 
 	public SCAProf() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 350, 535);
 		contentPane = new JPanel();
 		contentPane.setForeground(new Color(255, 255, 255));
@@ -72,6 +74,7 @@ public class SCAProf extends JFrame {
 		contentPane.add(lblDisciplina);
 
 		labelDisciplina = new JLabel("----");
+		labelDisciplina.setForeground(new Color(255, 0, 0));
 		labelDisciplina.setBounds(181, 11, 114, 14);
 		contentPane.add(labelDisciplina);
 

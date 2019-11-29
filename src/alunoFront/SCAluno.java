@@ -47,7 +47,7 @@ public class SCAluno extends JFrame {
 
 	private int indexComboBox;
 
-	private Aluno alunocontrolado;
+	private Aluno alunocontrolado = null;
 	private Base BASE;
 
 	public static void main(String[] args) {
@@ -65,6 +65,8 @@ public class SCAluno extends JFrame {
 	}
 
 	public SCAluno() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 
 		BASE = new Base();
 
@@ -81,6 +83,7 @@ public class SCAluno extends JFrame {
 		contentPane.add(lblAluno);
 
 		labelnome = new JLabel("----");
+		labelnome.setForeground(new Color(255, 0, 0));
 		labelnome.setFont(new Font("Tahoma", Font.ITALIC, 14));
 		labelnome.setBounds(93, 53, 182, 14);
 		contentPane.add(labelnome);
@@ -206,14 +209,19 @@ public class SCAluno extends JFrame {
 		btnNewButton.setBackground(new Color(255, 255, 255));
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
-				AlterarSenha alterarSenha = new AlterarSenha();
-				alterarSenha.setVisible(true);
-				alterarSenha.setBASE(getBASE());
-				alterarSenha.setCpfAutenticador(alunocontrolado.getCpf());
+				
+				if(alunocontrolado != null) {
+					
+					AlterarSenha alterarSenha = new AlterarSenha();
+					alterarSenha.setVisible(true);
+					alterarSenha.setBASE(getBASE());
+					alterarSenha.setCpfAutenticador(alunocontrolado.getCpf());
+					
+				}
+			
 			}
 		});
-		btnNewButton.setBounds(109, 11, 118, 23);
+		btnNewButton.setBounds(102, 11, 118, 23);
 		contentPane.add(btnNewButton);
 
 		JScrollPane scrollPane_1 = new JScrollPane();

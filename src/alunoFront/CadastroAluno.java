@@ -60,6 +60,8 @@ public class CadastroAluno extends JFrame implements Funcoes {
 	}
 
 	public CadastroAluno() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		this.BASE = new Base();
 		setBounds(100, 100, 287, 348);
 		contentPane = new JPanel();
@@ -131,40 +133,48 @@ public class CadastroAluno extends JFrame implements Funcoes {
 				if (textNome.getText().equals("") == true) {
 
 					JOptionPane.showMessageDialog(null, "Campo nome vazio!");
+					return;
 				} else {
 					if (textCPF.getText().equals("") == true) {
 
 						JOptionPane.showMessageDialog(null, "Campo cpf vazio!");
+						return;
 					} else {
 
 						if (textEndereco.getText().equals("") == true) {
 
 							JOptionPane.showMessageDialog(null, "Campo endereço vazio!");
+							return;
+				
 						} else {
 
 							if (checkboxFeminino.getState() == true && checkboxMasculino.getState() == true) {
 
 								JOptionPane.showMessageDialog(null, "Marque apenas uma opção");
-							} else {
+								return;
+								
+							} 
 
-								if (checkboxFeminino.getState() == true) {
-
-									setSexo("Feminino");
-								} else {
-
-									if (checkboxMasculino.getState() == true) {
-
-										setSexo("Masculino");
-
-									} else {
-
-										JOptionPane.showMessageDialog(null, "Marque uma opcão de sexo!");
-									}
-
-								}
-
-							}
 						}
+						
+						if (checkboxFeminino.getState() == true) {
+
+							setSexo("Feminino");
+							
+						} else {
+
+							if (checkboxMasculino.getState() == true) {
+
+								setSexo("Masculino");
+
+							} else {
+								
+								JOptionPane.showMessageDialog(null, "Marque uma opcão de sexo!");
+								return;
+							}
+
+						}
+
 
 						if (comboBox.getSelectedIndex() >= 0) {
 

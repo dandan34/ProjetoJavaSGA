@@ -55,6 +55,8 @@ public class SGTurma extends JFrame {
 	}
 
 	public SGTurma() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 
 		setBounds(100, 100, 312, 404);
 		contentPane = new JPanel();
@@ -104,6 +106,7 @@ public class SGTurma extends JFrame {
 		contentPane.add(lblDisciplina);
 
 		labelNomeDisciplinaManipulada = new JLabel("----");
+		labelNomeDisciplinaManipulada.setForeground(new Color(255, 0, 0));
 		labelNomeDisciplinaManipulada.setBounds(192, 11, 97, 14);
 		contentPane.add(labelNomeDisciplinaManipulada);
 

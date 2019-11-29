@@ -11,9 +11,9 @@ import membros.Aluno;
 import membros.Professor;
 
 public class Base {
-	
+
 	/**
-	 *  @author Daniel de Souza Rodrigues 18.2.8112
+	 * @author Daniel de Souza Rodrigues 18.2.8112
 	 */
 	private ArrayList<Departamento> DepartamentosDoInstituto;
 	private LinkedList<Curso> CursosDoInstituto;
@@ -47,12 +47,49 @@ public class Base {
 		String[] alunos = new String[AlunosDoInstituto.size()];
 		for (int i = 0; i < AlunosDoInstituto.size(); i++) {
 
-			alunos[i] = AlunosDoInstituto.get(i).getMatricula() + " " + AlunosDoInstituto.get(i).getNome() + " "
-					+ AlunosDoInstituto.get(i).getNomeCursoCursado();
+			alunos[i] = "MATRICULA: " + AlunosDoInstituto.get(i).getMatricula() + " NOME: "
+					+ AlunosDoInstituto.get(i).getNome() + " CURSO: " + AlunosDoInstituto.get(i).getNomeCursoCursado()
+					+ " STATUS: " + AlunosDoInstituto.get(i).getStatus();
 
 		}
 
 		return alunos;
+	}
+
+	/*
+	 * Remove aluno da institução
+	 * 
+	 * @param dadosDoAluno
+	 * 
+	 * @author Daniel de Souza Rodrigues 18.2.8112
+	 */
+	public void removeAlunoDoInstituto(String dadosDoAluno) {
+
+		String st = "";
+
+		for (int i = 0; i < AlunosDoInstituto.size(); i++) {
+
+			st = "MATRICULA: " + AlunosDoInstituto.get(i).getMatricula() + " NOME: "
+					+ AlunosDoInstituto.get(i).getNome() + " CURSO: " + AlunosDoInstituto.get(i).getNomeCursoCursado()
+					+ " STATUS: " + AlunosDoInstituto.get(i).getStatus();
+
+			if (st.equals(dadosDoAluno)) {
+
+				if (AlunosDoInstituto.get(i).getStatus() == false) {
+
+					AlunosDoInstituto.remove(i);
+					break;
+				} else {
+
+					JOptionPane.showMessageDialog(null,
+							"Não é possivel remover o aluno, pois ele esta com um curso em andamento");
+					break;
+				}
+
+			}
+
+		}
+
 	}
 
 	/*

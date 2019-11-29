@@ -54,6 +54,8 @@ public class SGAPNotas extends JFrame {
 	}
 
 	public SGAPNotas() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		this.alunoManipulado = new Aluno("", "", "", "");
 		setBounds(100, 100, 274, 432);
 		contentPane = new JPanel();

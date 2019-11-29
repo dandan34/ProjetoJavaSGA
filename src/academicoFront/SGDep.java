@@ -118,6 +118,8 @@ public class SGDep extends JFrame implements Funcoes {
 	}
 
 	public SGDep() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 
 		setBounds(100, 100, 757, 565);
 		contentPane = new JPanel();
@@ -253,6 +255,7 @@ public class SGDep extends JFrame implements Funcoes {
 		contentPane.add(lblNome_1);
 
 		this.lblDP = new JLabel("-----");
+		lblDP.setForeground(new Color(255, 0, 0));
 		lblDP.setBounds(277, 11, 125, 25);
 		lblDP.setFont(new Font("Times New Roman", Font.BOLD, 14));
 		contentPane.add(lblDP);

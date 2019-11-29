@@ -111,6 +111,8 @@ public class SGCurso extends JFrame {
 
 	
 	public SGCurso() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		this.BASE = new Base();
 		setBounds(100, 100, 671, 510);
 		contentPane = new JPanel();

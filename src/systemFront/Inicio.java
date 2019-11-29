@@ -48,7 +48,9 @@ public class Inicio extends JFrame {
 
 	
 	public Inicio() {
-	
+		
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 508, 290);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));

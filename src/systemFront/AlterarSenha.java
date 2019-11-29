@@ -44,6 +44,8 @@ public class AlterarSenha extends JFrame {
 	}
 
 	public AlterarSenha() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		BASE = new Base();
 		setBounds(100, 100, 419, 272);
 		contentPane = new JPanel();

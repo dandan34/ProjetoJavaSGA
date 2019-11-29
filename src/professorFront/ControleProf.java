@@ -59,6 +59,9 @@ public class ControleProf extends JFrame {
 	 * Create the frame.
 	 */
 	public ControleProf() {
+		
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		BASE = new Base();
 		setBounds(100, 100, 407, 719);
 		contentPane = new JPanel();

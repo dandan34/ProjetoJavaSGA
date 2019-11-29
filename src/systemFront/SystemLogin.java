@@ -30,7 +30,7 @@ public class SystemLogin extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPasswordField passwordField;
-	private JTextField textField;
+	private JTextField txtCpf;
 	private String senha = "";
 	private Base BASE;
 	private String codDept = "";
@@ -50,9 +50,11 @@ public class SystemLogin extends JFrame {
 	}
 
 	public SystemLogin() {
+		
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		this.BASE = new Base();
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 500, 300);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -60,6 +62,7 @@ public class SystemLogin extends JFrame {
 		contentPane.setLayout(null);
 
 		passwordField = new JPasswordField();
+		passwordField.setToolTipText("");
 		passwordField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 
@@ -68,10 +71,10 @@ public class SystemLogin extends JFrame {
 		passwordField.setBounds(93, 142, 254, 20);
 		contentPane.add(passwordField);
 
-		textField = new JTextField();
-		textField.setBounds(93, 111, 254, 20);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		txtCpf = new JTextField();
+		txtCpf.setBounds(93, 111, 254, 20);
+		contentPane.add(txtCpf);
+		txtCpf.setColumns(10);
 
 		JLabel lblUsuario = new JLabel("Usuario:");
 		lblUsuario.setBounds(24, 114, 59, 14);
@@ -93,7 +96,7 @@ public class SystemLogin extends JFrame {
 
 				conversordeSenha();
 
-				if (verificar(textField.getText(), getSenha()) == true) {
+				if (verificar(txtCpf.getText(), getSenha()) == true) {
 
 					JOptionPane.showMessageDialog(null, "Bem-vindo ao painel de controle!");
 
@@ -103,7 +106,7 @@ public class SystemLogin extends JFrame {
 			}
 
 		});
-		btnLogar.setBounds(258, 173, 89, 23);
+		btnLogar.setBounds(93, 173, 254, 23);
 		contentPane.add(btnLogar);
 
 		JButton btnVoltar = new JButton("Voltar <<");
@@ -116,6 +119,16 @@ public class SystemLogin extends JFrame {
 		});
 		btnVoltar.setBounds(10, 11, 89, 23);
 		contentPane.add(btnVoltar);
+		
+		JLabel lblCpf = new JLabel("CPF!");
+		lblCpf.setForeground(new Color(192, 192, 192));
+		lblCpf.setBounds(357, 114, 48, 14);
+		contentPane.add(lblCpf);
+		
+		JLabel lblPadro = new JLabel("Padr\u00E3o:  123");
+		lblPadro.setForeground(new Color(192, 192, 192));
+		lblPadro.setBounds(357, 145, 77, 14);
+		contentPane.add(lblPadro);
 	}
 
 	/*

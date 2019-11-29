@@ -29,9 +29,9 @@ import java.awt.Color;
 import java.awt.Font;
 
 public class CadastroDep extends JFrame {
-	
+
 	/**
-	 *  @author Daniel de Souza Rodrigues 18.2.8112
+	 * @author Daniel de Souza Rodrigues 18.2.8112
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -198,6 +198,7 @@ public class CadastroDep extends JFrame {
 	}
 
 	public CadastroDep() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		this.DP = new ArrayList<Departamento>();
 		dPControle = new SGDep();
@@ -206,7 +207,7 @@ public class CadastroDep extends JFrame {
 		setValorIndex(0);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 781, 570);
+		setBounds(100, 100, 789, 570);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -237,7 +238,7 @@ public class CadastroDep extends JFrame {
 		contentPane.add(lblCodigo);
 
 		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 299, 263, 221);
+		scrollPane.setBounds(10, 267, 263, 253);
 		contentPane.add(scrollPane);
 
 		list = new JList<>();
@@ -287,29 +288,29 @@ public class CadastroDep extends JFrame {
 		btAcessarDP = new JButton("Acessar");
 		btAcessarDP.setForeground(Color.BLUE);
 		btAcessarDP.setBackground(new Color(255, 255, 255));
-		btAcessarDP.setBounds(283, 299, 92, 28);
+		btAcessarDP.setBounds(283, 267, 92, 28);
 		contentPane.add(btAcessarDP);
 
 		btDelDP = new JButton("Deletar");
 		btDelDP.setForeground(Color.RED);
 		btDelDP.setBackground(new Color(255, 255, 255));
-		btDelDP.setBounds(283, 330, 92, 28);
+		btDelDP.setBounds(283, 300, 92, 28);
 		contentPane.add(btDelDP);
 
 		scrollPane.setRowHeaderView(list);
 		scrollPane.setViewportView(list);
 
 		JLabel lblCodigo_1 = new JLabel("Codigo");
-		lblCodigo_1.setBounds(10, 278, 48, 14);
+		lblCodigo_1.setBounds(10, 242, 48, 14);
 		contentPane.add(lblCodigo_1);
 
 		JLabel lblNome_1 = new JLabel("Nome");
-		lblNome_1.setBounds(117, 278, 48, 14);
+		lblNome_1.setBounds(120, 242, 48, 14);
 		contentPane.add(lblNome_1);
 
 		JLabel lblDepartamentosCadastrados = new JLabel("Departamentos Cadastrados");
 		lblDepartamentosCadastrados.setFont(new Font("Times New Roman", Font.BOLD, 14));
-		lblDepartamentosCadastrados.setBounds(46, 250, 187, 14);
+		lblDepartamentosCadastrados.setBounds(51, 217, 187, 14);
 		contentPane.add(lblDepartamentosCadastrados);
 
 		JButton btnVoltar = new JButton("Voltar <<");
@@ -330,7 +331,7 @@ public class CadastroDep extends JFrame {
 		contentPane.add(txInstituto);
 
 		JScrollPane scrollPane_1 = new JScrollPane();
-		scrollPane_1.setBounds(420, 71, 317, 449);
+		scrollPane_1.setBounds(420, 71, 317, 411);
 		contentPane.add(scrollPane_1);
 
 		list_Alunos = new JList<String>();
@@ -349,6 +350,22 @@ public class CadastroDep extends JFrame {
 		});
 		btnRefresh.setBounds(648, 42, 89, 23);
 		contentPane.add(btnRefresh);
+
+		JButton btnRemover = new JButton("Remover Aluno do Instituto");
+		btnRemover.setForeground(new Color(255, 0, 0));
+		btnRemover.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				if (list_Alunos.getSelectedIndex() >= 0) {
+
+					BASE.removeAlunoDoInstituto(list_Alunos.getSelectedValue());
+					mostrarListaAlunosInstituto();
+				}
+			}
+		});
+		btnRemover.setBackground(new Color(255, 255, 255));
+		btnRemover.setBounds(420, 493, 317, 23);
+		contentPane.add(btnRemover);
 
 		btDelDP.addActionListener(new ActionListener() {
 

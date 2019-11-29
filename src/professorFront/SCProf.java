@@ -57,6 +57,7 @@ public class SCProf extends JFrame {
 	}
 
 	public SCProf() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
 		this.cursosManipulados = new ArrayList<Curso>();
 		setBounds(100, 100, 770, 550);

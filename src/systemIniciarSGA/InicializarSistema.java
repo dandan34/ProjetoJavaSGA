@@ -51,7 +51,7 @@ public class InicializarSistema {
 	}
 
 	private void initialize() {
-
+		
 		frame = new JFrame();
 		frame.getContentPane().setBackground(SystemColor.window);
 		frame.setBounds(100, 100, 1029, 499);
@@ -146,6 +146,7 @@ public class InicializarSistema {
 		});
 		btSair.setBounds(914, 426, 89, 23);
 		frame.getContentPane().add(btSair);
+
 	}
 
 	/*

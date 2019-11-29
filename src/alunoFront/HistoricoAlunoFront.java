@@ -41,6 +41,8 @@ public class HistoricoAlunoFront extends JFrame {
 	}
 
 	public HistoricoAlunoFront() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
 		setBounds(100, 100, 269, 412);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 255));
