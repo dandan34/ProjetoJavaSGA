@@ -1,6 +1,10 @@
-# ProjetoJavaSGA
-Projeto final realizado na UFOP: Universidade Federal de Ouro Preto - Sistema de Gestão Acadêmica
+# Sistema de Gestão Acadêmica 
 
-Implementado com Java e JavaSwing no intuito de compor um Sistemas de Gestão Acadêmica, utilizando POO e Interface Gráficas.
+__*Projeto realizado na UFOP: Universidade Federal de Ouro Preto*__
 
--É necessario ter o java Version 8 para execução do projeto.
+- Java
+   - Java Swing
+- POO
+
+- [x] É necessario ter o java Version 8 para execução do projeto.
+
